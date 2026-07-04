@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -71,7 +73,10 @@
   .hero .loop-texture span{color:rgba(255,255,255,.045);}
   .hero__logo{
     width:190px;max-width:52vw;margin:0 auto 26px;
-    filter:drop-shadow(0 6px 18px rgba(0,0,0,.55));
+  }
+  .hero__logo svg{
+    width:100%;height:auto;display:block;
+    filter:invert(1) drop-shadow(0 6px 18px rgba(0,0,0,.55));
   }
   .hero__wordmark{
     font-family:var(--display);
@@ -423,11 +428,10 @@
   }
   .final p{max-width:60ch;margin:0 auto 14px;font-size:19px;line-height:1.55;}
   .final__mark{
-    margin-top:30px;font-family:var(--display);text-transform:lowercase;
-    font-size:clamp(40px,11vw,90px);line-height:.85;
-    -webkit-text-stroke:2px var(--loop-preto);
-    text-shadow:4px 4px 0 var(--loop-ciano);
+    margin:34px auto 0;
+    width:280px;max-width:64vw;
   }
+  .final__mark svg{width:100%;height:auto;display:block;}
 
   /* sources */
   .sources{background:var(--loop-preto);color:var(--loop-branco);padding:52px 0 60px;}
@@ -469,9 +473,9 @@
 <section class="hero">
   <div class="loop-texture" id="tex-hero"></div>
   <div class="wrap">
-    <img class="hero__logo" src="https://www.loopskatepark.com.br/loop-logo.png"
-         alt="Loop Skate Park"
-         onerror="this.style.display='none'">
+    <div class="hero__logo" role="img" aria-label="Loop Skate Park">
+      {% include logo.svg %}
+    </div>
     <!-- olhinhos -->
     <svg class="eyes hero__eyes" viewBox="0 0 200 100" role="img" aria-label="olhinhos Loop">
       <g>
@@ -905,7 +909,9 @@
     <h2>Mensagem final</h2>
     <p>Skate e patins não são apenas sobre manobras. É sobre experimentar, persistir, cair, levantar e aprender.</p>
     <p>Na Loop Skate Park, cada aluno é parte de uma comunidade que acredita no movimento como ferramenta de educação, cultura e transformação social.</p>
-    <div class="final__mark">loop</div>
+    <div class="final__mark">
+      {% include logo.svg %}
+    </div>
   </div>
 </section>
 
