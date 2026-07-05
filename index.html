@@ -200,18 +200,35 @@
         /* Rodapé compartilhado (mesmo do Manual) — barra preta de largura total.
            Estende-se até as bordas anulando o padding de 20px do body. */
         footer {
+            position: relative;
             width: calc(100% + 40px);
-            margin: 20px -20px -20px;
+            margin: 60px -20px -20px;
             background: var(--loop-preto);
             color: #bbb;
             text-align: center;
-            padding: 26px 24px 40px;
+            padding: 64px 24px 40px;
             font-size: 13px;
             border-top: 1px solid #333;
         }
+        /* padding-top maior: abre espaço p/ os olhinhos que saltam sobre o footer */
         footer a {
             color: var(--loop-ciano);
             text-decoration: none;
+        }
+        /* Olhinhos centralizados na borda superior, saltando 50% para fora */
+        .footer-olhinhos {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            width: clamp(90px, 22vw, 150px);
+            line-height: 0;
+            pointer-events: none;
+        }
+        .footer-olhinhos svg {
+            display: block;
+            width: 100%;
+            height: auto;
         }
 
         /* --- LINKS (Botões) --- */
