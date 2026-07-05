@@ -24,19 +24,70 @@
     <meta name="geo.position" content="-19.9090;-43.9870"> <meta property="og:type" content="website">
     
     <link rel="icon" type="image/png" href="favicon.png" sizes="any">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    
+    <!-- Fontes oficiais da marca Loop, self-hosted (latin) — sem folha de
+         estilo render-blocking do Google Fonts no caminho crítico.
+         Anton = display/títulos, Oswald = rótulos, Barlow = corpo.
+         Pré-carrega as fontes de exibição acima da dobra (títulos + botões). -->
+    <link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
     <style>
 
+        /* Latin subset comum a todas as fontes da marca (cobre acentos PT-BR). */
+        @font-face {
+            font-family: 'Anton';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("{{ '/assets/fonts/anton-latin.woff2' | relative_url }}") format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Oswald';
+            font-style: normal;
+            font-weight: 400 700;
+            font-display: swap;
+            src: url("{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}") format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Barlow';
+            font-style: normal;
+            font-weight: 400;
+            font-display: swap;
+            src: url("{{ '/assets/fonts/barlow-latin-400.woff2' | relative_url }}") format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+        @font-face {
+            font-family: 'Barlow';
+            font-style: normal;
+            font-weight: 700;
+            font-display: swap;
+            src: url("{{ '/assets/fonts/barlow-latin-700.woff2' | relative_url }}") format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
         :root {
-            --primary-color: #f79ed3; /* Rosa da Logo */
-            --bg-color: #894bab;      /* Roxo do Fundo */
-            --text-color: #ffffff;
-            --btn-text: #000000;
+            /* Paleta oficial da marca Loop Skatepark */
+            --loop-preto:   #000000;
+            --loop-branco:  #ffffff;
+            --loop-ciano:   #18d7df;
+            --loop-roxo:    #935bbc;
+            --loop-rosa:    #ffb3d1;
+            --loop-amarelo: #f6c707;
+            --loop-bege:    #e8d4bf;
+
+            /* Tipografia da marca */
+            --font-display: 'Anton', 'Oswald', 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
+            --font-head:    'Oswald', 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
+            --font-body:    'Barlow', 'Segoe UI', Arial, sans-serif;
+
+            /* Papéis na página */
+            --primary-color: var(--loop-rosa); /* Rosa da marca */
+            --bg-color:      var(--loop-roxo); /* Roxo da marca */
+            --text-color:    var(--loop-branco);
+            --btn-text:      var(--loop-preto);
         }
 
         * {
@@ -46,7 +97,7 @@
         }
 
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: var(--font-body);
             background-color: var(--bg-color);
             color: var(--text-color);
             min-height: 100vh;
@@ -91,23 +142,41 @@
             filter: drop-shadow(0px 0px 8px rgba(247, 158, 211, 0.4));
         }
 
-        /* --- FRASE DE EFEITO --- */
+        /* --- FRASE DE EFEITO (títulos em condensada caixa-alta) --- */
         .tagline {
-            font-size: 1.2rem;
             text-align: center;
-            margin-bottom: 40px;
-            color: #fff;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            color: var(--text-color);
+            text-transform: uppercase;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
             max-width: 600px;
         }
 
+        /* Título principal: fonte de exibição da marca (Anton) */
+        h1.tagline {
+            font-family: var(--font-display);
+            font-weight: 400; /* Anton só possui o peso 400 — evita bold sintético */
+            font-size: 2.4rem;
+            line-height: 1.05;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* Subtítulo: fonte condensada de apoio (Oswald) */
+        h2.tagline {
+            font-family: var(--font-head);
+            font-weight: 600;
+            font-size: 1.15rem;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            color: var(--loop-ciano);
+        }
+
         .footer {
+            font-family: var(--font-body);
             font-size: 1rem;
             text-align: center;
             margin-bottom: 15px;
-            color: #fff;
+            color: var(--text-color);
             font-weight: 700;
             letter-spacing: 0.5px;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
@@ -132,10 +201,11 @@
             padding: 20px;
             text-align: center;
             border-radius: 50px; /* Botão estilo pílula */
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-family: var(--font-head); /* Oswald — rótulos condensados */
+            font-weight: 700;
+            font-size: 1.15rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
             position: relative;
