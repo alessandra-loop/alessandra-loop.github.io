@@ -364,49 +364,6 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
   .card--roxo{background:var(--loop-roxo);color:var(--loop-branco);}
   .card--roxo h5{color:var(--loop-branco);}
 
-  /* números em destaque (A Loop em números) */
-  .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    gap:16px;margin:24px 0;
-  }
-  .stat{
-    border:3px solid var(--loop-preto);
-    border-radius:16px;
-    padding:22px 20px;
-    text-align:center;
-  }
-  .stat--c1{background:var(--loop-ciano);}
-  .stat--c2{background:var(--loop-rosa);}
-  .stat--c3{background:var(--loop-amarelo);}
-  .stat--roxo{background:var(--loop-roxo);color:var(--loop-branco);}
-  .stat b{
-    display:block;
-    font-family:var(--display);
-    font-size:clamp(38px,8vw,56px);
-    line-height:.9;
-    color:var(--loop-preto);
-  }
-  .stat--roxo b{color:var(--loop-branco);}
-  .stat span{
-    display:block;margin-top:8px;
-    font-family:var(--head);
-    text-transform:uppercase;
-    letter-spacing:.03em;
-    font-weight:600;
-    font-size:14px;
-    line-height:1.2;
-  }
-
-  /* history / prose block with side accent */
-  .prose-accent{
-    background:var(--loop-bege);
-    border-radius:16px;
-    padding:28px 30px;
-    margin:24px 0;
-  }
-  .prose-accent p:last-child{margin-bottom:0;}
-
   /* fotos do espaço */
   .photos{
     display:grid;
@@ -506,8 +463,10 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
 <section class="hero">
   <div class="loop-texture" id="tex-hero"></div>
   <div class="wrap">
-    <div class="hero__logo" role="img" aria-label="Loop Skate Park">
-      {% include logo.svg %}
+    <div class="hero__logo">
+      <a href="{{ '/' | relative_url }}" aria-label="Loop Skate Park — página inicial">
+        {% include logo.svg %}
+      </a>
     </div>
     <h1 class="hero__title">Sobre a Loop Skate Park</h1>
     <div class="hero__year">2026</div>
@@ -520,12 +479,10 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
     <h2>Índice</h2>
     <div class="toc__grid">
       <a href="#apresentacao"><span class="num">01</span>Apresentação</a>
-      <a href="#historia"><span class="num">02</span>Nossa história</a>
-      <a href="#proposito"><span class="num">03</span>Propósito</a>
-      <a href="#numeros"><span class="num">04</span>A Loop em números</a>
-      <a href="#estrutura"><span class="num">05</span>Estrutura</a>
-      <a href="#publico"><span class="num">06</span>Nosso público</a>
-      <a href="#comunidade"><span class="num">07</span>Impacto e comunidade</a>
+      <a href="#proposito"><span class="num">02</span>Propósito</a>
+      <a href="#estrutura"><span class="num">03</span>Estrutura</a>
+      <a href="#publico"><span class="num">04</span>Nosso público</a>
+      <a href="#comunidade"><span class="num">05</span>Impacto e comunidade</a>
     </div>
   </div>
 </nav>
@@ -536,25 +493,13 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
   <div class="wrap">
     <p class="lead lead--accent">Toda comunidade nasce de um ponto de encontro, um lugar onde pessoas diferentes compartilham valores, experiências e sonhos. A <strong>Loop Skate Park</strong> nasceu exatamente dessa ideia.</p>
     <p>Nossa história começou dentro da própria cena do skate de Belo Horizonte. Depois de anos acompanhando a evolução de alunos, famílias e praticantes, percebemos que existia uma necessidade que ia além da prática esportiva: as pessoas buscavam um lugar seguro para aprender.</p>
-    <p>Fundada por <strong>Raphael Alves</strong>, <strong>Alessandra Aguiar</strong> e <strong>Douglas Aguiar</strong>, a Loop reúne esporte, cultura urbana, educação e convivência em um único ambiente. Aqui celebramos conquistas individuais, incentivamos a criatividade, valorizamos a diversidade e acreditamos que o desenvolvimento humano acontece quando as pessoas se sentem parte de algo maior.</p>
+    <p>A Loop reúne esporte, cultura urbana, educação e convivência em um único ambiente. Aqui celebramos conquistas individuais, incentivamos a criatividade, valorizamos a diversidade e acreditamos que o desenvolvimento humano acontece quando as pessoas se sentem parte de algo maior.</p>
     {% include shout.html text="Um espaço onde esporte, cultura e pessoas se encontram todos os dias." %}
   </div>
 </section>
 
-<!-- ===================== 02 NOSSA HISTÓRIA ===================== -->
-{% include band.html color="roxo" id="historia" eyebrow="02 — Raízes" title="Nossa história" %}
-<section class="content">
-  <div class="wrap">
-    <div class="prose-accent">
-      <p>A trajetória da Loop começou a partir da vivência de seus fundadores dentro da comunidade do skate de Belo Horizonte. <strong>Raphael Alves</strong>, skatista e professor de skate reconhecido por sua atuação na cena street da cidade, desenvolveu durante anos seu trabalho formando novos praticantes e participando ativamente da cultura local.</p>
-      <p><strong>Alessandra Aguiar</strong>, terapeuta ocupacional, e <strong>Douglas Aguiar</strong>, desenvolvedor de software, se aproximaram do universo do skate através da própria família e passaram a enxergar no esporte uma poderosa ferramenta de desenvolvimento e evolução.</p>
-      <p>Após o encerramento das atividades de uma tradicional escola de skate da cidade, surgiu a oportunidade de continuar oferecendo aulas e criar um espaço próprio, capaz de unir esporte e cultura.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===================== 03 PROPÓSITO ===================== -->
-{% include band.html color="rosa" id="proposito" eyebrow="03 — Por que existimos" title="Propósito" %}
+<!-- ===================== 02 PROPÓSITO ===================== -->
+{% include band.html color="rosa" id="proposito" eyebrow="02 — Por que existimos" title="Propósito" %}
 <section class="content">
   <div class="wrap">
     <p class="lead lead--accent">Acreditamos que cada manobra aprendida vai além da evolução técnica: ela representa confiança, persistência, superação e autonomia.</p>
@@ -563,28 +508,8 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
   </div>
 </section>
 
-<!-- ===================== 04 A LOOP EM NÚMEROS ===================== -->
-{% include band.html color="ciano" id="numeros" eyebrow="04 — Primeiro ano" title="A Loop em números" %}
-<section class="content">
-  <div class="wrap">
-    <div class="stats">
-      <div class="stat stat--c1"><b>34</b><span>Alunos atendidos desde a inauguração</span></div>
-      <div class="stat stat--roxo"><b>26</b><span>Alunos ativos atualmente</span></div>
-      <div class="stat stat--c2"><b>26</b><span>Frequentadores por semana</span></div>
-      <div class="stat stat--c3"><b>110m²</b><span>De pista dedicada à prática</span></div>
-    </div>
-    <h4 class="mini">Além disso:</h4>
-    <ul class="check" style="--check:var(--loop-ciano)">
-      <li>Público formado por crianças, jovens e famílias</li>
-      <li>Alunos de várias regiões de Belo Horizonte</li>
-      <li>Estrutura indoor especializada em skate e esportes sobre rodas</li>
-    </ul>
-    <p>Com uma estrutura indoor exclusiva para skate e esportes sobre rodas, a Loop demonstra, já em seu primeiro ano de operação, forte potencial de crescimento, formação esportiva e impacto social na comunidade local.</p>
-  </div>
-</section>
-
-<!-- ===================== 05 ESTRUTURA ===================== -->
-{% include band.html color="roxo" id="estrutura" eyebrow="05 — O espaço" title="Estrutura" %}
+<!-- ===================== 03 ESTRUTURA ===================== -->
+{% include band.html color="roxo" id="estrutura" eyebrow="03 — O espaço" title="Estrutura" %}
 <section class="content">
   <div class="wrap">
     <p>A Loop Skate Park conta com aproximadamente <strong>130 m²</strong> de área total, sendo <strong>110 m²</strong> dedicados exclusivamente à prática esportiva. A pista reúne <strong>14 obstáculos</strong> que combinam street skate e transições, permitindo diferentes possibilidades de aprendizado, progressão técnica e realização de eventos.</p>
@@ -621,8 +546,8 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
   </div>
 </section>
 
-<!-- ===================== 06 NOSSO PÚBLICO ===================== -->
-{% include band.html color="rosa" id="publico" eyebrow="06 — Para quem" title="Nosso público" %}
+<!-- ===================== 04 NOSSO PÚBLICO ===================== -->
+{% include band.html color="rosa" id="publico" eyebrow="04 — Para quem" title="Nosso público" %}
 <section class="content">
   <div class="wrap">
     <p>A comunidade da Loop é formada principalmente por <strong>crianças e famílias</strong> que buscam um ambiente seguro, acolhedor e estruturado para a prática esportiva.</p>
@@ -631,8 +556,8 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
   </div>
 </section>
 
-<!-- ===================== 07 IMPACTO E COMUNIDADE ===================== -->
-{% include band.html color="ciano" id="comunidade" eyebrow="07 — Junto e misturado" title="Impacto e comunidade" %}
+<!-- ===================== 05 IMPACTO E COMUNIDADE ===================== -->
+{% include band.html color="ciano" id="comunidade" eyebrow="05 — Junto e misturado" title="Impacto e comunidade" %}
 <section class="content">
   <div class="wrap">
     <p>O principal da Loop é sua comunidade. Todos os dias recebemos pessoas que encontram no skate uma oportunidade para desenvolver autoconfiança, disciplina e novas amizades.</p>
