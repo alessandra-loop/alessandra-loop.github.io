@@ -212,8 +212,10 @@
         }
         /* padding-top maior: abre espaço p/ os olhinhos que saltam sobre o footer */
         footer a {
+            /* Sublinhado garante que o link seja distinguível do texto cinza
+               ao redor sem depender só da cor (contraste ciano×#bbb < 3:1). */
             color: var(--loop-ciano);
-            text-decoration: none;
+            text-decoration: underline;
         }
         /* Olhinhos centralizados na borda superior, saltando 50% para fora */
         .footer-olhinhos {

@@ -438,7 +438,9 @@ sitemap: false
     padding:64px 24px 40px;font-size:13px;
     border-top:1px solid #333;
   }
-  footer a{color:var(--loop-ciano);text-decoration:none;}
+  /* Sublinhado distingue o link do texto cinza ao redor sem depender só da
+     cor (contraste ciano×#bbb < 3:1). */
+  footer a{color:var(--loop-ciano);text-decoration:underline;}
   /* Olhinhos centralizados na borda superior, saltando 50% para fora */
   .footer-olhinhos{
     position:absolute;left:50%;top:0;
