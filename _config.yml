@@ -8,3 +8,9 @@ url: https://loopskatepark.com.br
 # Páginas com "sitemap: false" no front matter (ex.: o manual noindex) ficam de fora.
 plugins:
   - jekyll-sitemap
+
+# Arquivos internos de documentação que não devem ser publicados no site nem
+# processados pelo Jekyll. O CLAUDE.md contém exemplos de sintaxe Liquid
+# (ex.: "{% include %}") que quebram o build do GitHub Pages se lidos.
+exclude:
+  - CLAUDE.md
