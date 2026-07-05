@@ -11,18 +11,31 @@
     <meta name="description" content="Aulas de skate e patins para crianças e adultos em BH. Pista coberta, instrutores qualificados e ambiente seguro. Agende sua aula experimental grátis!">
     <meta name="keywords" content="escola de skate bh, aula de patins belo horizonte, pista de skate caiçara, loop skate park, skate para iniciantes, monsenhor messias">
 
+    <link rel="canonical" href="https://loopskatepark.com.br/">
+
+    <meta property="og:site_name" content="Loop Skate Park">
     <meta property="og:title" content="Escola de Skate e Patins em BH | Loop Skate Park">
     <meta property="og:description" content="Aulas de skate e patins (crianças e adultos) em pista coberta no bairro Caiçara. Agende sua aula experimental gratuita!">
     <meta property="og:locale" content="pt_BR">
-    <meta property="og:url" content="https://www.loopskatepark.com.br/">
-    <meta property="og:image" content="https://www.loopskatepark.com.br/loop-logo.png">
+    <meta property="og:url" content="https://loopskatepark.com.br/">
+    <meta property="og:image" content="https://loopskatepark.com.br/loop-logo.png">
+    <meta property="og:image:width" content="888">
+    <meta property="og:image:height" content="544">
+    <meta property="og:image:alt" content="Logo da Loop Skate Park">
     <meta property="og:type" content="website">
-    
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Escola de Skate e Patins em BH | Loop Skate Park">
+    <meta name="twitter:description" content="Aulas de skate e patins (crianças e adultos) em pista coberta no bairro Caiçara. Agende sua aula experimental gratuita!">
+    <meta name="twitter:image" content="https://loopskatepark.com.br/loop-logo.png">
+    <meta name="twitter:image:alt" content="Logo da Loop Skate Park">
+
     <meta name="author" content="Loop Skate Park">
     <meta name="geo.region" content="BR-MG">
     <meta name="geo.placename" content="Belo Horizonte">
-    <meta name="geo.position" content="-19.9090;-43.9870"> <meta property="og:type" content="website">
-    
+    <meta name="geo.position" content="-19.9090;-43.9870">
+    <meta name="ICBM" content="-19.9090, -43.9870">
+
     <link rel="icon" type="image/png" href="favicon.png" sizes="any">
 
     <!-- Fontes oficiais da marca Loop, self-hosted (latin) — sem folha de
@@ -252,11 +265,66 @@
             .link-btn { font-size: 1rem; padding: 18px; }
         }
     </style>
+
+    <!-- Dado estruturado (Schema.org) para busca local / Google Maps.
+         Ajuda alunos em potencial a encontrarem a escola por endereço,
+         telefone e horário de funcionamento. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SportsActivityLocation",
+      "@id": "https://loopskatepark.com.br/#organization",
+      "name": "Loop Skate Park",
+      "alternateName": "Loop Skate Park - Escola de Skate e Patins",
+      "description": "Escola de skate e patins para crianças e adultos em Belo Horizonte (BH), do nível iniciante ao avançado. Pista coberta, instrutores qualificados e ambiente seguro.",
+      "url": "https://loopskatepark.com.br/",
+      "image": "https://loopskatepark.com.br/loop-logo.png",
+      "logo": "https://loopskatepark.com.br/loop-logo.png",
+      "telephone": "+55-31-98278-9675",
+      "sport": ["Skateboarding", "Roller skating"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Vila Rica, 1168, 2º andar",
+        "addressLocality": "Belo Horizonte",
+        "addressRegion": "MG",
+        "postalCode": "30720-482",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -19.9090,
+        "longitude": -43.9870
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Belo Horizonte"
+      },
+      "hasMap": "https://maps.app.goo.gl/9dMjEnTh9Q5uPGTj8",
+      "sameAs": [
+        "https://www.instagram.com/loopskatepark",
+        "https://wa.me/5531982789675"
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:30",
+          "closes": "19:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:30",
+          "closes": "11:30"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
     <main class="content-main">
-        <div class="logo-container">
+        <div class="logo-container" role="img" aria-label="Loop Skate Park — Escola de Skate e Patins em Belo Horizonte">
             {% include logo.svg %}
         </div>
 
