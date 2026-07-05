@@ -1,3 +1,10 @@
 # Minimal Jekyll config for the Loop Skate Park landing page.
 # GitHub Pages builds this automatically.
 title: Loop Skate Park
+description: Escola de Skate e Patins em Belo Horizonte (BH). Pista coberta, instrutores qualificados e aula experimental gratuita.
+url: https://loopskatepark.com.br
+
+# Gera sitemap.xml automaticamente (plugin suportado pelo GitHub Pages).
+# Páginas com "sitemap: false" no front matter (ex.: o manual noindex) ficam de fora.
+plugins:
+  - jekyll-sitemap
