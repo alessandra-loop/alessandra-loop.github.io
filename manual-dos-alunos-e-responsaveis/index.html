@@ -39,22 +39,30 @@
   }
   img{max-width:100%;display:block;}
 
-  /* ---------- wordmark tone-on-tone texture ---------- */
+  /* ---------- skater background texture (marca d'água) ---------- */
   .loop-texture{
     position:absolute;inset:0;
     overflow:hidden;
     pointer-events:none;
     z-index:0;
-    opacity:.9;
   }
-  .loop-texture span{
+  .loop-texture::before{
+    content:"";
     position:absolute;
-    font-family:var(--display);
-    text-transform:lowercase;
-    white-space:nowrap;
-    line-height:.82;
-    letter-spacing:.02em;
+    top:50%;left:50%;
+    /* quadrado grande (independente da proporção da seção) para cobrir
+       toda a faixa mesmo após a rotação de 45° */
+    width:200vmax;height:200vmax;
+    background-image:url("{{ '/assets/skater-bg.svg' | relative_url }}");
+    background-repeat:repeat;
+    background-size:300px;
+    transform:translate(-50%,-50%) rotate(45deg);
+    opacity:.15;
   }
+  /* faixas curtas: tile menor para repetir mais e preencher toda a largura/altura */
+  .band .loop-texture::before{background-size:150px;}
+  /* faixa preta: inverter para o skatista aparecer em branco */
+  .band--preto .loop-texture::before{filter:invert(1);opacity:.12;}
 
   /* ---------- eyes symbol ---------- */
   .eyes{display:inline-block;vertical-align:middle;}
@@ -70,7 +78,6 @@
     text-align:center;
     padding:70px 24px 64px;
   }
-  .hero .loop-texture span{color:rgba(255,255,255,.07);}
   .hero__logo{
     width:240px;max-width:66vw;margin:0 auto 26px;
   }
@@ -184,10 +191,6 @@
   .band--rosa h2,.band--rosa .band__eyebrow{color:var(--loop-preto);}
   .band--preto{background:var(--loop-preto);}
   .band--preto h2,.band--preto .band__eyebrow{color:var(--loop-branco);}
-  .band--ciano .loop-texture span{color:rgba(0,0,0,.06);}
-  .band--roxo  .loop-texture span{color:rgba(255,255,255,.07);}
-  .band--rosa  .loop-texture span{color:rgba(0,0,0,.05);}
-  .band--preto .loop-texture span{color:rgba(255,255,255,.045);}
 
   /* ---------- content blocks ---------- */
   .content{padding:44px 0 52px;}
@@ -398,7 +401,6 @@
     text-align:center;
     padding:70px 24px 76px;
   }
-  .final .loop-texture span{color:rgba(255,255,255,.06);}
   .final__eyes{width:88px;margin:0 auto 18px;}
   .final h2{
     font-family:var(--display);text-transform:uppercase;
@@ -910,24 +912,6 @@
   Rua Vila Rica, 1168, 2º andar — Caiçara, Belo Horizonte/MG •
   <a href="https://loopskatepark.com.br" target="_blank" rel="noopener">loopskatepark.com.br</a>
 </footer>
-
-<script>
-  // wordmark tone-on-tone texture generator
-  (function(){
-    var words = ["loop","loop","loop","loop"];
-    document.querySelectorAll('.loop-texture').forEach(function(box){
-      var rows = 9;
-      for(var r=0;r<rows;r++){
-        var s = document.createElement('span');
-        s.textContent = ("loop ").repeat(14);
-        s.style.top = (r*12 - 4) + "%";
-        s.style.left = (r%2===0 ? "-6%" : "-16%");
-        s.style.fontSize = "clamp(40px,9vw,96px)";
-        box.appendChild(s);
-      }
-    });
-  })();
-</script>
 
 </body>
 </html>
