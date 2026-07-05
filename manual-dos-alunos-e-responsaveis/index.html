@@ -437,7 +437,9 @@ sitemap: false
     padding:26px 24px 40px;font-size:13px;
     border-top:1px solid #333;
   }
-  footer a{color:var(--loop-ciano);text-decoration:none;}
+  /* Sublinhado distingue o link do texto cinza ao redor sem depender só da
+     cor (contraste ciano×#bbb < 3:1). */
+  footer a{color:var(--loop-ciano);text-decoration:underline;}
 
   @media (prefers-reduced-motion:reduce){
     *{transition:none!important;scroll-behavior:auto!important;}
