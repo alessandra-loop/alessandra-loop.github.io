@@ -1,0 +1,669 @@
+---
+title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="description" content="Conheça a Loop Skate Park: nossa história, propósito, estrutura indoor e a comunidade que reúne esporte, cultura e pessoas em Belo Horizonte/MG.">
+<meta name="keywords" content="sobre a loop skate park, história loop skate, escola de skate bh, pista de skate caiçara, skate belo horizonte, esportes sobre rodas">
+
+<link rel="canonical" href="https://loopskatepark.com.br/sobre/">
+
+<meta property="og:site_name" content="Loop Skate Park">
+<meta property="og:title" content="Sobre a Loop Skate Park">
+<meta property="og:description" content="Nossa história, propósito, estrutura e comunidade — um espaço onde esporte, cultura e pessoas se encontram todos os dias, no bairro Caiçara em BH.">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:url" content="https://loopskatepark.com.br/sobre/">
+<meta property="og:image" content="https://loopskatepark.com.br/loop-logo.png">
+<meta property="og:image:width" content="888">
+<meta property="og:image:height" content="544">
+<meta property="og:image:alt" content="Logo da Loop Skate Park">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sobre a Loop Skate Park">
+<meta name="twitter:description" content="Nossa história, propósito, estrutura e comunidade — um espaço onde esporte, cultura e pessoas se encontram todos os dias, no bairro Caiçara em BH.">
+<meta name="twitter:image" content="https://loopskatepark.com.br/loop-logo.png">
+<meta name="twitter:image:alt" content="Logo da Loop Skate Park">
+
+<meta name="author" content="Loop Skate Park">
+<meta name="geo.region" content="BR-MG">
+<meta name="geo.placename" content="Belo Horizonte">
+<meta name="geo.position" content="-19.9090;-43.9870">
+<meta name="ICBM" content="-19.9090, -43.9870">
+
+<link rel="icon" type="image/png" href="/favicon.png" sizes="any">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --loop-preto:#000000;
+    --loop-branco:#ffffff;
+    --loop-ciano:#18d7df;
+    --loop-roxo:#935bbc;
+    --loop-rosa:#ffb3d1;
+    --loop-amarelo:#f6c707;
+    --loop-bege:#e8d4bf;
+    --ink:#111111;
+    --display:"Anton","Oswald","Bebas Neue","Arial Narrow",Impact,sans-serif;
+    --head:"Oswald","Bebas Neue","Arial Narrow",Impact,sans-serif;
+    --body:"Barlow","Segoe UI",Arial,sans-serif;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--body);
+    color:var(--ink);
+    background:var(--loop-branco);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+
+  /* ---------- skater background texture (marca d'água) ---------- */
+  .loop-texture{
+    position:absolute;inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+  }
+  .loop-texture::before{
+    content:"";
+    position:absolute;
+    top:50%;left:50%;
+    /* quadrado grande (independente da proporção da seção) para cobrir
+       toda a faixa mesmo após a rotação de 45° */
+    width:200vmax;height:200vmax;
+    background-image:url("{{ '/assets/skater-bg.svg' | relative_url }}");
+    background-repeat:repeat;
+    background-size:300px;
+    transform:translate(-50%,-50%) rotate(45deg);
+    opacity:.15;
+  }
+  /* faixas curtas: tile menor para repetir mais e preencher toda a largura/altura */
+  .band .loop-texture::before{background-size:150px;}
+  /* faixa preta: inverter para o skatista aparecer em branco */
+  .band--preto .loop-texture::before{filter:invert(1);opacity:.12;}
+
+  /* ---------- eyes symbol ---------- */
+  .eyes{display:inline-block;vertical-align:middle;}
+
+  /* ---------- layout ---------- */
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
+  section{position:relative;overflow:hidden;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--loop-roxo);
+    color:var(--loop-branco);
+    text-align:center;
+    padding:70px 24px 64px;
+  }
+  .hero__logo{
+    width:240px;max-width:66vw;margin:0 auto 26px;
+  }
+  .hero__logo svg{
+    width:100%;height:auto;display:block;
+    filter:drop-shadow(0 6px 16px rgba(0,0,0,.30));
+  }
+  .hero__title{
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(30px,7vw,64px);
+    line-height:.94;
+    margin:0 auto;
+    max-width:14ch;
+    color:var(--loop-branco);
+  }
+  .hero__year{
+    display:inline-block;
+    margin-top:22px;
+    font-family:var(--head);
+    font-weight:700;
+    background:var(--loop-amarelo);
+    color:var(--loop-preto);
+    padding:6px 20px;
+    border-radius:40px;
+    letter-spacing:.28em;
+    font-size:16px;
+  }
+  .hero__eyes{margin:0 auto 22px;width:96px;}
+
+  /* ---------- section index nav ---------- */
+  .toc{
+    background:var(--loop-bege);
+    padding:44px 0 48px;
+    border-bottom:6px solid var(--loop-preto);
+  }
+  .toc h2{
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(24px,5vw,36px);
+    margin:0 0 22px;
+    color:var(--loop-preto);
+  }
+  .toc__grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:10px;
+  }
+  .toc__grid a{
+    display:flex;align-items:center;gap:10px;
+    text-decoration:none;
+    color:var(--loop-preto);
+    background:var(--loop-branco);
+    border:2px solid var(--loop-preto);
+    border-radius:10px;
+    padding:11px 14px;
+    font-family:var(--head);
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    font-size:14px;
+    line-height:1.15;
+    transition:transform .12s ease,background .12s ease,color .12s ease;
+  }
+  .toc__grid a .num{
+    font-family:var(--display);
+    background:var(--loop-preto);
+    color:var(--loop-branco);
+    min-width:30px;height:30px;
+    display:grid;place-items:center;
+    border-radius:7px;
+    font-size:15px;
+    flex-shrink:0;
+  }
+  .toc__grid a:hover{transform:translate(-2px,-2px);}
+  .toc__grid a:nth-child(4n+1):hover{background:var(--loop-ciano);}
+  .toc__grid a:nth-child(4n+2):hover{background:var(--loop-rosa);}
+  .toc__grid a:nth-child(4n+3):hover{background:var(--loop-roxo);color:var(--loop-branco);}
+  .toc__grid a:nth-child(4n+3):hover .num{background:var(--loop-branco);color:var(--loop-preto);}
+  .toc__grid a:nth-child(4n+4):hover{background:var(--loop-amarelo);}
+
+  /* ---------- section cover bands ---------- */
+  .band{
+    padding:52px 0 46px;
+    position:relative;
+  }
+  .band .wrap{position:relative;z-index:2;}
+  .band__eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.28em;
+    font-weight:600;
+    font-size:13px;
+    margin:0 0 8px;
+    opacity:.85;
+  }
+  .band h2{
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(34px,7.5vw,74px);
+    line-height:.9;
+    margin:0;
+    color:var(--loop-branco);
+  }
+  .band--ciano{background:var(--loop-ciano);}
+  .band--ciano h2,.band--ciano .band__eyebrow{color:var(--loop-preto);}
+  .band--roxo{background:var(--loop-roxo);}
+  .band--roxo h2,.band--roxo .band__eyebrow{color:var(--loop-branco);}
+  .band--rosa{background:var(--loop-rosa);}
+  .band--rosa h2,.band--rosa .band__eyebrow{color:var(--loop-preto);}
+  .band--preto{background:var(--loop-preto);}
+  .band--preto h2,.band--preto .band__eyebrow{color:var(--loop-branco);}
+
+  /* ---------- content blocks ---------- */
+  .content{padding:44px 0 52px;}
+  .content p{margin:0 0 18px;max-width:70ch;}
+  .content p strong,.content li strong{font-weight:700;color:var(--loop-preto);}
+  .content em{font-style:italic;}
+
+  .lead{
+    font-size:clamp(19px,2.6vw,23px);
+    line-height:1.5;
+    font-weight:500;
+  }
+  .lead--accent{
+    border-left:8px solid var(--loop-amarelo);
+    padding-left:22px;
+    margin:6px 0 26px;
+  }
+
+  h3.sub{
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(22px,4vw,34px);
+    line-height:1;
+    margin:38px 0 16px;
+    color:var(--loop-preto);
+    display:flex;align-items:center;gap:12px;
+  }
+  h3.sub::before{
+    content:"";
+    width:26px;height:26px;flex-shrink:0;
+    background:var(--tick,var(--loop-ciano));
+    border:3px solid var(--loop-preto);
+    border-radius:6px;
+    transform:rotate(45deg);
+  }
+  h4.mini{
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-weight:700;
+    font-size:19px;
+    margin:26px 0 6px;
+    color:var(--loop-preto);
+  }
+
+  /* highlight callout */
+  .shout{
+    background:var(--loop-preto);
+    color:var(--loop-branco);
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(20px,3.4vw,30px);
+    line-height:1.05;
+    padding:28px 30px;
+    border-radius:16px;
+    margin:30px 0;
+    position:relative;
+  }
+  .shout::after{
+    content:"";
+    position:absolute;right:22px;bottom:-14px;
+    width:0;height:0;
+    border-left:20px solid transparent;
+    border-right:0 solid transparent;
+    border-top:20px solid var(--loop-preto);
+  }
+
+  .note{
+    background:var(--loop-amarelo);
+    border:3px solid var(--loop-preto);
+    border-radius:14px;
+    padding:20px 24px;
+    margin:26px 0;
+    font-weight:500;
+  }
+  .note strong{display:block;font-family:var(--head);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;}
+
+  /* check lists */
+  ul.check{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px;}
+  ul.check li{
+    position:relative;
+    padding:12px 16px 12px 50px;
+    background:var(--loop-branco);
+    border:2px solid var(--loop-preto);
+    border-radius:12px;
+    font-weight:500;
+  }
+  ul.check li::before{
+    content:"";
+    position:absolute;left:15px;top:50%;transform:translateY(-50%) rotate(45deg);
+    width:11px;height:19px;
+    border:solid var(--check,var(--loop-ciano));
+    border-width:0 5px 5px 0;
+  }
+
+  /* simple bordered list (steps) */
+  ol.steps{list-style:none;counter-reset:s;padding:0;margin:22px 0;display:grid;gap:12px;}
+  ol.steps li{
+    counter-increment:s;
+    position:relative;
+    padding:14px 18px 14px 62px;
+    background:var(--loop-bege);
+    border-radius:12px;
+    font-weight:500;
+  }
+  ol.steps li::before{
+    content:counter(s);
+    position:absolute;left:12px;top:50%;transform:translateY(-50%);
+    width:38px;height:38px;
+    background:var(--loop-preto);color:var(--loop-branco);
+    font-family:var(--display);
+    display:grid;place-items:center;border-radius:9px;font-size:18px;
+  }
+
+  /* card grids (números / valores) */
+  .cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+    gap:16px;margin:24px 0;
+  }
+  .card{
+    border:3px solid var(--loop-preto);
+    border-radius:16px;
+    padding:18px 20px;
+    background:var(--loop-branco);
+    transition:transform .12s ease;
+  }
+  .card:hover{transform:translate(-3px,-3px);}
+  .card h5{
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.02em;
+    font-weight:700;
+    font-size:18px;
+    margin:0 0 6px;
+    color:var(--loop-preto);
+  }
+  .card p{margin:0;font-size:15.5px;line-height:1.5;}
+  .card--c1{background:var(--loop-ciano);}
+  .card--c2{background:var(--loop-rosa);}
+  .card--c3{background:var(--loop-amarelo);}
+  .card--c4{background:var(--loop-bege);}
+  .card--roxo{background:var(--loop-roxo);color:var(--loop-branco);}
+  .card--roxo h5{color:var(--loop-branco);}
+
+  /* números em destaque (A Loop em números) */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    gap:16px;margin:24px 0;
+  }
+  .stat{
+    border:3px solid var(--loop-preto);
+    border-radius:16px;
+    padding:22px 20px;
+    text-align:center;
+  }
+  .stat--c1{background:var(--loop-ciano);}
+  .stat--c2{background:var(--loop-rosa);}
+  .stat--c3{background:var(--loop-amarelo);}
+  .stat--roxo{background:var(--loop-roxo);color:var(--loop-branco);}
+  .stat b{
+    display:block;
+    font-family:var(--display);
+    font-size:clamp(38px,8vw,56px);
+    line-height:.9;
+    color:var(--loop-preto);
+  }
+  .stat--roxo b{color:var(--loop-branco);}
+  .stat span{
+    display:block;margin-top:8px;
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.03em;
+    font-weight:600;
+    font-size:14px;
+    line-height:1.2;
+  }
+
+  /* history / prose block with side accent */
+  .prose-accent{
+    background:var(--loop-bege);
+    border-radius:16px;
+    padding:28px 30px;
+    margin:24px 0;
+  }
+  .prose-accent p:last-child{margin-bottom:0;}
+
+  /* fotos do espaço */
+  .photos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:16px;margin:28px 0 8px;
+  }
+  .photo{margin:0;}
+  .photo img{
+    width:100%;
+    height:260px;
+    object-fit:cover;
+    border:3px solid var(--loop-preto);
+    border-radius:16px;
+  }
+  .photo figcaption{
+    margin-top:8px;
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    font-weight:600;
+    font-size:13px;
+    color:var(--loop-preto);
+  }
+  /* primeira foto ocupa a linha inteira em telas largas */
+  .photos .photo--wide{grid-column:1/-1;}
+  .photos .photo--wide img{height:clamp(240px,42vw,420px);}
+
+  /* CTA final */
+  .cta-btn{
+    display:inline-block;
+    margin-top:8px;
+    font-family:var(--head);
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    text-decoration:none;
+    background:var(--loop-rosa);
+    color:var(--loop-preto);
+    border:3px solid var(--loop-preto);
+    border-radius:40px;
+    padding:14px 30px;
+    font-size:17px;
+    transition:transform .12s ease;
+  }
+  .cta-btn:hover{transform:translate(-2px,-2px);}
+
+  /* final message */
+  .final{
+    background:var(--loop-roxo);
+    color:var(--loop-branco);
+    text-align:center;
+    padding:70px 24px 76px;
+  }
+  .final__eyes{width:88px;margin:0 auto 18px;}
+  .final h2{
+    font-family:var(--display);text-transform:uppercase;
+    font-size:clamp(30px,7vw,60px);line-height:.92;margin:0 0 20px;
+  }
+  .final p{max-width:60ch;margin:0 auto 14px;font-size:19px;line-height:1.55;}
+  .final__mark{
+    margin:34px auto 0;
+    width:280px;max-width:64vw;
+  }
+  .final__mark svg{width:100%;height:auto;display:block;}
+
+  /* footer */
+  footer{
+    position:relative;margin-top:60px;
+    background:var(--loop-preto);color:#bbb;text-align:center;
+    padding:64px 24px 40px;font-size:13px;
+    border-top:1px solid #333;
+  }
+  /* Sublinhado distingue o link do texto cinza ao redor sem depender só da
+     cor (contraste ciano×#bbb < 3:1). */
+  footer a{color:var(--loop-ciano);text-decoration:underline;}
+  /* Olhinhos centralizados na borda superior, saltando 50% para fora */
+  .footer-olhinhos{
+    position:absolute;left:50%;top:0;
+    transform:translate(-50%,-50%);
+    width:clamp(90px,22vw,150px);line-height:0;pointer-events:none;
+  }
+  .footer-olhinhos svg{display:block;width:100%;height:auto;}
+
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none!important;scroll-behavior:auto!important;}
+  }
+  @media(max-width:640px){
+    body{font-size:16px;}
+    .content{padding:32px 0 40px;}
+    .band{padding:38px 0 34px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="loop-texture" id="tex-hero"></div>
+  <div class="wrap">
+    <div class="hero__logo" role="img" aria-label="Loop Skate Park">
+      {% include logo.svg %}
+    </div>
+    <h1 class="hero__title">Sobre a Loop Skate Park</h1>
+    <div class="hero__year">2026</div>
+  </div>
+</section>
+
+<!-- ===================== ÍNDICE ===================== -->
+<nav class="toc">
+  <div class="wrap">
+    <h2>Índice</h2>
+    <div class="toc__grid">
+      <a href="#apresentacao"><span class="num">01</span>Apresentação</a>
+      <a href="#historia"><span class="num">02</span>Nossa história</a>
+      <a href="#proposito"><span class="num">03</span>Propósito</a>
+      <a href="#numeros"><span class="num">04</span>A Loop em números</a>
+      <a href="#estrutura"><span class="num">05</span>Estrutura</a>
+      <a href="#publico"><span class="num">06</span>Nosso público</a>
+      <a href="#comunidade"><span class="num">07</span>Impacto e comunidade</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== 01 APRESENTAÇÃO ===================== -->
+{% include band.html color="ciano" id="apresentacao" eyebrow="01 — Quem somos" title="Apresentação" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Toda comunidade nasce de um ponto de encontro, um lugar onde pessoas diferentes compartilham valores, experiências e sonhos. A <strong>Loop Skate Park</strong> nasceu exatamente dessa ideia.</p>
+    <p>Nossa história começou dentro da própria cena do skate de Belo Horizonte. Depois de anos acompanhando a evolução de alunos, famílias e praticantes, percebemos que existia uma necessidade que ia além da prática esportiva: as pessoas buscavam um lugar seguro para aprender.</p>
+    <p>Fundada por <strong>Raphael Alves</strong>, <strong>Alessandra Aguiar</strong> e <strong>Douglas Aguiar</strong>, a Loop reúne esporte, cultura urbana, educação e convivência em um único ambiente. Aqui celebramos conquistas individuais, incentivamos a criatividade, valorizamos a diversidade e acreditamos que o desenvolvimento humano acontece quando as pessoas se sentem parte de algo maior.</p>
+    {% include shout.html text="Um espaço onde esporte, cultura e pessoas se encontram todos os dias." %}
+  </div>
+</section>
+
+<!-- ===================== 02 NOSSA HISTÓRIA ===================== -->
+{% include band.html color="roxo" id="historia" eyebrow="02 — Raízes" title="Nossa história" %}
+<section class="content">
+  <div class="wrap">
+    <div class="prose-accent">
+      <p>A trajetória da Loop começou a partir da vivência de seus fundadores dentro da comunidade do skate de Belo Horizonte. <strong>Raphael Alves</strong>, skatista e professor de skate reconhecido por sua atuação na cena street da cidade, desenvolveu durante anos seu trabalho formando novos praticantes e participando ativamente da cultura local.</p>
+      <p><strong>Alessandra Aguiar</strong>, terapeuta ocupacional, e <strong>Douglas Aguiar</strong>, desenvolvedor de software, se aproximaram do universo do skate através da própria família e passaram a enxergar no esporte uma poderosa ferramenta de desenvolvimento e evolução.</p>
+      <p>Após o encerramento das atividades de uma tradicional escola de skate da cidade, surgiu a oportunidade de continuar oferecendo aulas e criar um espaço próprio, capaz de unir esporte e cultura.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 03 PROPÓSITO ===================== -->
+{% include band.html color="rosa" id="proposito" eyebrow="03 — Por que existimos" title="Propósito" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Acreditamos que cada manobra aprendida vai além da evolução técnica: ela representa confiança, persistência, superação e autonomia.</p>
+    <p>Através disso, a Loop Skate Park cria experiências que impactam positivamente a vida das pessoas.</p>
+    <p>Nossa missão é construir um ambiente onde cada indivíduo possa se desenvolver no seu próprio ritmo, respeitando suas características, fortalecendo vínculos e descobrindo novas possibilidades.</p>
+  </div>
+</section>
+
+<!-- ===================== 04 A LOOP EM NÚMEROS ===================== -->
+{% include band.html color="ciano" id="numeros" eyebrow="04 — Primeiro ano" title="A Loop em números" %}
+<section class="content">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat stat--c1"><b>34</b><span>Alunos atendidos desde a inauguração</span></div>
+      <div class="stat stat--roxo"><b>26</b><span>Alunos ativos atualmente</span></div>
+      <div class="stat stat--c2"><b>26</b><span>Frequentadores por semana</span></div>
+      <div class="stat stat--c3"><b>110m²</b><span>De pista dedicada à prática</span></div>
+    </div>
+    <h4 class="mini">Além disso:</h4>
+    <ul class="check" style="--check:var(--loop-ciano)">
+      <li>Público formado por crianças, jovens e famílias</li>
+      <li>Alunos de várias regiões de Belo Horizonte</li>
+      <li>Estrutura indoor especializada em skate e esportes sobre rodas</li>
+    </ul>
+    <p>Com uma estrutura indoor exclusiva para skate e esportes sobre rodas, a Loop demonstra, já em seu primeiro ano de operação, forte potencial de crescimento, formação esportiva e impacto social na comunidade local.</p>
+  </div>
+</section>
+
+<!-- ===================== 05 ESTRUTURA ===================== -->
+{% include band.html color="roxo" id="estrutura" eyebrow="05 — O espaço" title="Estrutura" %}
+<section class="content">
+  <div class="wrap">
+    <p>A Loop Skate Park conta com aproximadamente <strong>130 m²</strong> de área total, sendo <strong>110 m²</strong> dedicados exclusivamente à prática esportiva. A pista reúne <strong>14 obstáculos</strong> que combinam street skate e transições, permitindo diferentes possibilidades de aprendizado, progressão técnica e realização de eventos.</p>
+
+    <div class="photos">
+      <figure class="photo photo--wide">
+        <img src="{{ '/assets/LOOP-PISTA-FOTO-1.jpeg' | relative_url }}" alt="Pista de skate indoor da Loop Skate Park, com rampas e obstáculos de street e transição" loading="lazy" width="1600" height="900">
+        <figcaption>Pista indoor — street e transições</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="{{ '/assets/LOOP-PISTA-FOTO-2.jpeg' | relative_url }}" alt="Outro ângulo da pista de skate da Loop, mostrando os obstáculos e a área de prática" loading="lazy" width="1200" height="900">
+        <figcaption>Obstáculos e área de prática</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="{{ '/assets/LOOP-RECEPCAO.jpeg' | relative_url }}" alt="Recepção e área de convivência da Loop Skate Park" loading="lazy" width="1200" height="900">
+        <figcaption>Recepção e convivência</figcaption>
+      </figure>
+    </div>
+
+    <h4 class="mini">Entre os obstáculos:</h4>
+    <div class="cards">
+      {% include card.html variant="c1" title="Mini Ramp" text="Integrada à área de street, ideal para aprendizado e manobras técnicas." %}
+      {% include card.html variant="c2" title="4 Quarters" text="Curvas que dão velocidade e conectam as transições da pista." %}
+      {% include card.html variant="c3" title="Wall Ride" text="Parede para manobras verticais, subindo e deslizando na estrutura." %}
+      {% include card.html variant="c4" title="Mini Gap" text="Vão para saltos, trabalhando impulsão e controle no ar." %}
+      {% include card.html variant="roxo" title="Cânion" text="Obstáculo de transição que amplia as linhas possíveis na pista." %}
+      {% include card.html variant="c1" title="Corrimões" text="Fixos e móveis, para grinds e manobras de deslize." %}
+      {% include card.html variant="c2" title="Palcos móveis" text="Reconfiguram a pista e apoiam eventos e sessões." %}
+      {% include card.html variant="c3" title="Kickers" text="Fixos e móveis, para saltos e primeiras manobras aéreas." %}
+      {% include card.html variant="c4" title="Start e rampas de acesso" text="Ponto de partida seguro para ganhar velocidade." %}
+    </div>
+
+    {% include note.html title="Convivência e eventos" text="Além da área esportiva, o espaço conta com arquibancada, área de convivência e espaço de leitura, destinados à integração entre alunos, famílias e visitantes. Durante eventos e sessões livres, a estrutura pode receber entre 15 e 20 pessoas com conforto e segurança." %}
+  </div>
+</section>
+
+<!-- ===================== 06 NOSSO PÚBLICO ===================== -->
+{% include band.html color="rosa" id="publico" eyebrow="06 — Para quem" title="Nosso público" %}
+<section class="content">
+  <div class="wrap">
+    <p>A comunidade da Loop é formada principalmente por <strong>crianças e famílias</strong> que buscam um ambiente seguro, acolhedor e estruturado para a prática esportiva.</p>
+    <p>Mas nosso propósito vai além: o objetivo é ampliar continuamente a participação de adolescentes, jovens e adultos, fortalecendo uma cultura de convivência entre diferentes gerações através do skate.</p>
+    <p class="lead">Acreditamos que o esporte é uma linguagem universal, capaz de conectar pessoas de diferentes histórias, idades e realidades.</p>
+  </div>
+</section>
+
+<!-- ===================== 07 IMPACTO E COMUNIDADE ===================== -->
+{% include band.html color="ciano" id="comunidade" eyebrow="07 — Junto e misturado" title="Impacto e comunidade" %}
+<section class="content">
+  <div class="wrap">
+    <p>O principal da Loop é sua comunidade. Todos os dias recebemos pessoas que encontram no skate uma oportunidade para desenvolver autoconfiança, disciplina e novas amizades.</p>
+    <h4 class="mini">Por isso, incentivamos valores como:</h4>
+    <div class="cards">
+      {% include card.html variant="c1" title="Respeito" text="Espaço coletivo, onde cada um respeita sua vez e o tempo do outro." %}
+      {% include card.html variant="c2" title="Cooperação" text="Aprendemos juntos: quem já anda ajuda quem está começando." %}
+      {% include card.html variant="c3" title="Diversidade" text="Pessoas de diferentes histórias, idades e realidades." %}
+      {% include card.html variant="roxo" title="Inclusão" text="Ampliar o acesso ao esporte e ao desenvolvimento humano." %}
+      {% include card.html variant="c4" title="Criatividade" text="Cada linha e cada manobra é uma forma de expressão." %}
+      {% include card.html variant="c1" title="Liberdade de expressão" text="O skate como cultura urbana, livre e inventiva." %}
+    </div>
+    <p>Além das atividades esportivas, a Loop tem o objetivo de ampliar gradualmente sua atuação social, através de iniciativas que promovam acesso ao esporte, inclusão e desenvolvimento humano para crianças e jovens.</p>
+    {% include shout.html text="Todos os dias, esporte, cultura e pessoas se encontram na Loop." %}
+  </div>
+</section>
+
+<!-- ===================== MENSAGEM FINAL ===================== -->
+<section class="final" id="final">
+  <div class="loop-texture"></div>
+  <div class="wrap">
+    <h2>Vamos construir essa história juntos!</h2>
+    <p>A Loop Skate Park é mais que uma escola: é um espaço de cultura, convivência e criação coletiva. Venha conhecer a nossa pista e fazer parte da comunidade.</p>
+    <a class="cta-btn" href="https://wa.me/message/CMBM7VMSUT62E1" target="_blank" rel="noopener">Agende sua aula experimental gratuita</a>
+    <div class="final__mark">
+      {% include logo.svg %}
+    </div>
+  </div>
+</section>
+
+{% include footer.html subtitle="Escola de skate e patins" %}
+
+</body>
+</html>
