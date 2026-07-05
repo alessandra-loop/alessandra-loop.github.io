@@ -499,28 +499,16 @@
 </nav>
 
 <!-- ===================== 01 A LOOP ===================== -->
-<section class="band band--ciano" id="loop">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">01 — Quem somos</p>
-    <h2>A Loop Skate Park</h2>
-  </div>
-</section>
+{% include band.html color="ciano" id="loop" eyebrow="01 — Quem somos" title="A Loop Skate Park" %}
 <section class="content">
   <div class="wrap">
     <p class="lead lead--accent">Na <strong>Loop Skate Park</strong>, acreditamos que a prática de esporte radical é uma ferramenta de desenvolvimento. Além de possibilitar um espaço de convivência e expressão cultural.</p>
-    <div class="shout">A Loop Skate Park é mais que uma escola, é um espaço de cultura, convivência e criação coletiva!</div>
+    {% include shout.html text="A Loop Skate Park é mais que uma escola, é um espaço de cultura, convivência e criação coletiva!" %}
   </div>
 </section>
 
 <!-- ===================== 02 PARCERIA ===================== -->
-<section class="band band--roxo" id="parceria">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">02 — Família &amp; escola</p>
-    <h2>Parceria responsáveis e Loop Skate Park</h2>
-  </div>
-</section>
+{% include band.html color="roxo" id="parceria" eyebrow="02 — Família &amp; escola" title="Parceria responsáveis e Loop Skate Park" %}
 <section class="content">
   <div class="wrap">
     <p>O desenvolvimento no skate acontece quando escola, aluno e família caminham juntos. Por isso, a participação dos responsáveis é fundamental para que o aprendizado seja saudável, seguro e motivador.</p>
@@ -544,13 +532,7 @@
 </section>
 
 <!-- ===================== 03 METODOLOGIA ===================== -->
-<section class="band band--rosa" id="metodologia">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">03 — Como funciona</p>
-    <h2>Metodologia e dinâmica das aulas</h2>
-  </div>
-</section>
+{% include band.html color="rosa" id="metodologia" eyebrow="03 — Como funciona" title="Metodologia e dinâmica das aulas" %}
 <section class="content">
   <div class="wrap">
     <p>As aulas são pensadas para que cada aluno evolua no seu tempo, com segurança e acompanhamento. Garantindo progressão e diversão.</p>
@@ -566,18 +548,12 @@
 </section>
 
 <!-- ===================== 04 CULTURA ===================== -->
-<section class="band band--ciano" id="cultura">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">04 — Por que skate</p>
-    <h2>Skate como cultura e educação</h2>
-  </div>
-</section>
+{% include band.html color="ciano" id="cultura" eyebrow="04 — Por que skate" title="Skate como cultura e educação" %}
 <section class="content">
   <div class="wrap">
     <p>O skate proporciona a experimentação, o respeito ao próprio ritmo, a superação de desafios e o aprendizado coletivo. São práticas que acontecem no encontro com o outro, no compartilhamento de espaços e experiências.</p>
     <p>Mais do que esporte, skate é o corpo em movimento, que ensina a lidar com o erro, a persistir e a construir autonomia.</p>
-    <div class="shout">Na Loop Skate Park, acreditamos que cada queda é parte do aprendizado e que cada conquista é coletiva.</div>
+    {% include shout.html text="Na Loop Skate Park, acreditamos que cada queda é parte do aprendizado e que cada conquista é coletiva." %}
     <p>Estudos mostram que os esportes radicais, como o skate, são poderosas ferramentas educativas, uma vez que quanto maior a diversidade de experiências motoras, maior a capacidade de adaptação psicomotora das crianças.</p>
 
     <h4 class="mini">O skate contribui para:</h4>
@@ -597,13 +573,7 @@
 </section>
 
 <!-- ===================== 05 CIDADAO ===================== -->
-<section class="band band--roxo" id="cidadao">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">05 — Comunidade</p>
-    <h2>Skatista cidadão</h2>
-  </div>
-</section>
+{% include band.html color="roxo" id="cidadao" eyebrow="05 — Comunidade" title="Skatista cidadão" %}
 <section class="content">
   <div class="wrap">
     <p class="lead lead--accent">Ser skatista vai muito além de aprender manobras. Ser skatista é aprender a conviver.</p>
@@ -623,46 +593,31 @@
     <p>Quando ajudamos um colega a levantar, estamos aprendendo empatia.</p>
     <p>Quando cuidamos da pista, estamos exercendo cidadania.</p>
     <p>Aqui na Loop, formar skatistas é também formar pessoas seguras, respeitosas e conscientes do seu papel no coletivo.</p>
-    <div class="shout">Porque andar de skate é liberdade, mas liberdade também é responsabilidade.</div>
+    {% include shout.html text="Porque andar de skate é liberdade, mas liberdade também é responsabilidade." %}
   </div>
 </section>
 
 <!-- ===================== 06 EQUIPAMENTOS ===================== -->
-<section class="band band--rosa" id="equipamentos">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">06 — Material</p>
-    <h2>Skate e equipamentos</h2>
-  </div>
-</section>
+{% include band.html color="rosa" id="equipamentos" eyebrow="06 — Material" title="Skate e equipamentos" %}
 <section class="content">
   <div class="wrap">
     <div class="cards">
-      <div class="card card--c1"><h5>Shape</h5><p>É a "prancha" do skate, onde o aluno apoia os pés.</p></div>
-      <div class="card card--c2"><h5>Rodas</h5><p>Permitem que o skate deslize pelo chão.</p></div>
-      <div class="card card--c3"><h5>Rolamentos</h5><p>Peças internas das rodas que fazem o skate girar com mais velocidade e suavidade.</p></div>
-      <div class="card card--c4"><h5>Truck</h5><p>Eixo de metal que liga as rodas ao shape e permite fazer curvas.</p></div>
-      <div class="card card--c1"><h5>Lixa</h5><p>Parte áspera colada sobre o shape, que ajuda os pés a não escorregarem.</p></div>
-      <div class="card card--roxo"><h5>Capacete</h5><p>Protege a cabeça contra impactos e quedas.</p></div>
-      <div class="card card--c2"><h5>Cotoveleiras</h5><p>Protegem os cotovelos em caso de queda.</p></div>
-      <div class="card card--c3"><h5>Joelheiras</h5><p>Protegem os joelhos contra impactos e raspões.</p></div>
-      <div class="card card--c4"><h5>Protetores de punho</h5><p>Protegem os pulsos e ajudam a evitar lesões ao apoiar as mãos no chão.</p></div>
+      {% include card.html variant="c1" title="Shape" text='É a "prancha" do skate, onde o aluno apoia os pés.' %}
+      {% include card.html variant="c2" title="Rodas" text="Permitem que o skate deslize pelo chão." %}
+      {% include card.html variant="c3" title="Rolamentos" text="Peças internas das rodas que fazem o skate girar com mais velocidade e suavidade." %}
+      {% include card.html variant="c4" title="Truck" text="Eixo de metal que liga as rodas ao shape e permite fazer curvas." %}
+      {% include card.html variant="c1" title="Lixa" text="Parte áspera colada sobre o shape, que ajuda os pés a não escorregarem." %}
+      {% include card.html variant="roxo" title="Capacete" text="Protege a cabeça contra impactos e quedas." %}
+      {% include card.html variant="c2" title="Cotoveleiras" text="Protegem os cotovelos em caso de queda." %}
+      {% include card.html variant="c3" title="Joelheiras" text="Protegem os joelhos contra impactos e raspões." %}
+      {% include card.html variant="c4" title="Protetores de punho" text="Protegem os pulsos e ajudam a evitar lesões ao apoiar as mãos no chão." %}
     </div>
-    <div class="note">
-      <strong>Atenção responsáveis</strong>
-      O uso dos equipamentos de proteção é obrigatório. Eles fazem parte da aula e também da educação para o cuidado com o corpo.
-    </div>
+    {% include note.html title="Atenção responsáveis" text="O uso dos equipamentos de proteção é obrigatório. Eles fazem parte da aula e também da educação para o cuidado com o corpo." %}
   </div>
 </section>
 
 <!-- ===================== 07 SEGURANCA ===================== -->
-<section class="band band--preto" id="seguranca">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">07 — Cuidado</p>
-    <h2>Segurança em primeiro lugar</h2>
-  </div>
-</section>
+{% include band.html color="preto" id="seguranca" eyebrow="07 — Cuidado" title="Segurança em primeiro lugar" %}
 <section class="content">
   <div class="wrap">
     <p class="lead lead--accent">Cair faz parte. Aprender a cair com segurança também.</p>
@@ -678,13 +633,7 @@
 </section>
 
 <!-- ===================== 08 EVOLUCAO ===================== -->
-<section class="band band--ciano" id="evolucao">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">08 — Progressão</p>
-    <h2>Skate e evolução dos alunos</h2>
-  </div>
-</section>
+{% include band.html color="ciano" id="evolucao" eyebrow="08 — Progressão" title="Skate e evolução dos alunos" %}
 <section class="content">
   <div class="wrap">
     <h4 class="mini">Conhecer o skate</h4>
@@ -696,10 +645,7 @@
       <li>Introdução às manobras</li>
     </ul>
 
-    <div class="note" style="background:var(--loop-rosa)">
-      <strong>Atenção aos responsáveis</strong>
-      Os responsáveis fazem parte do processo! O apoio fortalece a autoestima e traz segurança.
-    </div>
+    {% include note.html title="Atenção aos responsáveis" text="Os responsáveis fazem parte do processo! O apoio fortalece a autoestima e traz segurança." bg="var(--loop-rosa)" %}
     <ul class="check" style="--check:var(--loop-rosa)">
       <li>Incentive sem pressionar.</li>
       <li>Valorize o esforço.</li>
@@ -710,13 +656,7 @@
 </section>
 
 <!-- ===================== 09 HISTORIA ===================== -->
-<section class="band band--roxo" id="historia">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">09 — Raízes</p>
-    <h2>História do skate</h2>
-  </div>
-</section>
+{% include band.html color="roxo" id="historia" eyebrow="09 — Raízes" title="História do skate" %}
 <section class="content">
   <div class="wrap">
     <div class="prose-accent">
@@ -728,13 +668,7 @@
 </section>
 
 <!-- ===================== 10 MODALIDADES ===================== -->
-<section class="band band--rosa" id="modalidades">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">10 — Onde se anda</p>
-    <h2>Modalidades</h2>
-  </div>
-</section>
+{% include band.html color="rosa" id="modalidades" eyebrow="10 — Onde se anda" title="Modalidades" %}
 <section class="content">
   <div class="wrap">
     <dl class="defs">
@@ -750,73 +684,49 @@
 </section>
 
 <!-- ===================== 11 TIPOS DE MANOBRAS ===================== -->
-<section class="band band--ciano" id="tipos">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">11 — Categorias</p>
-    <h2>Tipos de manobras</h2>
-  </div>
-</section>
+{% include band.html color="ciano" id="tipos" eyebrow="11 — Categorias" title="Tipos de manobras" %}
 <section class="content">
   <div class="wrap">
     <div class="cards">
-      <div class="card card--c1"><h5>Manobras de solo</h5><p>Realizadas no chão, sem usar obstáculos.</p></div>
-      <div class="card card--c2"><h5>Manobras de coping ou corrimão</h5><p>Feitas deslizando ou apoiando o skate na borda da rampa (coping) ou em corrimãos.</p></div>
-      <div class="card card--c3"><h5>Manobras de transição</h5><p>Executadas em rampas, bowls ou mini ramps, usando as curvas da pista.</p></div>
+      {% include card.html variant="c1" title="Manobras de solo" text="Realizadas no chão, sem usar obstáculos." %}
+      {% include card.html variant="c2" title="Manobras de coping ou corrimão" text="Feitas deslizando ou apoiando o skate na borda da rampa (coping) ou em corrimãos." %}
+      {% include card.html variant="c3" title="Manobras de transição" text="Executadas em rampas, bowls ou mini ramps, usando as curvas da pista." %}
     </div>
   </div>
 </section>
 
 <!-- ===================== 12 BASICAS ===================== -->
-<section class="band band--roxo" id="basicas">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">12 — Primeiros truques</p>
-    <h2>Manobras básicas e intermediárias</h2>
-  </div>
-</section>
+{% include band.html color="roxo" id="basicas" eyebrow="12 — Primeiros truques" title="Manobras básicas e intermediárias" %}
 <section class="content">
   <div class="wrap">
     <div class="cards">
-      <div class="card card--c1"><h5>Ollie</h5><p>Salto básico do skate, sem usar as mãos, que levanta o skate do chão.</p></div>
-      <div class="card card--c2"><h5>Shove-it (Shov-it)</h5><p>Manobra em que o skate gira 180° no chão, sem o corpo girar junto.</p></div>
-      <div class="card card--c3"><h5>Varial</h5><p>Combinação de shove-it com flip (o skate gira e vira ao mesmo tempo).</p></div>
-      <div class="card card--roxo"><h5>Flip (Kickflip)</h5><p>O skate gira no ar, dando uma volta completa, enquanto o skatista salta.</p></div>
-      <div class="card card--c4"><h5>Heelflip</h5><p>Parecido com o kickflip, mas o giro é feito com o calcanhar.</p></div>
-      <div class="card card--c1"><h5>Kickflip</h5><p>Manobra em que o skate gira no ar usando o movimento da ponta do pé.</p></div>
+      {% include card.html variant="c1" title="Ollie" text="Salto básico do skate, sem usar as mãos, que levanta o skate do chão." %}
+      {% include card.html variant="c2" title="Shove-it (Shov-it)" text="Manobra em que o skate gira 180° no chão, sem o corpo girar junto." %}
+      {% include card.html variant="c3" title="Varial" text="Combinação de shove-it com flip (o skate gira e vira ao mesmo tempo)." %}
+      {% include card.html variant="roxo" title="Flip (Kickflip)" text="O skate gira no ar, dando uma volta completa, enquanto o skatista salta." %}
+      {% include card.html variant="c4" title="Heelflip" text="Parecido com o kickflip, mas o giro é feito com o calcanhar." %}
+      {% include card.html variant="c1" title="Kickflip" text="Manobra em que o skate gira no ar usando o movimento da ponta do pé." %}
     </div>
   </div>
 </section>
 
 <!-- ===================== 13 TRANSICAO ===================== -->
-<section class="band band--rosa" id="transicao">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">13 — Nível seguinte</p>
-    <h2>Manobras em transição e obstáculos</h2>
-  </div>
-</section>
+{% include band.html color="rosa" id="transicao" eyebrow="13 — Nível seguinte" title="Manobras em transição e obstáculos" %}
 <section class="content">
   <div class="wrap">
     <div class="cards">
-      <div class="card card--c1"><h5>Fifty-Fifty (50-50 / "Fiffy")</h5><p>Grind em que os dois trucks deslizam juntos no obstáculo.</p></div>
-      <div class="card card--c2"><h5>To Fakie</h5><p>Subir a rampa e descer de costas, sem girar o corpo.</p></div>
-      <div class="card card--c3"><h5>Rock and Roll</h5><p>Subir a rampa, apoiar o shape no coping e girar 180° para descer.</p></div>
-      <div class="card card--roxo"><h5>Grind</h5><p>Manobra em que os trucks deslizam sobre bordas ou corrimãos.</p></div>
-      <div class="card card--c4"><h5>Boardslide</h5><p>Quando o meio do shape desliza sobre o obstáculo.</p></div>
-      <div class="card card--c1"><h5>Smith Grind</h5><p>Grind em que o truck traseiro desliza enquanto o dianteiro fica inclinado para dentro.</p></div>
+      {% include card.html variant="c1" title='Fifty-Fifty (50-50 / "Fiffy")' text="Grind em que os dois trucks deslizam juntos no obstáculo." %}
+      {% include card.html variant="c2" title="To Fakie" text="Subir a rampa e descer de costas, sem girar o corpo." %}
+      {% include card.html variant="c3" title="Rock and Roll" text="Subir a rampa, apoiar o shape no coping e girar 180° para descer." %}
+      {% include card.html variant="roxo" title="Grind" text="Manobra em que os trucks deslizam sobre bordas ou corrimãos." %}
+      {% include card.html variant="c4" title="Boardslide" text="Quando o meio do shape desliza sobre o obstáculo." %}
+      {% include card.html variant="c1" title="Smith Grind" text="Grind em que o truck traseiro desliza enquanto o dianteiro fica inclinado para dentro." %}
     </div>
   </div>
 </section>
 
 <!-- ===================== 14 VALORES ===================== -->
-<section class="band band--ciano" id="valores">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">14 — Junto e misturado</p>
-    <h2>Valores que o skate e patins ensinam</h2>
-  </div>
-</section>
+{% include band.html color="ciano" id="valores" eyebrow="14 — Junto e misturado" title="Valores que o skate e patins ensinam" %}
 <section class="content">
   <div class="wrap">
     <ul class="check" style="--check:var(--loop-ciano)">
@@ -825,18 +735,12 @@
       <li>Empatia</li>
       <li>Pertencimento</li>
     </ul>
-    <div class="shout">Aqui na Loop ninguém anda sozinho! Durante as aulas trabalhamos o respeito, a cooperação, a escuta e a diversidade. O esporte é coletivo: aprendemos juntos, caímos juntos e comemoramos juntos!</div>
+    {% include shout.html text="Aqui na Loop ninguém anda sozinho! Durante as aulas trabalhamos o respeito, a cooperação, a escuta e a diversidade. O esporte é coletivo: aprendemos juntos, caímos juntos e comemoramos juntos!" %}
   </div>
 </section>
 
 <!-- ===================== 15 DUVIDAS ===================== -->
-<section class="band band--roxo" id="duvidas">
-  <div class="loop-texture"></div>
-  <div class="wrap">
-    <p class="band__eyebrow">15 — FAQ</p>
-    <h2>Dúvidas que podem existir</h2>
-  </div>
-</section>
+{% include band.html color="roxo" id="duvidas" eyebrow="15 — FAQ" title="Dúvidas que podem existir" %}
 <section class="content">
   <div class="wrap">
     <div class="faq">
@@ -907,11 +811,7 @@
   </div>
 </section>
 
-<footer>
-  Loop Skate Park • 2026 — Manual dos alunos e responsáveis<br>
-  Rua Vila Rica, 1168, 2º andar — Caiçara, Belo Horizonte/MG •
-  <a href="https://loopskatepark.com.br" target="_blank" rel="noopener">loopskatepark.com.br</a>
-</footer>
+{% include footer.html subtitle="Manual dos alunos e responsáveis" %}
 
 </body>
 </html>
