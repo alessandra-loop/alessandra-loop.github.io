@@ -171,16 +171,21 @@
             color: var(--loop-ciano);
         }
 
-        .footer {
-            font-family: var(--font-body);
-            font-size: 1rem;
+        /* Rodapé compartilhado (mesmo do Manual) — barra preta de largura total.
+           Estende-se até as bordas anulando o padding de 20px do body. */
+        footer {
+            width: calc(100% + 40px);
+            margin: 20px -20px -20px;
+            background: var(--loop-preto);
+            color: #bbb;
             text-align: center;
-            margin-bottom: 15px;
-            color: var(--text-color);
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-            max-width: 600px;
+            padding: 26px 24px 40px;
+            font-size: 13px;
+            border-top: 1px solid #333;
+        }
+        footer a {
+            color: var(--loop-ciano);
+            text-decoration: none;
         }
 
         /* --- LINKS (Botões) --- */
@@ -253,7 +258,6 @@
         <a href="https://maps.app.goo.gl/9dMjEnTh9Q5uPGTj8" class="link-btn" target="_blank">Como chegar</a>
     </div>
 
-    <p class="footer">Rua Vila Rica, 1168, segundo andar</p>
-    <p class="footer">Caiçara, Monsenhor Messias, Padre Eustáquio</p>
+    {% include footer.html subtitle="Escola de skate e patins" %}
 </body>
 </html>
