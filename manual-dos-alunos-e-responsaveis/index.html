@@ -65,40 +65,18 @@
 
   /* ---------- HERO ---------- */
   .hero{
-    background:var(--loop-preto);
+    background:var(--loop-roxo);
     color:var(--loop-branco);
     text-align:center;
     padding:70px 24px 64px;
   }
-  .hero .loop-texture span{color:rgba(255,255,255,.045);}
+  .hero .loop-texture span{color:rgba(255,255,255,.07);}
   .hero__logo{
-    width:190px;max-width:52vw;margin:0 auto 26px;
+    width:240px;max-width:66vw;margin:0 auto 26px;
   }
   .hero__logo svg{
     width:100%;height:auto;display:block;
-    filter:invert(1) drop-shadow(0 6px 18px rgba(0,0,0,.55));
-  }
-  .hero__wordmark{
-    font-family:var(--display);
-    font-size:clamp(56px,15vw,140px);
-    line-height:.86;
-    letter-spacing:.01em;
-    margin:0;
-    color:var(--loop-branco);
-    text-transform:lowercase;
-    -webkit-text-stroke:2px var(--loop-preto);
-    text-shadow:
-      5px 5px 0 var(--loop-ciano),
-      10px 10px 0 rgba(0,0,0,.35);
-  }
-  .hero__sub{
-    font-family:var(--head);
-    font-weight:500;
-    letter-spacing:.35em;
-    text-transform:uppercase;
-    font-size:clamp(11px,2.4vw,15px);
-    margin:6px 0 34px;
-    color:var(--loop-rosa);
+    filter:drop-shadow(0 6px 16px rgba(0,0,0,.30));
   }
   .hero__title{
     font-family:var(--display);
@@ -121,7 +99,7 @@
     letter-spacing:.28em;
     font-size:16px;
   }
-  .hero__eyes{margin:0 auto 8px;width:96px;}
+  .hero__eyes{margin:0 auto 22px;width:96px;}
 
   /* ---------- section index nav ---------- */
   .toc{
@@ -487,8 +465,6 @@
         <circle cx="144" cy="52" r="5" fill="#18d7df"/>
       </g>
     </svg>
-    <p class="hero__wordmark">loop</p>
-    <p class="hero__sub">Skate Park</p>
     <h1 class="hero__title">Manual dos Alunos e Responsáveis</h1>
     <div class="hero__year">2026</div>
   </div>
