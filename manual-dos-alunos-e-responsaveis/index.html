@@ -57,6 +57,8 @@
     transform:rotate(45deg);
     opacity:.15;
   }
+  /* faixas curtas: tile menor para repetir mais e preencher toda a largura/altura */
+  .band .loop-texture::before{background-size:150px;}
   /* faixa preta: inverter para o skatista aparecer em branco */
   .band--preto .loop-texture::before{filter:invert(1);opacity:.12;}
 
