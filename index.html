@@ -210,8 +210,10 @@
             border-top: 1px solid #333;
         }
         footer a {
+            /* Sublinhado garante que o link seja distinguível do texto cinza
+               ao redor sem depender só da cor (contraste ciano×#bbb < 3:1). */
             color: var(--loop-ciano);
-            text-decoration: none;
+            text-decoration: underline;
         }
 
         /* --- LINKS (Botões) --- */
