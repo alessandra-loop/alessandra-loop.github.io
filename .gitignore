@@ -1,3 +1,7 @@
 _site/
 .jekyll-cache/
 .jekyll-metadata
+
+# Skill proprietária de docx da Anthropic — instalada localmente para gerar o
+# manual, mas NÃO pode ser redistribuída (repo público). Nunca versionar.
+.claude/skills/docx/
