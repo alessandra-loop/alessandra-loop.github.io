@@ -364,7 +364,7 @@ function proseAccent(ctx, paras) {
     x: (PW - 1.7) / 2, y: 8.3, w: 1.7, h: 0.6, fontFace: F.head, fontSize: 20, bold: true,
     color: C.preto, align: "center", valign: "middle", margin: 0, charSpacing: 6,
   });
-  s.addText("Escola de skate e patins • Belo Horizonte / MG", {
+  s.addText("Escola de skate • Belo Horizonte / MG", {
     x: M, y: 9.2, w: CW, h: 0.4, fontFace: F.head, fontSize: 12, color: C.branco,
     align: "center", valign: "middle", margin: 0, charSpacing: 2,
   });
@@ -538,7 +538,7 @@ function proseAccent(ctx, paras) {
 (function () {
   const ctx = page("preto", "07 — Cuidado", "Segurança em primeiro lugar");
   lead(ctx, "Cair faz parte. Aprender a cair com segurança também.");
-  para(ctx, "Ensinar segurança no skate e patins é ensinar responsabilidade, percepção de risco e cuidado consigo e com o outro.");
+  para(ctx, "Ensinar segurança no skate é ensinar responsabilidade, percepção de risco e cuidado consigo e com o outro.");
   miniH(ctx, "Para isso, é importante:");
   checklist(ctx, [
     "Respeitar os próprios limites",
@@ -632,7 +632,7 @@ function proseAccent(ctx, paras) {
 
 // ---------- 14 VALORES ----------
 (function () {
-  const ctx = page("ciano", "14 — Junto e misturado", "Valores que o skate e patins ensinam");
+  const ctx = page("ciano", "14 — Junto e misturado", "Valores que o skate ensina");
   checklist(ctx, ["Respeito", "Cooperação", "Empatia", "Pertencimento"], C.ciano);
   shout(ctx, "Aqui na Loop ninguém anda sozinho! Durante as aulas trabalhamos o respeito, a cooperação, a escuta e a diversidade. O esporte é coletivo: aprendemos juntos, caímos juntos e comemoramos juntos!");
   endPage(ctx);
@@ -670,7 +670,7 @@ function proseAccent(ctx, paras) {
     x: M, y: 1.6, w: CW, h: 1.0, fontFace: F.disp, fontSize: 44, color: C.branco,
     align: "center", valign: "top", margin: 0,
   });
-  s.addText("Skate e patins não são apenas sobre manobras. É sobre experimentar, persistir, cair, levantar e aprender.", {
+  s.addText("O skate não é apenas sobre manobras. É sobre experimentar, persistir, cair, levantar e aprender.", {
     x: 1.1, y: 3.1, w: PW - 2.2, h: 1.2, fontFace: F.body, fontSize: 16, color: C.branco,
     align: "center", valign: "top", margin: 0, lineSpacing: 16 * 1.5,
   });
