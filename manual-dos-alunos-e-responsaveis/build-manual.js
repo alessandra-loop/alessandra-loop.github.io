@@ -364,7 +364,7 @@ function proseAccent(ctx, paras) {
     x: (PW - 1.7) / 2, y: 8.3, w: 1.7, h: 0.6, fontFace: F.head, fontSize: 20, bold: true,
     color: C.preto, align: "center", valign: "middle", margin: 0, charSpacing: 6,
   });
-  s.addText("Escola de skate • Belo Horizonte / MG", {
+  s.addText("Escola de skate e patins • Belo Horizonte / MG", {
     x: M, y: 9.2, w: CW, h: 0.4, fontFace: F.head, fontSize: 12, color: C.branco,
     align: "center", valign: "middle", margin: 0, charSpacing: 2,
   });
