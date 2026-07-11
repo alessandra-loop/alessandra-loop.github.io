@@ -10,333 +10,21 @@ sitemap: false
 <title>Manual dos Alunos e Responsáveis | Loop Skate Park</title>
 <meta name="description" content="Manual dos alunos e responsáveis da Loop Skate Park — metodologia, valores, equipamentos, segurança e cultura do skate. 2026.">
 <link rel="icon" type="image/png" href="/favicon.png" sizes="any">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Barlow:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+
+<!-- Fontes da marca self-hosted: pré-carrega as de exibição acima da dobra.
+     As declarações @font-face vêm de _includes/brand-tokens.html
+     (incluído por base-style.html). -->
+<link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% include base-style.html %}
+
 <style>
-  :root{
-    --loop-preto:#000000;
-    --loop-branco:#ffffff;
-    --loop-ciano:#18d7df;
-    --loop-roxo:#935bbc;
-    --loop-rosa:#ffb3d1;
-    --loop-amarelo:#f6c707;
-    --loop-bege:#e8d4bf;
-    --ink:#111111;
-    --display:"Anton","Oswald","Bebas Neue","Arial Narrow",Impact,sans-serif;
-    --head:"Oswald","Bebas Neue","Arial Narrow",Impact,sans-serif;
-    --body:"Barlow","Segoe UI",Arial,sans-serif;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    font-family:var(--body);
-    color:var(--ink);
-    background:var(--loop-branco);
-    font-size:17px;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-  }
-  img{max-width:100%;display:block;}
-
-  /* ---------- skater background texture (marca d'água) ---------- */
-  .loop-texture{
-    position:absolute;inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:0;
-  }
-  .loop-texture::before{
-    content:"";
-    position:absolute;
-    top:50%;left:50%;
-    /* quadrado grande (independente da proporção da seção) para cobrir
-       toda a faixa mesmo após a rotação de 45° */
-    width:200vmax;height:200vmax;
-    background-image:url("{{ '/assets/skater-bg.svg' | relative_url }}");
-    background-repeat:repeat;
-    background-size:300px;
-    transform:translate(-50%,-50%) rotate(45deg);
-    opacity:.15;
-  }
-  /* faixas curtas: tile menor para repetir mais e preencher toda a largura/altura */
-  .band .loop-texture::before{background-size:150px;}
-  /* faixa preta: inverter para o skatista aparecer em branco */
-  .band--preto .loop-texture::before{filter:invert(1);opacity:.12;}
-
-  /* ---------- eyes symbol ---------- */
-  .eyes{display:inline-block;vertical-align:middle;}
-
-  /* ---------- layout ---------- */
-  .wrap{max-width:1000px;margin:0 auto;padding:0 24px;position:relative;z-index:1;}
-  section{position:relative;overflow:hidden;}
-
-  /* ---------- HERO ---------- */
-  .hero{
-    background:var(--loop-roxo);
-    color:var(--loop-branco);
-    text-align:center;
-    padding:70px 24px 64px;
-  }
-  .hero__logo{
-    width:240px;max-width:66vw;margin:0 auto 26px;
-  }
-  .hero__logo svg{
-    width:100%;height:auto;display:block;
-    filter:drop-shadow(0 6px 16px rgba(0,0,0,.30));
-  }
-  .hero__title{
-    font-family:var(--display);
-    text-transform:uppercase;
-    font-size:clamp(30px,7vw,64px);
-    line-height:.94;
-    margin:0 auto;
-    max-width:14ch;
-    color:var(--loop-branco);
-  }
-  .hero__year{
-    display:inline-block;
-    margin-top:22px;
-    font-family:var(--head);
-    font-weight:700;
-    background:var(--loop-amarelo);
-    color:var(--loop-preto);
-    padding:6px 20px;
-    border-radius:40px;
-    letter-spacing:.28em;
-    font-size:16px;
-  }
-  .hero__eyes{margin:0 auto 22px;width:96px;}
-
-  /* ---------- section index nav ---------- */
-  .toc{
-    background:var(--loop-bege);
-    padding:44px 0 48px;
-    border-bottom:6px solid var(--loop-preto);
-  }
-  .toc h2{
-    font-family:var(--display);
-    text-transform:uppercase;
-    font-size:clamp(24px,5vw,36px);
-    margin:0 0 22px;
-    color:var(--loop-preto);
-  }
-  .toc__grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-    gap:10px;
-  }
-  .toc__grid a{
-    display:flex;align-items:center;gap:10px;
-    text-decoration:none;
-    color:var(--loop-preto);
-    background:var(--loop-branco);
-    border:2px solid var(--loop-preto);
-    border-radius:10px;
-    padding:11px 14px;
-    font-family:var(--head);
-    font-weight:600;
-    text-transform:uppercase;
-    letter-spacing:.02em;
-    font-size:14px;
-    line-height:1.15;
-    transition:transform .12s ease,background .12s ease,color .12s ease;
-  }
-  .toc__grid a .num{
-    font-family:var(--display);
-    background:var(--loop-preto);
-    color:var(--loop-branco);
-    min-width:30px;height:30px;
-    display:grid;place-items:center;
-    border-radius:7px;
-    font-size:15px;
-    flex-shrink:0;
-  }
-  .toc__grid a:hover{transform:translate(-2px,-2px);}
-  .toc__grid a:nth-child(4n+1):hover{background:var(--loop-ciano);}
-  .toc__grid a:nth-child(4n+2):hover{background:var(--loop-rosa);}
-  .toc__grid a:nth-child(4n+3):hover{background:var(--loop-roxo);color:var(--loop-branco);}
-  .toc__grid a:nth-child(4n+3):hover .num{background:var(--loop-branco);color:var(--loop-preto);}
-  .toc__grid a:nth-child(4n+4):hover{background:var(--loop-amarelo);}
-
-  /* ---------- section cover bands ---------- */
-  .band{
-    padding:52px 0 46px;
-    position:relative;
-  }
-  .band .wrap{position:relative;z-index:2;}
-  .band__eyebrow{
-    display:inline-flex;align-items:center;gap:10px;
-    font-family:var(--head);
-    text-transform:uppercase;
-    letter-spacing:.28em;
-    font-weight:600;
-    font-size:13px;
-    margin:0 0 8px;
-    opacity:.85;
-  }
-  .band h2{
-    font-family:var(--display);
-    text-transform:uppercase;
-    font-size:clamp(34px,7.5vw,74px);
-    line-height:.9;
-    margin:0;
-    color:var(--loop-branco);
-  }
-  .band--ciano{background:var(--loop-ciano);}
-  .band--ciano h2,.band--ciano .band__eyebrow{color:var(--loop-preto);}
-  .band--roxo{background:var(--loop-roxo);}
-  .band--roxo h2,.band--roxo .band__eyebrow{color:var(--loop-branco);}
-  .band--rosa{background:var(--loop-rosa);}
-  .band--rosa h2,.band--rosa .band__eyebrow{color:var(--loop-preto);}
-  .band--preto{background:var(--loop-preto);}
-  .band--preto h2,.band--preto .band__eyebrow{color:var(--loop-branco);}
-
-  /* ---------- content blocks ---------- */
-  .content{padding:44px 0 52px;}
-  .content p{margin:0 0 18px;max-width:70ch;}
-  .content p strong,.content li strong{font-weight:700;color:var(--loop-preto);}
-  .content em{font-style:italic;}
-
-  .lead{
-    font-size:clamp(19px,2.6vw,23px);
-    line-height:1.5;
-    font-weight:500;
-  }
-  .lead--accent{
-    border-left:8px solid var(--loop-amarelo);
-    padding-left:22px;
-    margin:6px 0 26px;
-  }
-
-  h3.sub{
-    font-family:var(--display);
-    text-transform:uppercase;
-    font-size:clamp(22px,4vw,34px);
-    line-height:1;
-    margin:38px 0 16px;
-    color:var(--loop-preto);
-    display:flex;align-items:center;gap:12px;
-  }
-  h3.sub::before{
-    content:"";
-    width:26px;height:26px;flex-shrink:0;
-    background:var(--tick,var(--loop-ciano));
-    border:3px solid var(--loop-preto);
-    border-radius:6px;
-    transform:rotate(45deg);
-  }
-  h4.mini{
-    font-family:var(--head);
-    text-transform:uppercase;
-    letter-spacing:.06em;
-    font-weight:700;
-    font-size:19px;
-    margin:26px 0 6px;
-    color:var(--loop-preto);
-  }
-
-  /* highlight callout */
-  .shout{
-    background:var(--loop-preto);
-    color:var(--loop-branco);
-    font-family:var(--display);
-    text-transform:uppercase;
-    font-size:clamp(20px,3.4vw,30px);
-    line-height:1.05;
-    padding:28px 30px;
-    border-radius:16px;
-    margin:30px 0;
-    position:relative;
-  }
-  .shout::after{
-    content:"";
-    position:absolute;right:22px;bottom:-14px;
-    width:0;height:0;
-    border-left:20px solid transparent;
-    border-right:0 solid transparent;
-    border-top:20px solid var(--loop-preto);
-  }
-
-  .note{
-    background:var(--loop-amarelo);
-    border:3px solid var(--loop-preto);
-    border-radius:14px;
-    padding:20px 24px;
-    margin:26px 0;
-    font-weight:500;
-  }
-  .note strong{display:block;font-family:var(--head);text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px;}
-
-  /* check lists */
-  ul.check{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px;}
-  ul.check li{
-    position:relative;
-    padding:12px 16px 12px 50px;
-    background:var(--loop-branco);
-    border:2px solid var(--loop-preto);
-    border-radius:12px;
-    font-weight:500;
-  }
-  ul.check li::before{
-    content:"";
-    position:absolute;left:15px;top:50%;transform:translateY(-50%) rotate(45deg);
-    width:11px;height:19px;
-    border:solid var(--check,var(--loop-ciano));
-    border-width:0 5px 5px 0;
-  }
-
-  /* simple bordered list (steps) */
-  ol.steps{list-style:none;counter-reset:s;padding:0;margin:22px 0;display:grid;gap:12px;}
-  ol.steps li{
-    counter-increment:s;
-    position:relative;
-    padding:14px 18px 14px 62px;
-    background:var(--loop-bege);
-    border-radius:12px;
-    font-weight:500;
-  }
-  ol.steps li::before{
-    content:counter(s);
-    position:absolute;left:12px;top:50%;transform:translateY(-50%);
-    width:38px;height:38px;
-    background:var(--loop-preto);color:var(--loop-branco);
-    font-family:var(--display);
-    display:grid;place-items:center;border-radius:9px;font-size:18px;
-  }
-
-  /* card grids (equipment / tricks) */
-  .cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
-    gap:16px;margin:24px 0;
-  }
-  .card{
-    border:3px solid var(--loop-preto);
-    border-radius:16px;
-    padding:18px 20px;
-    background:var(--loop-branco);
-    transition:transform .12s ease;
-  }
-  .card:hover{transform:translate(-3px,-3px);}
-  .card h5{
-    font-family:var(--head);
-    text-transform:uppercase;
-    letter-spacing:.02em;
-    font-weight:700;
-    font-size:18px;
-    margin:0 0 6px;
-    color:var(--loop-preto);
-  }
-  .card p{margin:0;font-size:15.5px;line-height:1.5;}
-  .card--c1{background:var(--loop-ciano);}
-  .card--c2{background:var(--loop-rosa);}
-  .card--c3{background:var(--loop-amarelo);}
-  .card--c4{background:var(--loop-bege);}
-  .card--roxo{background:var(--loop-roxo);color:var(--loop-branco);}
-  .card--roxo h5{color:var(--loop-branco);}
+  /* =====================================================================
+     Estilos EXCLUSIVOS do manual — o restante vem de _includes/base-style.html
+     (design system compartilhado com sobre/ e mural). Aqui ficam só os blocos
+     que não existem no base-style: FAQ, história (prose-accent), modalidades
+     (defs) e a lista de fontes acadêmicas.
+     ===================================================================== */
 
   /* FAQ */
   .faq{display:grid;gap:14px;margin:24px 0;}
@@ -369,7 +57,7 @@ sitemap: false
   .faq .a{padding:16px 20px 20px;}
   .faq .a p{margin:0;}
 
-  /* history / modalidade prose block with side accent */
+  /* história / modalidade prose block with side accent */
   .prose-accent{
     background:var(--loop-bege);
     border-radius:16px;
@@ -396,25 +84,6 @@ sitemap: false
     .def dt{white-space:normal;}
   }
 
-  /* final message */
-  .final{
-    background:var(--loop-roxo);
-    color:var(--loop-branco);
-    text-align:center;
-    padding:70px 24px 76px;
-  }
-  .final__eyes{width:88px;margin:0 auto 18px;}
-  .final h2{
-    font-family:var(--display);text-transform:uppercase;
-    font-size:clamp(30px,7vw,60px);line-height:.92;margin:0 0 20px;
-  }
-  .final p{max-width:60ch;margin:0 auto 14px;font-size:19px;line-height:1.55;}
-  .final__mark{
-    margin:34px auto 0;
-    width:280px;max-width:64vw;
-  }
-  .final__mark svg{width:100%;height:auto;display:block;}
-
   /* sources */
   .sources{background:var(--loop-preto);color:var(--loop-branco);padding:52px 0 60px;}
   .sources h2{
@@ -430,17 +99,6 @@ sitemap: false
   }
   .sources li strong{color:var(--loop-branco);}
   .sources a{color:var(--loop-ciano);word-break:break-word;}
-
-  /* footer: estilos comuns em _includes/footer-style.html (incluído no head) */
-
-  @media (prefers-reduced-motion:reduce){
-    *{transition:none!important;scroll-behavior:auto!important;}
-  }
-  @media(max-width:640px){
-    body{font-size:16px;}
-    .content{padding:32px 0 40px;}
-    .band{padding:38px 0 34px;}
-  }
 </style>
 
 {% include footer-style.html %}
