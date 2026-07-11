@@ -4,6 +4,9 @@ title: Loop Skate Park
 description: Escola de Skate e Patins em Belo Horizonte (BH). Pista coberta, instrutores qualificados e aula experimental gratuita.
 url: https://loopskatepark.com.br
 
+# Link direto para avaliação no Google (usado na chamada do rodapé).
+google_review_url: https://g.page/r/CbhYlb6KNcglEAE/review
+
 # Gera sitemap.xml automaticamente (plugin suportado pelo GitHub Pages).
 # Páginas com "sitemap: false" no front matter (ex.: o manual noindex) ficam de fora.
 plugins:

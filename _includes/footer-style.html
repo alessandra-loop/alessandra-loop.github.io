@@ -37,6 +37,26 @@
   }
   .footer-social svg{width:20px;height:20px;}
 
+  /* Chamada de avaliação no Google: bloco-link centralizado (estrelas + texto).
+     Não usa o ciano-sublinhado de "footer a" para não parecer link de navegação. */
+  .footer-review{
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+    text-decoration:none;margin-bottom:24px;
+    transition:transform .2s;
+  }
+  .footer-review:hover{transform:translateY(-2px);}
+  /* Estrelas em amarelo da marca; herdam a cor via fill=currentColor no SVG. */
+  .footer-review-estrelas{
+    display:inline-flex;gap:4px;color:var(--loop-amarelo);line-height:0;
+  }
+  .footer-review-estrelas svg{width:24px;height:24px;}
+  /* Texto legível sobre o preto (AA); realça um pouco no hover do bloco. */
+  .footer-review-texto{
+    color:var(--loop-branco);font-family:'Oswald',sans-serif;
+    letter-spacing:.02em;
+  }
+  .footer-review:hover .footer-review-texto{color:var(--loop-amarelo);}
+
   /* Navegação do rodapé: herda o estilo ciano-sublinhado de "footer a". */
   .footer-nav{
     display:flex;justify-content:center;gap:20px;flex-wrap:wrap;

@@ -1,0 +1,6 @@
+<!-- Ícone de estrela (para a chamada de avaliação no Google). fill=currentColor
+     herda a cor definida no CSS (amarelo da marca); aria-hidden pois o texto e o
+     aria-label do link já descrevem a ação. -->
+<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2l2.9 6.26 6.85.72-5.1 4.62 1.42 6.73L12 17.77 5.93 20.35l1.42-6.73-5.1-4.62 6.85-.72L12 2z"/>
+</svg>

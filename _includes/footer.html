@@ -8,6 +8,17 @@
     <a href="https://maps.app.goo.gl/9dMjEnTh9Q5uPGTj8" target="_blank" rel="noopener" aria-label="Como chegar">{% include icon-mapa.svg %}</a>
   </nav>
 
+  <!-- Chamada: convite para avaliar a Loop no Google (as 5 estrelas são a
+       brincadeira do "com 6 estrelas!" do texto) -->
+  <a class="footer-review" href="{{ site.google_review_url }}"
+     target="_blank" rel="noopener"
+     aria-label="Avalie a Loop no Google com 6 estrelas">
+    <span class="footer-review-estrelas" aria-hidden="true">
+      {% for i in (1..5) %}{% include icon-estrela.svg %}{% endfor %}
+    </span>
+    <span class="footer-review-texto">Curtiu a Loop? Avalia a gente no Google — com 6 estrelas!</span>
+  </a>
+
   <!-- Navegação entre as páginas do site -->
   <nav class="footer-nav" aria-label="Páginas">
     <a href="{{ '/' | relative_url }}">Início</a>
