@@ -59,8 +59,10 @@ defaults:
       layout: mural-post
       sitemap: false
 
-# Arquivos internos de documentação que não devem ser publicados no site nem
-# processados pelo Jekyll. O CLAUDE.md contém exemplos de sintaxe Liquid
-# (ex.: "{% include %}") que quebram o build do GitHub Pages se lidos.
+# Arquivos internos de documentação/ferramenta que não devem ser publicados no
+# site nem processados pelo Jekyll. O CLAUDE.md contém exemplos de sintaxe Liquid
+# (ex.: "{% include %}") que quebram o build do GitHub Pages se lidos; o script/
+# é só ajuda de desenvolvimento local (não faz parte do site).
 exclude:
   - CLAUDE.md
+  - script

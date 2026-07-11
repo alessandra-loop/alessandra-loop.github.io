@@ -12,9 +12,11 @@ Belo Horizonte / MG, Brazil (Caiçara neighborhood). It is a small, static
 All user-facing content is in **Brazilian Portuguese (`pt-BR`)**. Keep copy,
 comments, and UI text in Portuguese to match the existing style.
 
-There is **no build tooling, no `package.json`, no local dependency install**.
-GitHub Pages builds the Jekyll site automatically on push to `main`. What you
-commit is what ships.
+There is **no committed build tooling** (no `Gemfile`, no `package.json`).
+GitHub Pages builds the Jekyll site automatically on push to `main`, so what you
+commit is what ships. For local preview there is a helper — `script/render.sh` —
+that installs Jekyll on the fly and renders into `_site/` (see "Working in this
+repo"); it is a dev convenience only and installs nothing into the repo.
 
 ## Repository layout
 
@@ -33,6 +35,7 @@ assets/
 CNAME                                   # Custom domain: loopskatepark.com.br
 favicon.png   loop-logo.png             # Favicon & Open Graph image
 README.md     llms.txt                  # Link list & LLM-facing site summary
+script/render.sh                        # Local Jekyll install + build/serve helper
 .claude/skills/loop-skatepark-brand/    # Brand identity skill (colors, type, logo)
 ```
 
@@ -105,9 +108,13 @@ outside brand rules.
 
 - **Verify visually**: open the HTML in a browser (Chromium/Playwright is
   available) to check rendering. There is no test suite or linter.
-- Jekyll/Liquid tags won't render if you open the raw file without Jekyll, but
-  the layout/CSS will — good enough for most checks. For full fidelity you'd
-  need `jekyll serve`, which isn't set up here.
+- **Render with Jekyll** for full fidelity (Liquid `{% include %}`, collections,
+  the mural blog): run `script/render.sh` — it `gem install`s Jekyll + the
+  plugins from `_config.yml` and builds into `_site/`. Use `script/render.sh serve`
+  to preview at `http://localhost:4000` (or `script/render.sh serve <port>`).
+  Then point Playwright/Chromium at the served `_site` output. This is the only
+  reliable way to check the mural pages, since opening the raw files renders the
+  CSS but not the Liquid.
 - Keep changes minimal and match the surrounding code style: inline CSS, BR
   Portuguese comments, existing component patterns.
 - The manual page is `noindex` (`<meta name="robots" content="noindex">`); the
@@ -119,7 +126,9 @@ outside brand rules.
 
 - Production branch is `main`; pushing to it triggers the GitHub Pages build and
   deploys to `loopskatepark.com.br`.
-- Do development on the assigned feature branch, commit with clear messages, and
-  push there. **Do not open a pull request unless explicitly asked.**
+- **Commits in this project are always made directly on `main`.** Do not open
+  feature branches or pull requests unless the repo owner explicitly asks. Because
+  every push to `main` deploys live, verify the change locally first (see
+  `script/render.sh`), then commit and push.
 - Commit messages in this repo are typically in Portuguese — follow that
   convention.
