@@ -245,12 +245,14 @@ title: "Escola de Skate e Patins em BH - Belo Horizonte | Loop Skate Park"
         }
 
         .link-btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px; /* espaço entre o ícone e o texto */
             text-decoration: none;
             background-color: var(--primary-color);
             color: var(--btn-text);
             padding: 20px;
-            text-align: center;
             border-radius: 50px; /* Botão estilo pílula */
             font-family: var(--font-head); /* Oswald — rótulos condensados */
             font-weight: 700;
@@ -272,6 +274,15 @@ title: "Escola de Skate e Patins em BH - Belo Horizonte | Loop Skate Park"
         /* Efeito de brilho ao clicar */
         .link-btn:active {
             transform: translateY(0);
+        }
+
+        /* Ícone à esquerda do texto. Dimensão em em: escala junto com o
+           font-size do botão (inclusive no breakpoint mobile). currentColor
+           mantém o ícone preto no estado normal e no hover (fundo branco). */
+        .link-btn svg {
+            width: 1.3em;
+            height: 1.3em;
+            flex-shrink: 0;
         }
 
         @keyframes fadeIn {
@@ -365,9 +376,9 @@ title: "Escola de Skate e Patins em BH - Belo Horizonte | Loop Skate Park"
         <div class="links-container">
             <a href="https://wa.me/message/CMBM7VMSUT62E1" class="link-btn" target="_blank">Agende sua aula experimental gratuita!</a>
             <a href="{{ '/sobre/' | relative_url }}" class="link-btn">Conheça a Loop</a>
-            <a href="https://wa.me/5531982789675" class="link-btn" target="_blank">WhatsApp</a>
-            <a href="https://www.instagram.com/loopskatepark" class="link-btn" target="_blank">Instagram</a>
-            <a href="https://maps.app.goo.gl/9dMjEnTh9Q5uPGTj8" class="link-btn" target="_blank">Como chegar</a>
+            <a href="https://wa.me/5531982789675" class="link-btn" target="_blank">{% include icon-whatsapp.svg %}WhatsApp</a>
+            <a href="https://www.instagram.com/loopskatepark" class="link-btn" target="_blank">{% include icon-instagram.svg %}Instagram</a>
+            <a href="https://maps.app.goo.gl/9dMjEnTh9Q5uPGTj8" class="link-btn" target="_blank">{% include icon-mapa.svg %}Como chegar</a>
         </div>
     </main>
 
