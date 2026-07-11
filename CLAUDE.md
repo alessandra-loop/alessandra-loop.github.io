@@ -62,8 +62,13 @@ Passed parameters via `include.<name>`:
   (`c1`–`c4` / `roxo`), `title`, `text`.
 - `note.html` — callout box. Params: `title`, `text`, optional `bg`.
 - `shout.html` — bold black highlight banner. Param: `text`.
-- `footer.html` — shared site footer. Param: `subtitle` (e.g.
-  `subtitle="Escola de skate e patins"`).
+- `footer.html` — shared site footer (redes sociais + navegação + endereço).
+  Param: `subtitle` (e.g. `subtitle="Escola de skate e patins"`).
+- `footer-style.html` — `<style>` block with the footer's shared CSS. Include it
+  in each page's `<head>` so the footer rules aren't duplicated. (This is the one
+  exception to the "no shared stylesheet" rule — only the footer is centralized;
+  a page may still add a small `footer{…}` override for its own box model, as
+  `index.html` does for the full-width bar.)
 - `logo.svg` / `loop-logo.svg` — inline SVG logos included directly.
 
 ## Brand & design conventions

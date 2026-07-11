@@ -198,40 +198,13 @@ title: "Escola de Skate e Patins em BH - Belo Horizonte | Loop Skate Park"
             color: var(--loop-branco);
         }
 
-        /* Rodapé compartilhado (mesmo do Manual) — barra preta de largura total.
-           Estende-se até as bordas anulando o padding de 20px do body. */
+        /* Rodapé: estilos comuns vêm de _includes/footer-style.html.
+           Aqui só o específico desta página — barra de largura total que
+           anula o padding de 20px do body (o include não define width/margin,
+           então não há conflito de cascata). */
         footer {
-            position: relative;
             width: calc(100% + 40px);
             margin: 60px -20px -20px;
-            background: var(--loop-preto);
-            color: #bbb;
-            text-align: center;
-            padding: 64px 24px 40px;
-            font-size: 13px;
-            border-top: 1px solid #333;
-        }
-        /* padding-top maior: abre espaço p/ os olhinhos que saltam sobre o footer */
-        footer a {
-            /* Sublinhado garante que o link seja distinguível do texto cinza
-               ao redor sem depender só da cor (contraste ciano×#bbb < 3:1). */
-            color: var(--loop-ciano);
-            text-decoration: underline;
-        }
-        /* Olhinhos centralizados na borda superior, saltando 50% para fora */
-        .footer-olhinhos {
-            position: absolute;
-            left: 50%;
-            top: 0;
-            transform: translate(-50%, -50%);
-            width: clamp(90px, 22vw, 150px);
-            line-height: 0;
-            pointer-events: none;
-        }
-        .footer-olhinhos svg {
-            display: block;
-            width: 100%;
-            height: auto;
         }
 
         /* --- LINKS (Botões) --- */
@@ -297,6 +270,8 @@ title: "Escola de Skate e Patins em BH - Belo Horizonte | Loop Skate Park"
             .link-btn { font-size: 1rem; padding: 18px; }
         }
     </style>
+
+    {% include footer-style.html %}
 
     <!-- Dado estruturado (Schema.org) para busca local / Google Maps.
          Ajuda alunos em potencial a encontrarem a escola por endereço,

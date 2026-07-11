@@ -1,5 +1,19 @@
 <footer>
   <span class="footer-olhinhos" aria-hidden="true">{% include OLHINHOS.svg %}</span>
+
+  <!-- Redes sociais e contato (ícones; o aria-label descreve cada link) -->
+  <nav class="footer-social" aria-label="Redes sociais e contato">
+    <a href="https://www.instagram.com/loopskatepark" target="_blank" rel="noopener" aria-label="Instagram">{% include icon-instagram.svg %}</a>
+    <a href="https://wa.me/5531982789675" target="_blank" rel="noopener" aria-label="WhatsApp">{% include icon-whatsapp.svg %}</a>
+    <a href="https://maps.app.goo.gl/9dMjEnTh9Q5uPGTj8" target="_blank" rel="noopener" aria-label="Como chegar">{% include icon-mapa.svg %}</a>
+  </nav>
+
+  <!-- Navegação entre as páginas do site -->
+  <nav class="footer-nav" aria-label="Páginas">
+    <a href="{{ '/' | relative_url }}">Início</a>
+    <a href="{{ '/sobre/' | relative_url }}">Sobre a Loop</a>
+  </nav>
+
   Loop Skate Park • 2026 — {{ include.subtitle }}<br>
   Rua Vila Rica, 1168, 2º andar — Caiçara, Belo Horizonte/MG •
   <a href="https://loopskatepark.com.br" target="_blank" rel="noopener">loopskatepark.com.br</a>

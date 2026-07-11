@@ -1,0 +1,45 @@
+<style>
+  /* Estilos compartilhados do rodapé (usados por index, sobre e manual).
+     Regras visuais comuns ficam aqui; cada página só sobrescreve, se precisar,
+     a caixa (largura/margem) conforme o próprio layout. */
+  footer{
+    position:relative;
+    background:var(--loop-preto);color:#bbb;text-align:center;
+    padding:64px 24px 40px;font-size:13px;border-top:1px solid #333;
+  }
+  /* Sublinhado distingue o link do texto cinza ao redor sem depender só da
+     cor (contraste ciano×#bbb < 3:1). */
+  footer a{color:var(--loop-ciano);text-decoration:underline;}
+
+  /* Olhinhos centralizados na borda superior, saltando 50% para fora */
+  .footer-olhinhos{
+    position:absolute;left:50%;top:0;
+    transform:translate(-50%,-50%);
+    width:clamp(90px,22vw,150px);line-height:0;pointer-events:none;
+  }
+  .footer-olhinhos svg{display:block;width:100%;height:auto;}
+
+  /* Redes sociais: fileira de botões de ícone circulares (44px = alvo de toque
+     acessível). Ícone branco no preto (AA); no hover vira preto sobre rosa,
+     acompanhando o hover rosa/branco dos .link-btn. */
+  .footer-social{
+    display:flex;justify-content:center;gap:16px;margin-bottom:20px;
+  }
+  .footer-social a{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:44px;height:44px;border-radius:50%;
+    color:var(--loop-branco);text-decoration:none;border:1px solid #333;
+    transition:color .2s,background-color .2s,border-color .2s,transform .2s;
+  }
+  .footer-social a:hover{
+    color:var(--loop-preto);background:var(--loop-rosa);
+    border-color:var(--loop-rosa);transform:translateY(-2px);
+  }
+  .footer-social svg{width:20px;height:20px;}
+
+  /* Navegação do rodapé: herda o estilo ciano-sublinhado de "footer a". */
+  .footer-nav{
+    display:flex;justify-content:center;gap:20px;flex-wrap:wrap;
+    margin-bottom:24px;
+  }
+</style>

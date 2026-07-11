@@ -429,23 +429,7 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
   }
   .final__mark svg{width:100%;height:auto;display:block;}
 
-  /* footer */
-  footer{
-    position:relative;margin-top:0;
-    background:var(--loop-preto);color:#bbb;text-align:center;
-    padding:64px 24px 40px;font-size:13px;
-    border-top:1px solid #333;
-  }
-  /* Sublinhado distingue o link do texto cinza ao redor sem depender só da
-     cor (contraste ciano×#bbb < 3:1). */
-  footer a{color:var(--loop-ciano);text-decoration:underline;}
-  /* Olhinhos centralizados na borda superior, saltando 50% para fora */
-  .footer-olhinhos{
-    position:absolute;left:50%;top:0;
-    transform:translate(-50%,-50%);
-    width:clamp(90px,22vw,150px);line-height:0;pointer-events:none;
-  }
-  .footer-olhinhos svg{display:block;width:100%;height:auto;}
+  /* footer: estilos comuns em _includes/footer-style.html (incluído no head) */
 
   @media (prefers-reduced-motion:reduce){
     *{transition:none!important;scroll-behavior:auto!important;}
@@ -456,6 +440,8 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
     .band{padding:38px 0 34px;}
   }
 </style>
+
+{% include footer-style.html %}
 </head>
 <body>
 
