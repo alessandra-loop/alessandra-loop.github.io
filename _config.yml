@@ -9,6 +9,21 @@ url: https://loopskatepark.com.br
 plugins:
   - jekyll-sitemap
 
+# Coleções do Mural da Loop — cada seção é um mini-blog independente.
+#   picos   → Dicas de picos (pistas para andar em BH)
+#   inspira → Quem inspira o rolê (atleta do mês)
+#   cena    → O que está rolando na cena (campeonatos e eventos)
+collections:
+  picos:
+    output: true
+    permalink: /mural/picos/:name/
+  inspira:
+    output: true
+    permalink: /mural/inspira/:name/
+  cena:
+    output: true
+    permalink: /mural/cena/:name/
+
 # Mantém TODOS os arquivos da pasta do manual fora do sitemap.xml,
 # inclusive quaisquer páginas .html adicionadas no futuro. O jekyll-sitemap
 # respeita "sitemap: false"; arquivos estáticos (PDF/PPTX/JS) já não entram no
@@ -17,6 +32,31 @@ defaults:
   - scope:
       path: "manual-dos-alunos-e-responsaveis"
     values:
+      sitemap: false
+  # Mural ainda não lançado (sem link na home/rodapé): mantém tudo fora do
+  # sitemap e com layout padrão nas coleções. Ao lançar, remover estes escopos
+  # (e o <meta robots noindex> das páginas) para indexar o mural.
+  - scope:
+      path: "mural"
+    values:
+      sitemap: false
+  - scope:
+      path: ""
+      type: "picos"
+    values:
+      layout: mural-post
+      sitemap: false
+  - scope:
+      path: ""
+      type: "inspira"
+    values:
+      layout: mural-post
+      sitemap: false
+  - scope:
+      path: ""
+      type: "cena"
+    values:
+      layout: mural-post
       sitemap: false
 
 # Arquivos internos de documentação que não devem ser publicados no site nem

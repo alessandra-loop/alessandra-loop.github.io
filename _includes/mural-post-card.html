@@ -1,0 +1,21 @@
+{% comment %}
+  Cartão de um post na listagem de uma seção do mural.
+  Param: post (documento da coleção). Mostra capa (se houver), data,
+  título e resumo, tudo como um link para o post.
+{% endcomment %}
+<a class="post-card" href="{{ include.post.url | relative_url }}">
+  {% if include.post.capa %}
+  <span class="post-card__cover">
+    <img src="{{ include.post.capa | relative_url }}" alt="" loading="lazy">
+  </span>
+  {% endif %}
+  <span class="post-card__body">
+    <span class="post-card__meta">
+      <time datetime="{{ include.post.date | date_to_xmlschema }}">{{ include.post.date | date: '%d/%m/%Y' }}</time>
+      {% if include.post.local %}<span class="post-card__tag">{{ include.post.local }}</span>{% endif %}
+      {% if include.post.nivel %}<span class="post-card__tag">{{ include.post.nivel }}</span>{% endif %}
+    </span>
+    <span class="post-card__title">{{ include.post.title }}</span>
+    {% if include.post.resumo %}<span class="post-card__text">{{ include.post.resumo }}</span>{% endif %}
+  </span>
+</a>

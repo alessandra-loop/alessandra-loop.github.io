@@ -1,0 +1,139 @@
+---
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} | Mural da Loop</title>
+<meta name="description" content="{{ page.description | default: page.title }}">
+<!-- Mural ainda não lançado: sem indexação até ter conteúdo e link no site. -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<link rel="icon" type="image/png" href="/favicon.png" sizes="any">
+<link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
+{% include base-style.html %}
+{% include footer-style.html %}
+
+<style>
+  /* ---------- listagem de posts do mural ---------- */
+  .mural-intro{padding:40px 0 8px;}
+  .mural-intro p{max-width:64ch;margin:0;font-size:clamp(18px,2.4vw,21px);line-height:1.5;font-weight:500;}
+  .mural-back{
+    display:inline-flex;align-items:center;gap:8px;
+    margin:0 0 26px;
+    font-family:var(--head);font-weight:600;text-transform:uppercase;
+    letter-spacing:.06em;font-size:13px;
+    color:var(--loop-preto);text-decoration:none;
+  }
+  .mural-back:hover{color:var(--loop-roxo);}
+
+  /* faixa fina com a cor da seção (identidade), sem repetir o título do hero */
+  .section-strip{padding:15px 0;position:relative;}
+  .section-strip .band__eyebrow{margin:0;}
+  .section-strip--ciano{background:var(--loop-ciano);}
+  .section-strip--ciano .band__eyebrow{color:var(--loop-preto);}
+  .section-strip--rosa{background:var(--loop-rosa);}
+  .section-strip--rosa .band__eyebrow{color:var(--loop-preto);}
+  .section-strip--roxo{background:var(--loop-roxo);}
+  .section-strip--roxo .band__eyebrow{color:var(--loop-branco);}
+
+  .post-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+    gap:18px;
+    padding:16px 0 12px;
+  }
+  .post-card{
+    display:flex;flex-direction:column;
+    border:3px solid var(--loop-preto);
+    border-radius:16px;
+    background:var(--loop-branco);
+    overflow:hidden;
+    text-decoration:none;color:var(--ink);
+    transition:transform .12s ease,box-shadow .12s ease;
+  }
+  .post-card:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--loop-preto);}
+  .post-card__cover{display:block;line-height:0;border-bottom:3px solid var(--loop-preto);}
+  .post-card__cover img{width:100%;height:190px;object-fit:cover;}
+  .post-card__body{display:flex;flex-direction:column;gap:8px;padding:18px 20px 20px;}
+  .post-card__meta{
+    display:flex;flex-wrap:wrap;align-items:center;gap:8px;
+    font-family:var(--head);text-transform:uppercase;letter-spacing:.06em;
+    font-weight:600;font-size:12px;color:var(--loop-roxo);
+  }
+  .post-card__tag{
+    background:var(--loop-bege);color:var(--loop-preto);
+    border-radius:20px;padding:2px 10px;letter-spacing:.04em;
+  }
+  .post-card__title{
+    font-family:var(--display);text-transform:uppercase;
+    font-size:clamp(21px,3vw,26px);line-height:1;color:var(--loop-preto);
+  }
+  .post-card__text{font-size:15.5px;line-height:1.5;color:var(--ink);}
+
+  /* estado vazio */
+  .mural-empty{
+    margin:20px 0 8px;
+    border:3px dashed var(--loop-preto);
+    border-radius:16px;
+    padding:40px 28px;
+    text-align:center;
+    background:var(--loop-bege);
+  }
+  .mural-empty h2{
+    font-family:var(--display);text-transform:uppercase;
+    font-size:clamp(26px,5vw,40px);line-height:.95;margin:0 0 8px;color:var(--loop-preto);
+  }
+  .mural-empty p{margin:0 auto;max-width:46ch;font-weight:500;}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="loop-texture"></div>
+  <div class="wrap">
+    <div class="hero__logo">
+      <a href="{{ '/' | relative_url }}" aria-label="Loop Skate Park — página inicial">
+        {% include logo.svg %}
+      </a>
+    </div>
+    <h1 class="hero__title">{{ page.title }}</h1>
+  </div>
+</section>
+
+<!-- ===================== FAIXA DA SEÇÃO (cor de identidade) ===================== -->
+<div class="section-strip section-strip--{{ page.band_color }}">
+  <div class="wrap"><span class="band__eyebrow">{{ page.section_eyebrow }}</span></div>
+</div>
+
+<!-- ===================== LISTA DE POSTS ===================== -->
+<section class="content">
+  <div class="wrap">
+    <a class="mural-back" href="{{ '/mural/' | relative_url }}">← Voltar ao mural</a>
+    {% if page.intro %}<div class="mural-intro"><p>{{ page.intro }}</p></div>{% endif %}
+
+    {% assign posts = site[page.section_collection] | sort: 'date' | reverse %}
+    {% if posts.size > 0 %}
+    <div class="post-list">
+      {% for post in posts %}
+        {% include mural-post-card.html post=post %}
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="mural-empty">
+      <h2>Em breve</h2>
+      <p>Ainda estamos preparando o conteúdo desta seção. Fica de olho — logo tem novidade por aqui!</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% include footer.html subtitle="Mural" %}
+
+</body>
+</html>

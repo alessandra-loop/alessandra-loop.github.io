@@ -1,0 +1,113 @@
+---
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }} | Mural da Loop</title>
+<meta name="description" content="{{ page.resumo | default: page.title }}">
+<!-- Mural ainda não lançado: sem indexação até ter conteúdo e link no site. -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<link rel="icon" type="image/png" href="/favicon.png" sizes="any">
+<link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+
+{% include base-style.html %}
+{% include footer-style.html %}
+
+<style>
+  /* ---------- corpo do artigo (post do mural) ---------- */
+  .post-meta{
+    display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;
+    margin-top:18px;
+    font-family:var(--head);text-transform:uppercase;letter-spacing:.1em;
+    font-weight:600;font-size:13px;color:var(--loop-branco);
+  }
+  .post-meta .post-meta__tag{
+    background:var(--loop-amarelo);color:var(--loop-preto);
+    border-radius:20px;padding:4px 14px;letter-spacing:.04em;
+  }
+
+  .post-body{max-width:70ch;}
+  .post-body > *:first-child{margin-top:0;}
+  .post-body p{margin:0 0 18px;}
+  .post-body strong{font-weight:700;color:var(--loop-preto);}
+  .post-body em{font-style:italic;}
+  .post-body a{color:var(--loop-roxo);text-decoration:underline;text-underline-offset:2px;}
+  .post-body h2{
+    font-family:var(--display);text-transform:uppercase;
+    font-size:clamp(24px,4.4vw,36px);line-height:1;
+    margin:38px 0 14px;color:var(--loop-preto);
+    display:flex;align-items:center;gap:12px;
+  }
+  .post-body h2::before{
+    content:"";width:24px;height:24px;flex-shrink:0;
+    background:var(--loop-ciano);border:3px solid var(--loop-preto);
+    border-radius:6px;transform:rotate(45deg);
+  }
+  .post-body h3{
+    font-family:var(--head);text-transform:uppercase;letter-spacing:.06em;
+    font-weight:700;font-size:20px;margin:26px 0 6px;color:var(--loop-preto);
+  }
+  .post-body ul,.post-body ol{margin:16px 0 22px;padding-left:24px;}
+  .post-body li{margin:0 0 8px;}
+  .post-body img{
+    border:3px solid var(--loop-preto);border-radius:16px;margin:24px 0;
+  }
+  .post-body blockquote{
+    margin:24px 0;padding:16px 22px;
+    border-left:8px solid var(--loop-amarelo);background:var(--loop-bege);
+    border-radius:0 12px 12px 0;font-weight:500;
+  }
+  .post-body blockquote p:last-child{margin:0;}
+  .post-body hr{border:0;border-top:3px solid var(--loop-preto);margin:34px 0;opacity:.15;}
+
+  .post-cover{margin:0 0 6px;}
+  .post-cover img{
+    width:100%;height:clamp(220px,42vw,420px);object-fit:cover;
+    border:3px solid var(--loop-preto);border-radius:16px;
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="loop-texture"></div>
+  <div class="wrap">
+    <div class="hero__logo">
+      <a href="{{ '/' | relative_url }}" aria-label="Loop Skate Park — página inicial">
+        {% include logo.svg %}
+      </a>
+    </div>
+    <h1 class="hero__title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d/%m/%Y' }}</time>
+      {% if page.local %}<span class="post-meta__tag">{{ page.local }}</span>{% endif %}
+      {% if page.nivel %}<span class="post-meta__tag">{{ page.nivel }}</span>{% endif %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTEÚDO ===================== -->
+<section class="content">
+  <div class="wrap">
+    {% if page.voltar_url %}{% assign voltar = page.voltar_url %}{% else %}{% assign voltar = '/mural/' | append: page.collection | append: '/' %}{% endif %}
+    <a class="mural-back" href="{{ voltar | relative_url }}"
+       style="display:inline-flex;align-items:center;gap:8px;margin:0 0 26px;font-family:var(--head);font-weight:600;text-transform:uppercase;letter-spacing:.06em;font-size:13px;color:var(--loop-preto);text-decoration:none;">← Voltar</a>
+    {% if page.capa %}
+    <figure class="post-cover"><img src="{{ page.capa | relative_url }}" alt="{{ page.title }}"></figure>
+    {% endif %}
+    <article class="post-body">
+      {{ content }}
+    </article>
+  </div>
+</section>
+
+{% include footer.html subtitle="Mural" %}
+
+</body>
+</html>
