@@ -46,52 +46,13 @@ title: "Escola de Skate e Patins em BH - Belo Horizonte | Loop Skate Park"
     <link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
 
+    <!-- Fontes da marca + paleta --loop-* vêm do include compartilhado
+         (mesmo ponto de verdade usado por base-style.html). -->
+    {% include brand-tokens.html %}
+
     <style>
 
-        /* Latin subset comum a todas as fontes da marca (cobre acentos PT-BR). */
-        @font-face {
-            font-family: 'Anton';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url("{{ '/assets/fonts/anton-latin.woff2' | relative_url }}") format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        @font-face {
-            font-family: 'Oswald';
-            font-style: normal;
-            font-weight: 400 700;
-            font-display: swap;
-            src: url("{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}") format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        @font-face {
-            font-family: 'Barlow';
-            font-style: normal;
-            font-weight: 400;
-            font-display: swap;
-            src: url("{{ '/assets/fonts/barlow-latin-400.woff2' | relative_url }}") format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        @font-face {
-            font-family: 'Barlow';
-            font-style: normal;
-            font-weight: 700;
-            font-display: swap;
-            src: url("{{ '/assets/fonts/barlow-latin-700.woff2' | relative_url }}") format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-
         :root {
-            /* Paleta oficial da marca Loop Skatepark */
-            --loop-preto:   #000000;
-            --loop-branco:  #ffffff;
-            --loop-ciano:   #18d7df;
-            --loop-roxo:    #935bbc;
-            --loop-rosa:    #ffb3d1;
-            --loop-amarelo: #f6c707;
-            --loop-bege:    #e8d4bf;
-
             /* Tipografia da marca */
             --font-display: 'Anton', 'Oswald', 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
             --font-head:    'Oswald', 'Bebas Neue', 'Arial Narrow', Impact, sans-serif;
@@ -227,27 +188,27 @@ title: "Escola de Skate e Patins em BH - Belo Horizonte | Loop Skate Park"
             color: var(--btn-text);
             padding: 20px;
             text-align: center; /* centraliza texto de múltiplas linhas no item flex */
+            border: 3px solid var(--loop-preto); /* borda das páginas secundárias */
             border-radius: 50px; /* Botão estilo pílula */
             font-family: var(--font-head); /* Oswald — rótulos condensados */
             font-weight: 700;
             font-size: 1.15rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+            transition: transform 0.12s ease;
             position: relative;
             overflow: hidden;
         }
 
+        /* Hover igual ao das páginas secundárias (.cta-btn): "empurrãozinho"
+           na diagonal, sem sombra e sem trocar o fundo. */
         .link-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
-            background-color: #ffffff; /* Fica branco ao passar o mouse */
+            transform: translate(-2px, -2px);
         }
 
-        /* Efeito de brilho ao clicar */
+        /* Efeito ao clicar: volta ao lugar */
         .link-btn:active {
-            transform: translateY(0);
+            transform: translate(0, 0);
         }
 
         /* Ícone à esquerda do texto. Dimensão em em: escala junto com o
