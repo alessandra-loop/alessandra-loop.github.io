@@ -9,6 +9,16 @@ url: https://loopskatepark.com.br
 plugins:
   - jekyll-sitemap
 
+# Mantém TODOS os arquivos da pasta do manual fora do sitemap.xml,
+# inclusive quaisquer páginas .html adicionadas no futuro. O jekyll-sitemap
+# respeita "sitemap: false"; arquivos estáticos (PDF/PPTX/JS) já não entram no
+# sitemap por padrão.
+defaults:
+  - scope:
+      path: "manual-dos-alunos-e-responsaveis"
+    values:
+      sitemap: false
+
 # Arquivos internos de documentação que não devem ser publicados no site nem
 # processados pelo Jekyll. O CLAUDE.md contém exemplos de sintaxe Liquid
 # (ex.: "{% include %}") que quebram o build do GitHub Pages se lidos.
