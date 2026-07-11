@@ -1,50 +1,53 @@
 ---
 title: "Pico da Nova Zoo"
 date: 2026-07-11
-resumo: "A praça revitalizada perto da nova entrada da Zoo virou point do rolê na região da Pampulha. Chão liso, obstáculos de concreto e clima família."
-local: "Pampulha · BH"
+resumo: "O bowl de concreto da Nova Zoo, no Parque Ismael de Oliveira Fábregas (Nova Floresta), é um dos melhores de BH. Reformada e rebatizada de New Zoo Lane, abre 24h e recebe todos os níveis."
+local: "Nova Floresta · BH"
 nivel: "Iniciante ao avançado"
-capa: /assets/mural/pico-nova-zoo-exemplo.svg
+capa: /assets/mural/pico-nova-zoo.jpg
 ---
 
-Um dos picos que mais cresceu na cena de Belo Horizonte nos últimos tempos é a
-praça revitalizada perto da **nova entrada da Zoo**, na região da Pampulha. Depois
-da reforma, o espaço ganhou chão liso, mobiliário urbano de concreto e virou ponto
-de encontro da galera do skate e do patins — de quem está começando a quem já manda
-manobra pesada.
+A **Nova Zoo** — hoje também conhecida como **New Zoo Lane** — é uma das pistas
+mais queridas de Belo Horizonte. Fica dentro do **Parque Ismael de Oliveira
+Fábregas**, no bairro **Nova Floresta**, e depois de uma reforma ganhou vida
+nova: virou ponto de encontro da galera do skate, de quem está começando a quem
+já manda manobra pesada.
 
 ## Onde fica
 
-Na região da **Pampulha**, coladinho na área da nova entrada do zoológico. Dá pra
-chegar fácil de ônibus ou carro, e tem bastante sombra e espaço pra deixar as
-coisas enquanto anda.
+No **Parque Ismael de Oliveira Fábregas**, na **Rua José Geraldo Bessa**, esquina
+com a **Rua Salgueiro** — bairro **Nova Floresta**, região Nordeste de BH. A pista
+fica logo ao lado da quadra poliesportiva do parque.
 
-![Vista da praça revitalizada perto da nova entrada da Zoo](/assets/mural/pico-nova-zoo-exemplo.svg)
+[Como chegar (Google Maps)](https://www.google.com/maps/search/?api=1&query=Pista+de+Skate+Nova+Zoo+Belo+Horizonte)
 
 ## O que tem no pico
 
-- **Piso liso e amplo** — ótimo pra treinar base, equilíbrio e primeiras manobras.
-- **Bordas e bancos de concreto** — perfeitos pra grinds e slides.
-- **Escadaria com corrimão** — pra quem já quer arriscar gaps e handrails.
-- **Espaço aberto** — dá pra montar mini circuitos e treinar linhas.
+- **Bowl de concreto** — o destaque da Nova Zoo, considerado um dos melhores da
+  cidade: transições macias e profundidade boa pra trabalhar fluidez e manobras
+  técnicas.
+- **Área de street** — bordas, corrimões e espaço amplo pra criar linhas e soltar
+  as manobras.
+- **Quadra ao lado** — o parque tem quadra poliesportiva, então rola estrutura e
+  movimento por perto.
 
-> Pico de rua não é pista fechada: divida o espaço com pedestres, famílias e outros
-> patinadores. Respeito mantém o pico liberado pra todo mundo.
+> Pista pública é de todo mundo: divida o espaço, respeite quem está começando e
+> ajude a manter o pico na paz. Foi assim que a Nova Zoo deu essa virada.
 
 ## Melhor horário
 
-No **fim da tarde**, quando o sol baixa, o chão fica na sombra e a praça enche de
-skatista. De manhã cedo costuma estar mais vazio — bom pra treinar com calma.
+A pista é **aberta 24h**, todos os dias. No **fim de tarde** costuma encher e virar
+aquela sessão coletiva; de manhã cedo fica mais tranquilo pra treinar com calma.
 
 ## Nível indicado
 
-Do **iniciante ao avançado**. A área lisa acolhe quem está dando os primeiros
-pushes, e os obstáculos dão o que fazer pra quem já tem estrada.
+Do **iniciante ao avançado**. A área de street acolhe quem está dando os primeiros
+pushes, e o bowl dá o que fazer pra quem já tem estrada.
 
 ## Dicas da Loop
 
-- Leve **água** e **protetor solar** — a praça é aberta.
-- **Capacete e proteções** sempre, ainda mais em pico de rua.
+- **Capacete e proteções** sempre — bowl não perdoa.
+- Leve **água**; parte da pista pega sol.
 - Chegou junto? **Fotografa e marca a gente** [@loopskatepark](https://www.instagram.com/loopskatepark).
 
 Bora andar? Se rolar de a gente se encontrar por lá, chama no rolê!
