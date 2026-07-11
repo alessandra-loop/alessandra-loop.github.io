@@ -4,6 +4,7 @@ date: 2026-07-11
 resumo: "A praça revitalizada perto da nova entrada da Zoo virou point do rolê na região da Pampulha. Chão liso, obstáculos de concreto e clima família."
 local: "Pampulha · BH"
 nivel: "Iniciante ao avançado"
+capa: /assets/mural/pico-nova-zoo-exemplo.svg
 ---
 
 Um dos picos que mais cresceu na cena de Belo Horizonte nos últimos tempos é a
@@ -17,6 +18,8 @@ manobra pesada.
 Na região da **Pampulha**, coladinho na área da nova entrada do zoológico. Dá pra
 chegar fácil de ônibus ou carro, e tem bastante sombra e espaço pra deixar as
 coisas enquanto anda.
+
+![Vista da praça revitalizada perto da nova entrada da Zoo](/assets/mural/pico-nova-zoo-exemplo.svg)
 
 ## O que tem no pico
 
