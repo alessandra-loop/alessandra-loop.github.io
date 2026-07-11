@@ -22,13 +22,20 @@ repo"); it is a dev convenience only and installs nothing into the repo.
 
 ```
 index.html                              # Landing / "linktree" page (site root)
+sobre/index.html                        # "Sobre a Loop" page (uses base-style.html)
 manual-dos-alunos-e-responsaveis/
   index.html                            # Student & guardian handbook (long page)
+mural/                                  # "Mural da Loop" — blog hub + section pages
+_layouts/                               # Jekyll layouts for the mural (post / section)
+_picos/                                 # Mural collection: "picos" (skate spots) posts
 _includes/                              # Reusable Liquid partials
-  band.html    card.html    note.html   # Content components
-  shout.html   footer.html              # Content components
-  logo.svg     loop-logo.svg            # Inline logo SVGs
-_config.yml                             # Jekyll config (just sets the site title)
+  brand-tokens.html                     # Shared brand fonts (@font-face) + --loop-* palette
+  base-style.html                       # Shared design system (bands/cards/toc…); includes brand-tokens
+  footer.html  footer-style.html        # Shared footer markup + its CSS
+  band.html  card.html  note.html  shout.html   # Content components
+  mural-post-card.html                  # Mural post preview card
+  logo.svg  loop-logo.svg  icon-*.svg   # Inline logo & icon SVGs
+_config.yml                             # Jekyll config (title, sitemap plugin, mural collections)
 assets/
   fonts/*.woff2                         # Self-hosted brand fonts (latin subset)
   skater-bg.svg                         # Watermark background texture
@@ -51,13 +58,33 @@ script/render.sh                        # Local Jekyll install + build/serve hel
 - Reference assets with the `relative_url` filter, e.g.
   `{{ '/assets/fonts/anton-latin.woff2' | relative_url }}`, so paths stay
   correct under the custom domain.
-- **CSS is inlined** in a `<style>` block inside each page's `<head>`. There is
-  no shared stylesheet. If you change a design token, update it everywhere it
-  appears (currently both `index.html` and the manual).
+- **Shared styles come from `_includes/`, page-specific CSS stays inlined.**
+  The brand tokens (the `@font-face` declarations + the `--loop-*` palette) live
+  once in `brand-tokens.html`; the full design system (bands, cards, toc, notes,
+  etc.) lives in `base-style.html`, which itself includes `brand-tokens.html`.
+  `sobre/` and the manual pull in `base-style.html` and add only their own
+  page-specific rules inline. `index.html` is a standalone linktree: it includes
+  `brand-tokens.html` (so tokens are never duplicated) but keeps its own inlined
+  layout CSS instead of the design system.
+- **A design token is defined in exactly one place** — edit the palette or a
+  font in `brand-tokens.html` and every page updates. Do not paste `--loop-*`
+  values or `@font-face` blocks into a page's `<style>`; reference the tokens by
+  name (e.g. `var(--loop-rosa)`).
 
 ### `_includes` components (Liquid partials)
 
-Passed parameters via `include.<name>`:
+**Shared stylesheets** (included in the `<head>`, no parameters):
+
+- `brand-tokens.html` — single source of truth for the brand: the four
+  self-hosted `@font-face` blocks (Anton / Oswald / Barlow) and the `--loop-*`
+  palette. Included directly by `index.html`, and transitively (via
+  `base-style.html`) by every other page.
+- `base-style.html` — the shared design system used by `sobre/` and the mural/
+  manual pages: base typography vars (`--ink`/`--display`/`--head`/`--body`),
+  layout, `.hero`, `.toc`, `.band`, `.card`, `.note`, `.shout`, `.check`,
+  `.cta-btn`, etc. Include this and add only page-specific CSS inline.
+
+**Content components** — passed parameters via `include.<name>`:
 
 - `band.html` — full-width colored section header. Params: `color`
   (`ciano` / `roxo` / `rosa` / `preto`), `id` (anchor target), `eyebrow`, `title`.
@@ -68,10 +95,9 @@ Passed parameters via `include.<name>`:
 - `footer.html` — shared site footer (redes sociais + navegação + endereço).
   Param: `subtitle` (e.g. `subtitle="Escola de skate e patins"`).
 - `footer-style.html` — `<style>` block with the footer's shared CSS. Include it
-  in each page's `<head>` so the footer rules aren't duplicated. (This is the one
-  exception to the "no shared stylesheet" rule — only the footer is centralized;
-  a page may still add a small `footer{…}` override for its own box model, as
-  `index.html` does for the full-width bar.)
+  in each page's `<head>` so the footer rules aren't duplicated. (A page may
+  still add a small `footer{…}` override for its own box model, as `index.html`
+  does for the full-width bar.)
 - `logo.svg` / `loop-logo.svg` — inline SVG logos included directly.
 
 ## Brand & design conventions
@@ -80,8 +106,9 @@ This project has a **strict visual identity**. A dedicated skill,
 `loop-skatepark-brand` (`.claude/skills/`), documents the full rules — consult
 it before producing or restyling any visual/branded output.
 
-**Official palette** — always expose these as CSS variables and reference them
-by name; never scatter raw hex values:
+**Official palette** — defined once as CSS variables in
+`_includes/brand-tokens.html`; always reference them by name, never scatter raw
+hex values:
 
 ```css
 --loop-preto:   #000000;   /* text on light, outlines            */
@@ -93,7 +120,8 @@ by name; never scatter raw hex values:
 --loop-bege:    #e8d4bf;   /* soft surfaces                      */
 ```
 
-**Typography** (self-hosted `.woff2` in `assets/fonts/`, latin subset):
+**Typography** (self-hosted `.woff2` in `assets/fonts/`, latin subset; the
+`@font-face` declarations live in `_includes/brand-tokens.html`):
 
 - **Anton** — display / headings (weight 400 only; never synthesize bold).
 - **Oswald** — labels, buttons, eyebrows (condensed).
