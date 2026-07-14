@@ -13,13 +13,13 @@ plugins:
   - jekyll-sitemap
 
 # Coleções do Mural da Loop — cada seção é um mini-blog independente.
-#   picos   → Dicas de picos (pistas para andar em BH)
-#   inspira → Quem inspira o rolê (atleta do mês)
-#   cena    → O que está rolando na cena (campeonatos e eventos)
+#   picos-e-pistas → Picos e Pistas (pistas para andar em BH)
+#   inspira        → Quem inspira o rolê (atleta do mês)
+#   cena           → O que está rolando na cena (campeonatos e eventos)
 collections:
-  picos:
+  picos-e-pistas:
     output: true
-    permalink: /mural/picos/:name/
+    permalink: /mural/picos-e-pistas/:name/
   inspira:
     output: true
     permalink: /mural/inspira/:name/
@@ -45,7 +45,7 @@ defaults:
       sitemap: false
   - scope:
       path: ""
-      type: "picos"
+      type: "picos-e-pistas"
     values:
       layout: mural-post
       sitemap: false
