@@ -16,6 +16,7 @@ plugins:
 #   picos   → Dicas de picos (pistas para andar em BH)
 #   inspira → Quem inspira o rolê (atleta do mês)
 #   cena    → O que está rolando na cena (campeonatos e eventos)
+#   arte    → Arte em Movimento (Loop indica: filmes e vídeos sobre skate)
 collections:
   picos:
     output: true
@@ -26,6 +27,9 @@ collections:
   cena:
     output: true
     permalink: /mural/cena/:name/
+  arte:
+    output: true
+    permalink: /mural/arte/:name/
 
 # Mantém TODOS os arquivos da pasta do manual fora do sitemap.xml,
 # inclusive quaisquer páginas .html adicionadas no futuro. O jekyll-sitemap
@@ -58,6 +62,12 @@ defaults:
   - scope:
       path: ""
       type: "cena"
+    values:
+      layout: mural-post
+      sitemap: false
+  - scope:
+      path: ""
+      type: "arte"
     values:
       layout: mural-post
       sitemap: false

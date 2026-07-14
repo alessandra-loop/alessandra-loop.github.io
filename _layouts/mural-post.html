@@ -88,6 +88,8 @@
       <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%d/%m/%Y' }}</time>
       {% if page.local %}<span class="post-meta__tag">{{ page.local }}</span>{% endif %}
       {% if page.nivel %}<span class="post-meta__tag">{{ page.nivel }}</span>{% endif %}
+      {% if page.plataforma %}<span class="post-meta__tag">{{ page.plataforma }}</span>{% endif %}
+      {% if page.classificacao %}<span class="post-meta__tag">{{ page.classificacao }}</span>{% endif %}
     </div>
   </div>
 </section>
