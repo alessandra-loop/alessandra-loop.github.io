@@ -1,0 +1,464 @@
+---
+title: "Mídia Kit | Loop Skate Park"
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Página não listada: enviada direto para marcas e parceiros, fora do Google. -->
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="description" content="Mídia kit da Loop Skate Park: quem somos, nossos números, estrutura, público e formas de parceria e patrocínio.">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="any">
+
+<!-- Fontes da marca self-hosted: pré-carrega as de exibição acima da dobra.
+     As declarações @font-face vêm de _includes/brand-tokens.html
+     (incluído por base-style.html). -->
+<link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% include base-style.html %}
+
+{% include footer-style.html %}
+
+<style>
+  /* =====================================================================
+     CSS específico do mídia kit. O design system (bandas, cards, notas,
+     listas) vem de _includes/base-style.html — aqui ficam só os blocos que
+     não existem nas outras páginas: números, cotas e depoimentos.
+     ===================================================================== */
+
+  /* ---------- números em destaque ---------- */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
+    gap:14px;margin:24px 0;
+  }
+  .stat{
+    border:3px solid var(--loop-preto);
+    border-radius:16px;
+    padding:16px 18px;
+    background:var(--loop-branco);
+  }
+  .stat b{
+    display:block;
+    font-family:var(--display);
+    font-size:clamp(28px,5.5vw,42px);
+    line-height:1;
+  }
+  .stat span{
+    display:block;margin-top:6px;
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    font-weight:600;
+    font-size:13px;line-height:1.3;
+  }
+  .stat--ciano{background:var(--loop-ciano);}
+  .stat--rosa{background:var(--loop-rosa);}
+  .stat--amarelo{background:var(--loop-amarelo);}
+  .stat--bege{background:var(--loop-bege);}
+  /* branco sobre roxo passa AA; ciano sobre roxo não — por isso só texto branco aqui */
+  .stat--roxo{background:var(--loop-roxo);color:var(--loop-branco);}
+
+  /* ---------- cotas de patrocínio ---------- */
+  .cotas{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(248px,1fr));
+    gap:16px;margin:24px 0;
+  }
+  .cota{
+    border:3px solid var(--loop-preto);
+    border-radius:16px;
+    background:var(--loop-branco);
+    overflow:hidden;
+  }
+  .cota__head{
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(20px,3.4vw,26px);
+    line-height:1;
+    padding:14px 18px;
+    border-bottom:3px solid var(--loop-preto);
+  }
+  .cota--master .cota__head{background:var(--loop-roxo);color:var(--loop-branco);}
+  .cota--ouro   .cota__head{background:var(--loop-amarelo);}
+  .cota--prata  .cota__head{background:var(--loop-bege);}
+  .cota ul{margin:0;padding:14px 20px 18px 36px;}
+  .cota li{margin:0 0 6px;font-size:15.5px;line-height:1.5;}
+
+  /* ---------- depoimentos ---------- */
+  .depos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(268px,1fr));
+    gap:16px;margin:24px 0;
+  }
+  .depo{
+    margin:0;                       /* zera a margem padrão do <blockquote> */
+    border:3px solid var(--loop-preto);
+    border-radius:16px;
+    padding:18px 20px;
+    background:var(--loop-bege);
+  }
+  .depo p{margin:0 0 12px;font-size:15.5px;line-height:1.55;}
+  .depo cite{
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    font-weight:700;
+    font-size:13.5px;
+    font-style:normal;
+  }
+
+  /* dois botões lado a lado no fecho */
+  .final .cta-btn{margin:10px 6px 0;}
+  .final .cta-btn--ciano{background:var(--loop-ciano);}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="loop-texture" id="tex-hero"></div>
+  <div class="wrap">
+    <div class="hero__logo">
+      <a href="{{ '/' | relative_url }}" aria-label="Loop Skate Park — página inicial">
+        {% include logo.svg %}
+      </a>
+    </div>
+    <h1 class="hero__title">Mídia Kit</h1>
+    <div class="hero__year">2026</div>
+  </div>
+</section>
+
+<!-- ===================== ÍNDICE ===================== -->
+<nav class="toc">
+  <div class="wrap">
+    <h2>Índice</h2>
+    <div class="toc__grid">
+      <a href="#quem-somos"><span class="num">01</span>Quem somos</a>
+      <a href="#proposito"><span class="num">02</span>Propósito</a>
+      <a href="#numeros"><span class="num">03</span>A Loop em números</a>
+      <a href="#estrutura"><span class="num">04</span>Estrutura</a>
+      <a href="#publico"><span class="num">05</span>Nosso público</a>
+      <a href="#patrocinar"><span class="num">06</span>Por que patrocinar</a>
+      <a href="#parcerias"><span class="num">07</span>Formas de parceria</a>
+      <a href="#cotas"><span class="num">08</span>Cotas e contrapartidas</a>
+      <a href="#loop-para-todos"><span class="num">09</span>Loop para Todos</a>
+      <a href="#depoimentos"><span class="num">10</span>Depoimentos</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== 01 QUEM SOMOS ===================== -->
+{% include band.html color="ciano" id="quem-somos" eyebrow="01 — Apresentação" title="Quem somos" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">A <strong>Loop Skate Park</strong> é uma escola e um espaço de convivência dedicado ao skate e ao patins, em Belo Horizonte. Mais do que ensinar manobras, acreditamos no esporte como ferramenta de desenvolvimento, autonomia e convivência.</p>
+    <p>Toda comunidade nasce de um ponto de encontro: um lugar onde pessoas diferentes compartilham valores, experiências e sonhos. A Loop nasceu exatamente dessa ideia. Nossa história começou dentro da própria cena do skate de Belo Horizonte e, depois de anos acompanhando a evolução de alunos, famílias e praticantes, percebemos que existia uma necessidade que ia além da prática esportiva: as pessoas buscavam um lugar seguro para aprender.</p>
+    <p>Fundada por <strong>Raphael Alves</strong>, <strong>Alessandra Aguiar</strong> e <strong>Douglas Aguiar</strong>, a Loop reúne esporte, cultura urbana, educação e convivência em um único ambiente. Aqui celebramos as conquistas de cada um, incentivamos a criatividade e valorizamos a diversidade — porque o desenvolvimento acontece quando as pessoas se sentem parte de algo maior.</p>
+
+    <h4 class="mini">Quem está por trás da Loop</h4>
+    <div class="cards">
+      {% include card.html variant="c1" title="Raphael Alves" text="Skatista e professor de skate, reconhecido por sua atuação na cena street de BH e pela participação na G7 Crew. Há anos forma novos praticantes e ajuda a fortalecer a cultura do skate na cidade." %}
+      {% include card.html variant="c2" title="Alessandra Aguiar" text="Terapeuta ocupacional. Chegou ao skate pela filha e passou a enxergar no esporte um caminho potente para o desenvolvimento infantil, a autonomia e a formação cidadã." %}
+      {% include card.html variant="c3" title="Douglas Aguiar" text="Desenvolvedor de software. Aproximou-se do skate pela experiência da família e se encantou pelos valores de comunidade e pela possibilidade de criar um espaço acolhedor para crianças, jovens e famílias." %}
+    </div>
+
+    {% include shout.html text="Mais que uma escola. Uma comunidade." %}
+  </div>
+</section>
+
+<!-- ===================== 02 PROPÓSITO ===================== -->
+{% include band.html color="rosa" id="proposito" eyebrow="02 — Por que existimos" title="Propósito" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Colocar pessoas em movimento.</p>
+    <p>Cada manobra aprendida carrega muito mais do que técnica: é confiança, persistência e autonomia se construindo aos poucos, no tempo de cada um. Nossa missão é criar um ambiente onde cada pessoa se desenvolva no seu próprio ritmo, fortaleça vínculos e descubra novas possibilidades.</p>
+    <p>Queremos ampliar o acesso ao skate e ao patins e manter um lugar onde esporte e cultura urbana se encontram todos os dias — feito de colaboração, respeito e diversidade.</p>
+
+    <h4 class="mini">A Loop trabalha para:</h4>
+    <ul class="check">
+      <li>incentivar a prática esportiva;</li>
+      <li>promover saúde e qualidade de vida;</li>
+      <li>estimular autonomia e confiança;</li>
+      <li>fortalecer vínculos e convivência;</li>
+      <li>valorizar a cultura urbana;</li>
+      <li>apoiar atletas e novos talentos;</li>
+      <li>promover diversidade e inclusão;</li>
+      <li>aproximar as famílias do universo do skate.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 03 NÚMEROS ===================== -->
+{% include band.html color="roxo" id="numeros" eyebrow="03 — Onde estamos" title="A Loop em números" %}
+<section class="content">
+  <div class="wrap">
+    <p>Números não contam tudo o que acontece na pista, mas ajudam a mostrar de onde a gente está partindo. Estes são os da Loop no primeiro ano de operação:</p>
+
+    <div class="stats">
+      <div class="stat stat--ciano"><b>34</b><span>alunos atendidos desde a inauguração</span></div>
+      <div class="stat stat--rosa"><b>26</b><span>alunos ativos hoje</span></div>
+      <div class="stat stat--amarelo"><b>26</b><span>frequentadores por semana</span></div>
+      <div class="stat stat--bege"><b>130 m²</b><span>de área total</span></div>
+      <div class="stat stat--roxo"><b>110 m²</b><span>dedicados só à prática</span></div>
+      <div class="stat stat--ciano"><b>14</b><span>obstáculos na pista</span></div>
+      <div class="stat stat--rosa"><b>15 a 20</b><span>pessoas por vez em eventos e sessões</span></div>
+    </div>
+
+    <p>Nosso público é formado por crianças, jovens e famílias, de várias regiões de Belo Horizonte, numa estrutura indoor especializada em skate e esportes sobre rodas.</p>
+
+    <h4 class="mini">No Instagram — @loopskatepark</h4>
+    <div class="stats">
+      <div class="stat stat--bege"><b>610</b><span>seguidores</span></div>
+      <div class="stat stat--ciano"><b>20 mil</b><span>visualizações mensais</span></div>
+      <div class="stat stat--amarelo"><b>1.000</b><span>interações</span></div>
+      <div class="stat stat--rosa"><b>54</b><span>conteúdos compartilhados</span></div>
+      <div class="stat stat--roxo"><b>34</b><span>novos seguidores</span></div>
+    </div>
+    <p>O perfil é <strong>orgânico</strong>, sem impulsionamento. Entre quem nos acompanha, <strong>72%</strong> são homens e <strong>28%</strong> mulheres, com faixa etária concentrada entre <strong>25 e 45 anos</strong>. As principais cidades são <strong>Belo Horizonte (62%)</strong>, Contagem (7%) e Betim (3%).</p>
+
+    {% include note.html title="Sobre os números" text="Os dados de redes sociais são dos últimos 30 dias e mudam com o tempo. Se precisar dos números mais recentes para montar uma proposta, é só pedir que a gente envia atualizado." %}
+  </div>
+</section>
+
+<!-- ===================== 04 ESTRUTURA ===================== -->
+{% include band.html color="ciano" id="estrutura" eyebrow="04 — O espaço" title="Estrutura" %}
+<section class="content">
+  <div class="wrap">
+    <p>A Loop Skate Park tem cerca de <strong>130 m²</strong> de área total, sendo <strong>110 m²</strong> dedicados só à prática. A pista reúne <strong>14 obstáculos</strong> que combinam street (as manobras feitas no chão, em bordas e corrimãos) e transições (as curvas e rampas) — o que abre caminhos diferentes para cada aluno aprender, progredir no seu tempo e, quando dá, receber eventos.</p>
+
+    <div class="photos">
+      <figure class="photo photo--wide">
+        <img src="{{ '/assets/LOOP-PISTA-FOTO-1.jpeg' | relative_url }}" alt="Pista de skate indoor da Loop Skate Park, com rampas e obstáculos de street e transição" loading="lazy" width="1600" height="900">
+        <figcaption>Pista indoor — street e transições</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="{{ '/assets/LOOP-PISTA-FOTO-2.jpeg' | relative_url }}" alt="Outro ângulo da pista de skate da Loop, mostrando os obstáculos e a área de prática" loading="lazy" width="1200" height="900">
+        <figcaption>Obstáculos e área de prática</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="{{ '/assets/LOOP-RECEPCAO.jpeg' | relative_url }}" alt="Recepção e área de convivência da Loop Skate Park" loading="lazy" width="1200" height="900">
+        <figcaption>Recepção e convivência</figcaption>
+      </figure>
+    </div>
+
+    <h4 class="mini">Entre os obstáculos:</h4>
+    <div class="cards">
+      {% include card.html variant="c1" title="Mini Ramp" text="Integrada à área de street, ideal para aprendizado e manobras técnicas." %}
+      {% include card.html variant="c2" title="4 Quarters" text="Curvas que dão velocidade e conectam as transições da pista." %}
+      {% include card.html variant="c3" title="Wall Ride" text="Parede para manobras verticais, subindo e deslizando na estrutura." %}
+      {% include card.html variant="c4" title="Mini Gap" text="Vão para saltos, trabalhando impulsão e controle no ar." %}
+      {% include card.html variant="roxo" title="Cânion" text="Obstáculo de transição que amplia as linhas possíveis na pista." %}
+      {% include card.html variant="c1" title="Corrimões" text="Fixos e móveis, para grinds e manobras de deslize." %}
+      {% include card.html variant="c2" title="Palcos móveis" text="Reconfiguram a pista e apoiam eventos e sessões." %}
+      {% include card.html variant="c3" title="Kickers" text="Fixos e móveis, para saltos e primeiras manobras aéreas." %}
+      {% include card.html variant="c4" title="Start e rampas de acesso" text="Ponto de partida seguro para ganhar velocidade." %}
+    </div>
+
+    {% include note.html title="Convivência e eventos" text="A Loop não é só pista. O espaço também tem arquibancada, área de convivência e um cantinho de leitura — feitos para aproximar alunos, famílias e visitantes. Em eventos e sessões livres, a estrutura recebe entre 15 e 20 pessoas com conforto e segurança." %}
+  </div>
+</section>
+
+<!-- ===================== 05 NOSSO PÚBLICO ===================== -->
+{% include band.html color="rosa" id="publico" eyebrow="05 — Para quem" title="Nosso público" %}
+<section class="content">
+  <div class="wrap">
+    <p>A Loop recebe pessoas de <strong>todas as idades</strong>, com bastante presença de <strong>crianças</strong> — muitas por volta dos 8 anos — e de suas famílias, que procuram um ambiente seguro, acolhedor e bem cuidado para praticar. Nosso público vem principalmente da <strong>região noroeste de Belo Horizonte</strong>, mas reúne alunos de vários bairros da cidade.</p>
+    <p>E a gente quer ir além: abrir cada vez mais espaço para adolescentes, jovens e adultos, para que gerações diferentes aprendam juntas, lado a lado, no skate e no patins.</p>
+
+    <h4 class="mini">Quem se encontra na Loop:</h4>
+    <div class="cards">
+      {% include card.html variant="c1" title="Skatistas e patinadores" text="Do primeiro dia em cima do shape (a “prancha” do skate) a quem já busca evolução e preparação." %}
+      {% include card.html variant="c2" title="Famílias" text="Pais e responsáveis que acompanham de perto a experiência esportiva dos filhos — e muitas vezes ficam para a aula seguinte." %}
+      {% include card.html variant="c3" title="Cultura urbana" text="Artistas, produtores, fotógrafos, videomakers e gente conectada à cena do skate da cidade." %}
+      {% include card.html variant="roxo" title="Atletas e instrutores" text="Profissionais e novos talentos que ajudam a movimentar e desenvolver o esporte em BH." %}
+    </div>
+
+    <p class="lead">Acreditamos que o esporte é uma linguagem universal, capaz de conectar pessoas de diferentes histórias, idades e realidades.</p>
+  </div>
+</section>
+
+<!-- ===================== 06 POR QUE PATROCINAR ===================== -->
+{% include band.html color="roxo" id="patrocinar" eyebrow="06 — Para marcas" title="Por que patrocinar a Loop" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Patrocinar a Loop Skate Park é associar sua marca a um espaço de experiência real, onde as pessoas criam vínculos e voltam toda semana.</p>
+    <p>Nosso público valoriza autenticidade, esporte, criatividade, comunidade, juventude, cultura urbana e inclusão. Uma empresa pode estar presente na Loop através da sua marca, dos seus produtos, dos seus serviços ou investindo diretamente em pessoas.</p>
+
+    <h4 class="mini">Ao apoiar a Loop, sua empresa fortalece:</h4>
+    <div class="cards">
+      {% include card.html variant="c1" title="Incentivo ao esporte" text="Mais crianças, jovens e adultos praticando skate e patins com orientação e segurança." %}
+      {% include card.html variant="c2" title="Comunidade local" text="Um ponto de encontro que movimenta a cena do skate e o bairro em que está." %}
+      {% include card.html variant="c3" title="Hábitos saudáveis" text="Atividade física regular, convivência e menos tempo de tela para crianças e adolescentes." %}
+      {% include card.html variant="c4" title="Cultura urbana" text="Apoio a uma cultura que já faz parte da identidade de Belo Horizonte." %}
+      {% include card.html variant="roxo" title="Inclusão e diversidade" text="Espaço para meninas, mulheres e grupos que ainda têm pouca representação nos esportes sobre rodas." %}
+      {% include card.html variant="c1" title="Experiências para famílias" text="Ações, eventos e encontros que aproximam pais, filhos e o universo do skate." %}
+    </div>
+
+    {% include shout.html text="Mais do que exposição, uma conexão genuína entre marcas e pessoas." %}
+  </div>
+</section>
+
+<!-- ===================== 07 FORMAS DE PARCERIA ===================== -->
+{% include band.html color="ciano" id="parcerias" eyebrow="07 — Como participar" title="Formas de parceria" %}
+<section class="content">
+  <div class="wrap">
+    <p>Criamos formatos diferentes de parceria para que cada empresa escolha o que faz mais sentido para os seus objetivos. Seja por patrocínio, apoio, permuta, fornecimento de produtos ou investimento social, a proposta é construir algo que funcione para os dois lados.</p>
+
+    <div class="cards">
+      {% include card.html variant="c1" title="Parceiro Movimento" text="Para quem apoia a Loop com produtos, serviços ou materiais. Contrapartidas: divulgação da marca, presença nas redes sociais, identificação como parceiro e participação em ações específicas." %}
+      {% include card.html variant="c2" title="Parceiro Pista" text="Para quem quer presença física permanente ou recorrente na Loop. Contrapartidas: exposição da marca na pista, placas e painéis, presença nas comunicações, conteúdos para redes e ativações." %}
+      {% include card.html variant="c3" title="Parceiro Atleta" text="Para quem quer apoiar diretamente um atleta ou um grupo de atletas. Contrapartidas: associação da marca ao atleta, conteúdo audiovisual, divulgação nas redes e presença em eventos." %}
+      {% include card.html variant="roxo" title="Parceiro Evento" text="Para quem quer patrocinar eventos específicos. Contrapartidas: naming ou cota de patrocínio, marca no evento, divulgação antes e depois, ativação com o público e distribuição de produtos." %}
+    </div>
+
+    <h4 class="mini">O apoio a atletas pode acontecer com:</h4>
+    <ul class="check">
+      <li>equipamentos, skates e patins;</li>
+      <li>roupas, calçados e acessórios;</li>
+      <li>equipamentos de proteção;</li>
+      <li>inscrição e participação em campeonatos;</li>
+      <li>viagens e deslocamentos para competições;</li>
+      <li>produção de fotos e vídeos;</li>
+      <li>bolsas ou outros formatos de incentivo.</li>
+    </ul>
+    <p>O parceiro pode acompanhar e comunicar a trajetória do atleta apoiado, criando uma associação de verdade entre a marca e o desenvolvimento esportivo.</p>
+
+    <h4 class="mini">Também podemos construir juntos:</h4>
+    <ul class="check">
+      <li>eventos, campeonatos, oficinas e rolês;</li>
+      <li>ações para crianças e famílias;</li>
+      <li>lançamentos de produto e experiências de marca;</li>
+      <li>conteúdos para redes sociais;</li>
+      <li>ações de responsabilidade social e campanhas com a comunidade Loop.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ===================== 08 COTAS E CONTRAPARTIDAS ===================== -->
+{% include band.html color="rosa" id="cotas" eyebrow="08 — Formatos" title="Cotas e contrapartidas" %}
+<section class="content">
+  <div class="wrap">
+    <p>As cotas são um ponto de partida. A partir delas, montamos a proposta junto com cada parceiro, de acordo com os objetivos e as possibilidades de cada empresa.</p>
+
+    <div class="cotas">
+      <div class="cota cota--master">
+        <div class="cota__head">Cota Master</div>
+        <ul>
+          <li>destaque principal da marca;</li>
+          <li>presença nos eventos;</li>
+          <li>redes sociais;</li>
+          <li>ativações exclusivas;</li>
+          <li>camisas e uniformes.</li>
+        </ul>
+      </div>
+      <div class="cota cota--ouro">
+        <div class="cota__head">Cota Ouro</div>
+        <ul>
+          <li>exposição intermediária;</li>
+          <li>presença nos eventos;</li>
+          <li>divulgação digital.</li>
+        </ul>
+      </div>
+      <div class="cota cota--prata">
+        <div class="cota__head">Cota Prata</div>
+        <ul>
+          <li>presença institucional;</li>
+          <li>divulgação compartilhada.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h4 class="mini">Sua marca pode estar presente em:</h4>
+    <ul class="check">
+      <li>obstáculos da pista, wall ride e corrimões;</li>
+      <li>arquibancada e áreas de convivência;</li>
+      <li>uniformes e camisas;</li>
+      <li>eventos, backdrops e materiais institucionais;</li>
+      <li>redes sociais e vídeos;</li>
+      <li>ativações presenciais, brindes e campanhas promocionais;</li>
+      <li>naming rights e ações sociais.</li>
+    </ul>
+
+    {% include note.html title="Feito sob medida" text="As contrapartidas são adaptadas às necessidades de cada parceiro. Conta pra gente o que sua marca quer alcançar e a gente desenha a proposta junto com você." %}
+  </div>
+</section>
+
+<!-- ===================== 09 LOOP PARA TODOS ===================== -->
+{% include band.html color="roxo" id="loop-para-todos" eyebrow="09 — Patrocínio social" title="Loop para Todos" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Uma das iniciativas que mais nos mobiliza é ampliar o acesso ao skate para crianças e adolescentes da rede pública de ensino e de famílias de baixa renda.</p>
+    <p>O custo das aulas, dos equipamentos e a falta de espaços adequados ainda impedem que muita gente conheça essa cultura. O <strong>Loop para Todos</strong> existe para reduzir essas barreiras: aulas gratuitas, acompanhamento de instrutores qualificados e acesso a equipamento, num ambiente seguro e acolhedor.</p>
+
+    <div class="stats">
+      <div class="stat stat--ciano"><b>20</b><span>crianças e adolescentes da rede pública</span></div>
+      <div class="stat stat--rosa"><b>2</b><span>turmas, com uma aula por semana cada</span></div>
+      <div class="stat stat--amarelo"><b>60</b><span>beneficiários indiretos (famílias e responsáveis)</span></div>
+      <div class="stat stat--bege"><b>12</b><span>meses de projeto</span></div>
+    </div>
+
+    {% include note.html title="Quanto custa manter o projeto" text="Para atender 20 crianças e adolescentes durante 12 meses, o projeto precisa de aproximadamente R$ 84.000 por ano: R$ 72.000 em aulas (20 participantes × R$ 300 mensais × 12 meses) e R$ 12.000 em equipamentos individuais (skates e kits de proteção). O apoio pode financiar uma criança, uma turma ou o programa completo durante um período." %}
+
+    <p>Cada bolsa garante <strong>aula + equipamento + proteção + oportunidade</strong>. Além do impacto esportivo, o projeto amplia convivência, autonomia, autoestima e pertencimento — coisas que essas crianças levam para a escola, para casa e para a vida.</p>
+
+    {% include shout.html text="Sua marca pode ser a responsável por colocar uma criança na pista." %}
+  </div>
+</section>
+
+<!-- ===================== 10 DEPOIMENTOS ===================== -->
+{% include band.html color="ciano" id="depoimentos" eyebrow="10 — Quem frequenta" title="Depoimentos" %}
+<section class="content">
+  <div class="wrap">
+    <p>Quem conta melhor sobre a Loop é quem passa pela pista. Estas são avaliações públicas deixadas por alunos, famílias e visitantes no Google:</p>
+
+    <div class="depos">
+      <blockquote class="depo">
+        <p>“Lugar simplesmente sensacional! Pista muito bem cuidada, com uma estrutura impecável e tudo muito organizado. Dá pra ver o capricho em cada detalhe. Além disso, o ambiente é super familiar, perfeito. Com certeza um dos melhores espaços pra skate que já visitei!”</p>
+        <cite>Raizza Impellizieri</cite>
+      </blockquote>
+      <blockquote class="depo">
+        <p>“Sou mãe de alunos da Loop e meus filhos adoram as aulas de skate. Toda a equipe é muito atenciosa com as crianças e a escola é bastante comprometida com a segurança na prática de skate.”</p>
+        <cite>Fernanda Vieira Souza Carvalhais</cite>
+      </blockquote>
+      <blockquote class="depo">
+        <p>“Minha filha de 6 anos adorou a aula. Mesmo tendo medo, o professor conseguiu conduzir a aula de maneira que ela participasse e se divertisse. Ela ficou muito feliz por conseguir fazer alguns movimentos. O atendimento é excelente.”</p>
+        <cite>Joice Matos</cite>
+      </blockquote>
+      <blockquote class="depo">
+        <p>“Uma estrutura excelente, criado por pessoas dedicadas ao conhecimento e prática do skate e patins e um professor muito acolhedor.”</p>
+        <cite>Vanessa Torres</cite>
+      </blockquote>
+      <blockquote class="depo">
+        <p>“Estrutura maravilhosa, equipe atenciosa e professor super profissional.”</p>
+        <cite>Fernanda Bergamaschine</cite>
+      </blockquote>
+      <blockquote class="depo">
+        <p>“Escola ideal para quem busca um ensino acolhedor e lúdico, que respeita o ritmo das crianças e as desafia na medida de sua segurança.”</p>
+        <cite>Gabriela Bitencourt</cite>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MENSAGEM FINAL ===================== -->
+<section class="final" id="final">
+  <div class="loop-texture"></div>
+  <div class="wrap">
+    <h2>Vamos construir essa história juntos!</h2>
+    <p>Estamos abertos para conversar com empresas, marcas, instituições e pessoas que acreditam no potencial do esporte e da cultura urbana. Venha conhecer a pista, a comunidade e as possibilidades de parceria — a gente desenha a proposta junto com você.</p>
+    <a class="cta-btn" href="https://wa.me/5531982789675?text=Oi%2C%20Loop!%20Quero%20conversar%20sobre%20parceria%20e%20patroc%C3%ADnio." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <a class="cta-btn cta-btn--ciano" href="mailto:contato@loopskatepark.com.br?subject=Parceria%20e%20patroc%C3%ADnio%20%E2%80%94%20Loop%20Skate%20Park">contato@loopskatepark.com.br</a>
+    <div class="final__mark">
+      {% include logo.svg %}
+    </div>
+  </div>
+</section>
+
+{% include footer.html subtitle="Esporte, arte e cultura urbana" %}
+
+</body>
+</html>
