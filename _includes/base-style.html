@@ -406,6 +406,9 @@
   /* primeira foto ocupa a linha inteira em telas largas */
   .photos .photo--wide{grid-column:1/-1;}
   .photos .photo--wide img{height:clamp(240px,42vw,420px);}
+  /* foto de destaque que não pode ser cortada (ex.: retrato dos fundadores) */
+  .photos .photo--full{grid-column:1/-1;}
+  .photos .photo--full img{height:auto;}
 
   /* CTA final */
   .cta-btn{
