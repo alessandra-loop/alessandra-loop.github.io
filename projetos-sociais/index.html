@@ -24,6 +24,54 @@ sitemap: false
 {% include footer-style.html %}
 
 <style>
+  /* =====================================================================
+     CSS específico dos projetos sociais. O design system (bandas, cards,
+     notas, listas, números, depoimentos) vem de base-style.html — aqui
+     ficam só os blocos de RASCUNHO: seções de exemplo que ainda não têm
+     conteúdo real, marcadas visualmente para ninguém confundir com o que
+     já existe. Ao preencher uma seção, é só tirar o .rascunho e a tarja.
+     ===================================================================== */
+
+  /* moldura tracejada das seções de exemplo */
+  .rascunho{
+    border:3px dashed var(--loop-preto);
+    border-radius:16px;
+    padding:20px 22px 6px;
+    margin:4px 0 8px;
+  }
+  .rascunho__tag{
+    display:inline-block;
+    background:var(--loop-amarelo);
+    border:2px solid var(--loop-preto);
+    border-radius:40px;
+    padding:4px 14px;
+    margin-bottom:14px;
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-weight:700;
+    font-size:12px;
+  }
+
+  /* espaços reservados (fotos, logos) */
+  .ph-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;margin:20px 0;
+  }
+  .ph{
+    display:grid;place-items:center;text-align:center;
+    min-height:170px;padding:18px;
+    border:3px dashed var(--loop-preto);
+    border-radius:16px;
+    background:var(--loop-bege);
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    font-size:13px;line-height:1.35;
+  }
+  .ph--logo{min-height:104px;background:var(--loop-branco);}
+
   /* Dois botões lado a lado no fecho (mesmo padrão do mídia kit). */
   .final .cta-btn{margin:10px 6px 0;}
   .final .cta-btn--ciano{background:var(--loop-ciano);}
@@ -55,9 +103,14 @@ sitemap: false
       <a href="#missao"><span class="num">03</span>Missão e valores</a>
       <a href="#quem-atendemos"><span class="num">04</span>Quem atendemos</a>
       <a href="#como-funciona"><span class="num">05</span>Como funciona uma aula</a>
-      <a href="#resultados"><span class="num">06</span>O que esperamos em 12 meses</a>
-      <a href="#como-apoiar"><span class="num">07</span>Como apoiar</a>
+      <a href="#fotos"><span class="num">06</span>Fotos (exemplo)</a>
+      <a href="#resultados"><span class="num">07</span>O que esperamos em 12 meses</a>
+      <a href="#historias"><span class="num">08</span>Histórias (exemplo)</a>
+      <a href="#como-apoiar"><span class="num">09</span>Como apoiar</a>
+      <a href="#contrapartidas"><span class="num">10</span>Contrapartidas (exemplo)</a>
+      <a href="#parceiros"><span class="num">11</span>Parceiros (exemplo)</a>
     </div>
+    {% include note.html title="Seções de exemplo" text="As seções marcadas como “exemplo” ainda não têm conteúdo real: são um rascunho do formato, para preenchermos com fotos, histórias e parceiros do projeto quando eles existirem." %}
   </div>
 </nav>
 
@@ -140,8 +193,28 @@ sitemap: false
   </div>
 </section>
 
-<!-- ===================== 06 RESULTADOS ===================== -->
-{% include band.html color="roxo" id="resultados" eyebrow="06 — Onde queremos chegar" title="O que esperamos em 12 meses" %}
+<!-- ===================== 06 FOTOS (SEÇÃO DE EXEMPLO) ===================== -->
+{% include band.html color="roxo" id="fotos" eyebrow="06 — Exemplo a preencher" title="Fotos do projeto" %}
+<section class="content">
+  <div class="wrap">
+    <div class="rascunho">
+      <span class="rascunho__tag">Exemplo — a preencher</span>
+      <p>Aqui entram as fotos das turmas do projeto: o acolhimento antes da aula, a pista cheia, as primeiras descidas, as famílias na arquibancada. Enquanto elas não chegam, ficam os espaços reservados abaixo — é só trocar cada um por uma foto com legenda.</p>
+
+      <div class="ph-grid">
+        <div class="ph">Foto — acolhimento<br>e integração da turma</div>
+        <div class="ph">Foto — aula na pista,<br>com os equipamentos de proteção</div>
+        <div class="ph">Foto — primeira descida<br>de um participante</div>
+        <div class="ph">Foto — famílias<br>acompanhando a aula</div>
+      </div>
+
+      <p><strong>Cuidado necessário:</strong> fotos de crianças e adolescentes só entram com autorização de imagem assinada pelos responsáveis.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 07 RESULTADOS ===================== -->
+{% include band.html color="ciano" id="resultados" eyebrow="07 — Onde queremos chegar" title="O que esperamos em 12 meses" %}
 <section class="content">
   <div class="wrap">
     <ul class="check">
@@ -157,8 +230,36 @@ sitemap: false
   </div>
 </section>
 
-<!-- ===================== 07 COMO APOIAR ===================== -->
-{% include band.html color="ciano" id="como-apoiar" eyebrow="07 — Patrocínio social" title="Como apoiar" %}
+<!-- ===================== 08 HISTÓRIAS (SEÇÃO DE EXEMPLO) ===================== -->
+{% include band.html color="rosa" id="historias" eyebrow="08 — Exemplo a preencher" title="Histórias e depoimentos" %}
+<section class="content">
+  <div class="wrap">
+    <div class="rascunho">
+      <span class="rascunho__tag">Exemplo — a preencher</span>
+      <p>Nenhum número conta o que uma criança sente ao descer a mini ramp pela primeira vez. É aqui que entram as histórias: a da criança que chegou com medo, a do responsável que voltou para assistir toda semana, a do professor que viu a turma virar grupo. Os textos abaixo são fictícios e servem só para mostrar o formato.</p>
+
+      <div class="depos">
+        <blockquote class="depo">
+          <p>“Exemplo: história de um participante — como chegou ao projeto, o que mudou na escola e em casa, e o que ele mesmo diz sobre isso.”</p>
+          <cite>Participante do projeto (exemplo)</cite>
+        </blockquote>
+        <blockquote class="depo">
+          <p>“Exemplo: depoimento de uma mãe, pai ou responsável sobre a diferença que as aulas fizeram na rotina e na confiança da criança.”</p>
+          <cite>Responsável (exemplo)</cite>
+        </blockquote>
+        <blockquote class="depo">
+          <p>“Exemplo: fala do professor sobre a evolução da turma — o que ele vê acontecer entre a primeira e a última aula do ciclo.”</p>
+          <cite>Professor da Loop (exemplo)</cite>
+        </blockquote>
+      </div>
+
+      <p><strong>Como coletar:</strong> vale gravar um áudio curto no fim da aula, com autorização, e transcrever. Três histórias de participantes, três de responsáveis e uma do professor já sustentam a seção.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 09 COMO APOIAR ===================== -->
+{% include band.html color="roxo" id="como-apoiar" eyebrow="09 — Patrocínio social" title="Como apoiar" %}
 <section class="content">
   <div class="wrap">
     <p class="lead lead--accent">Cada bolsa garante <strong>aula + equipamento + proteção + oportunidade</strong>.</p>
@@ -169,6 +270,46 @@ sitemap: false
     <p>Os recursos captados também ajudam a melhorar a infraestrutura da Loop, garantindo mais conforto e segurança para alunos e famílias, e a ampliar gradualmente o alcance do projeto — com mais bolsas, parcerias com escolas e novas iniciativas de acesso ao esporte.</p>
 
     {% include shout.html text="Sua marca pode ser a responsável por colocar uma criança na pista." %}
+  </div>
+</section>
+
+<!-- ===================== 10 CONTRAPARTIDAS (SEÇÃO DE EXEMPLO) ===================== -->
+{% include band.html color="ciano" id="contrapartidas" eyebrow="10 — Exemplo a preencher" title="Contrapartidas do patrocínio" %}
+<section class="content">
+  <div class="wrap">
+    <div class="rascunho">
+      <span class="rascunho__tag">Exemplo — a preencher</span>
+      <p>Quem patrocina o projeto não compra mídia: entra numa história. Ainda assim, vale deixar claro o que a empresa recebe em troca. Os formatos abaixo são um ponto de partida para definirmos com calma.</p>
+
+      <div class="cards">
+        {% include card.html variant="c1" title="Relatório de impacto" text="Um retrato do ciclo: quantas crianças foram atendidas, frequência, evolução e histórias — material que a empresa pode usar no próprio relatório de sustentabilidade." %}
+        {% include card.html variant="c2" title="Marca nos materiais" text="Presença nos materiais de comunicação do projeto, nos uniformes da turma e nas publicações sobre as aulas." %}
+        {% include card.html variant="c3" title="Conteúdo audiovisual" text="Fotos e vídeos das aulas e dos encontros, com autorização de imagem, para a empresa contar a história junto com a gente." %}
+        {% include card.html variant="roxo" title="Visita à pista" text="Um dia na Loop com a equipe da empresa, acompanhando uma aula do projeto ou participando de uma ação com a turma." %}
+        {% include card.html variant="c4" title="Ação de voluntariado" text="Encontros em que o time da empresa participa de uma atividade com as crianças, junto com os professores." %}
+        {% include card.html variant="c1" title="Evento de encerramento" text="Uma celebração no fim do ciclo, com as famílias, em que o apoio da empresa é reconhecido publicamente." %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 11 PARCEIROS (SEÇÃO DE EXEMPLO) ===================== -->
+{% include band.html color="rosa" id="parceiros" eyebrow="11 — Exemplo a preencher" title="Parceiros e apoiadores" %}
+<section class="content">
+  <div class="wrap">
+    <div class="rascunho">
+      <span class="rascunho__tag">Exemplo — a preencher</span>
+      <p>Projeto social não se sustenta sozinho: são escolas que indicam os participantes, empresas que financiam bolsas, marcas que doam equipamento e gente que empresta tempo. Conforme essa rede for crescendo, os nomes e as logos entram aqui.</p>
+
+      <div class="ph-grid">
+        <div class="ph ph--logo">Escola parceira</div>
+        <div class="ph ph--logo">Empresa patrocinadora</div>
+        <div class="ph ph--logo">Marca apoiadora</div>
+        <div class="ph ph--logo">Instituição parceira</div>
+      </div>
+
+      <p>Vale também listar o tipo de apoio de cada parceiro — bolsas, equipamentos, transporte, alimentação, comunicação — para quem chega entender onde ainda dá para ajudar.</p>
+    </div>
   </div>
 </section>
 
