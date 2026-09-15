@@ -1,0 +1,149 @@
+---
+title: "Carta de Apresentação | Loop Skate Park"
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Página não listada: enviada direto para empresas, marcas e coletivos, fora do Google. -->
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="description" content="Carta de apresentação da Loop Skate Park: quem somos, por que procuramos parceiros e as formas de construir uma parceria junto com a gente.">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="any">
+
+<!-- Fontes da marca self-hosted: pré-carrega as de exibição acima da dobra.
+     As declarações @font-face vêm de _includes/brand-tokens.html
+     (incluído por base-style.html). -->
+<link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% include base-style.html %}
+
+{% include footer-style.html %}
+
+<style>
+  /* =====================================================================
+     CSS específico da carta. Tudo o mais (lead, shout, cards, check,
+     botões do fecho) vem de _includes/base-style.html — aqui fica só a
+     assinatura do pé da carta.
+     ===================================================================== */
+  .assinatura{
+    border-top:3px solid var(--loop-preto);
+    margin:44px 0 8px;
+    padding-top:22px;
+  }
+  .assinatura p{
+    margin:0;
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-weight:600;
+    font-size:14px;
+    line-height:1.7;
+  }
+  /* depois da regra genérica acima para não ser sobrescrita */
+  .assinatura p.assinatura__nome{
+    font-family:var(--display);
+    font-size:clamp(24px,4.4vw,36px);
+    letter-spacing:0;
+    font-weight:400;
+    line-height:1;
+    margin:0 0 12px;
+  }
+  .assinatura a{color:var(--loop-preto);}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="loop-texture" id="tex-hero"></div>
+  <div class="wrap">
+    <div class="hero__logo">
+      <a href="{{ '/' | relative_url }}" aria-label="Loop Skate Park — página inicial">
+        {% include logo.svg %}
+      </a>
+    </div>
+    <h1 class="hero__title">Carta de<br>Apresentação</h1>
+    <div class="hero__year">2026</div>
+  </div>
+</section>
+
+<!-- ===================== CARTA ===================== -->
+<section class="content">
+  <div class="wrap">
+
+    <h3 class="sub">Olá!</h3>
+    <p class="lead lead--accent">Somos a <strong>Loop Skate Park</strong>, uma escola e espaço de convivência dedicado ao skate e ao patins, em Belo Horizonte.</p>
+
+    <p>A Loop nasceu de um sonho compartilhado por quatro pessoas com trajetórias diferentes, mas unidas pelo esporte, pela cultura e pelo desejo de construir uma comunidade: <strong>Raphael Alves</strong>, <strong>Lorena Fernanda</strong>, <strong>Alessandra Aguiar</strong> e <strong>Douglas Aguiar</strong>.</p>
+
+    <p>Mais do que uma pista ou uma escola de esporte, queremos construir em Belo Horizonte um espaço onde esporte, cultura, educação, arte e convivência possam caminhar juntos. Acreditamos que o skate e o patins são ferramentas potentes para desenvolver autonomia, confiança, criatividade, respeito e senso de pertencimento.</p>
+
+    <p>A Loop foi criada para receber pessoas de diferentes idades e experiências. Queremos que cada pessoa encontre aqui um espaço para aprender, evoluir no seu próprio ritmo, fazer amizades e se sentir parte de uma comunidade. Também queremos que a Loop seja um espaço conectado à cena do skate e à cultura urbana de Belo Horizonte, recebendo eventos, encontros, oficinas, ações culturais, produções audiovisuais e experiências que aproximem ainda mais o esporte da cidade.</p>
+
+    {% include shout.html text="E é por isso que estamos procurando parceiros." %}
+
+    <p>Estamos abertos a conversar com empresas, marcas, empreendedores, coletivos e profissionais que tenham interesse em se aproximar da Loop Skate Park e construir conosco uma parceria que seja interessante para os dois lados.</p>
+
+    <p>Estamos em busca de marcas que queiram estar presentes na nossa pista, apoiar um evento, contribuir com produtos ou serviços, investir em nossos atletas, ajudar na estrutura do espaço, desenvolver uma ativação de marca ou criar uma ação especial com nossa comunidade.</p>
+
+    <h3 class="sub" style="--tick:var(--loop-rosa)">Nossas iniciativas sociais</h3>
+    <p>Também estamos abertos a parcerias que apoiem diretamente as nossas duas iniciativas sociais:</p>
+
+    <div class="cards">
+      {% include card.html variant="c2" title="Bolsas sociais" text="Criação de bolsas para crianças e adolescentes de famílias de baixa renda, para que tenham acesso regular às aulas." %}
+      {% include card.html variant="c1" title="Meninas no Skate" text="Incentivo à participação de meninas no skate, abrindo espaço e companhia para quem quer aprender e seguir andando." %}
+    </div>
+
+    <p>Nosso desejo com esses projetos é ampliar o acesso ao skate para pessoas que talvez não tivessem essa oportunidade de outra maneira. A ampliação desse trabalho, inclusive por meio de parcerias com escolas e projetos sociais, faz parte da nossa visão de futuro.</p>
+
+    <h3 class="sub" style="--tick:var(--loop-amarelo)">As possibilidades são muitas</h3>
+    <ul class="check">
+      <li>Uma marca pode estar presente na pista.</li>
+      <li>Pode apoiar um campeonato ou um rolê.</li>
+      <li>Pode fornecer equipamentos para nossos atletas.</li>
+      <li>Pode criar uma experiência para crianças e famílias.</li>
+      <li>Pode apoiar a produção de conteúdos.</li>
+      <li>Pode contribuir com materiais, produtos ou serviços.</li>
+      <li>Pode patrocinar bolsas sociais.</li>
+      <li>Ou podemos simplesmente sentar juntos e pensar em uma ideia que ainda não existe.</li>
+    </ul>
+
+    {% include shout.html text="Acreditamos que as melhores parcerias são construídas em conjunto." %}
+
+    <p>Por isso, não queremos trabalhar com formatos engessados. Estamos dispostos a ouvir as necessidades e os objetivos de cada empresa e pensar em contrapartidas que façam sentido para o parceiro e, ao mesmo tempo, sejam relevantes para a nossa comunidade.</p>
+
+    <p>A Loop está aberta para construir essa história junto com quem quiser fazer parte dela.</p>
+
+    <p>Se você acredita que existe uma possibilidade de parceria, apoio ou projeto que possa fazer sentido para a sua empresa e para a Loop, vamos conversar. Estamos dispostos a ouvir, criar, adaptar e encontrar juntos o melhor formato para que essa parceria aconteça.</p>
+
+    <!-- assinatura da carta -->
+    <div class="assinatura">
+      <p class="assinatura__nome">Loop Skate Park</p>
+      <p>Belo Horizonte – MG</p>
+      <p><a href="https://www.instagram.com/loopskatepark/" target="_blank" rel="noopener">@loopskatepark</a></p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== FECHO ===================== -->
+<section class="final" id="final">
+  <div class="loop-texture"></div>
+  <div class="wrap">
+    <h2>Vamos conversar?</h2>
+    <p>Chame a gente para apresentar a sua ideia — ou para ouvir as nossas. A proposta a gente desenha junto, no formato que fizer sentido para a sua marca e para a nossa comunidade.</p>
+    <a class="cta-btn" href="https://wa.me/5531982789675?text=Oi%2C%20Loop!%20Li%20a%20carta%20de%20apresenta%C3%A7%C3%A3o%20e%20quero%20conversar%20sobre%20parceria." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <a class="cta-btn cta-btn--ciano" href="mailto:contato@loopskatepark.com.br?subject=Parceria%20com%20a%20Loop%20Skate%20Park">contato@loopskatepark.com.br</a>
+    <div class="final__mark">
+      {% include logo.svg %}
+    </div>
+  </div>
+</section>
+
+{% include footer.html subtitle="Esporte, arte e cultura urbana" %}
+
+</body>
+</html>
