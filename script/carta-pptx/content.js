@@ -4,7 +4,7 @@
 
 module.exports = {
   capa: {
-    eyebrow: 'Loop Skate Park · Belo Horizonte / MG',
+    eyebrow: 'Loop Skate Park · Belo Horizonte – MG',
     titulo: ['Carta de', 'Apresentação'],
     ano: '2026',
     linha: 'Esporte, arte e cultura urbana',
@@ -49,7 +49,7 @@ module.exports = {
       'Pode patrocinar bolsas sociais.',
       'Ou podemos simplesmente sentar juntos e pensar em uma ideia que ainda não existe.',
     ],
-    shout: 'Acreditamos que as melhores parcerias são construídas em conjunto.',
+    shout: 'Acreditamos que as melhores parcerias\nsão construídas em conjunto.',
     paragrafos: [
       'Por isso, não queremos trabalhar com formatos engessados. Estamos dispostos a ouvir as necessidades e os objetivos de cada empresa e pensar em contrapartidas que façam sentido para o parceiro e, ao mesmo tempo, sejam relevantes para a nossa comunidade.',
       'A Loop está aberta para construir essa história junto com quem quiser fazer parte dela.',
@@ -65,7 +65,7 @@ module.exports = {
       { cor: 'rosa',  rotulo: 'WhatsApp', valor: '(31) 98278-9675', link: 'https://wa.me/5531982789675' },
       { cor: 'ciano', rotulo: 'E-mail',   valor: 'contato@loopskatepark.com.br', link: 'mailto:contato@loopskatepark.com.br' },
     ],
-    endereco: 'Rua Vila Rica, 1168, 2º andar — Caiçara, Belo Horizonte / MG',
+    endereco: 'Rua Vila Rica, 1168, 2º andar — Caiçara, Belo Horizonte – MG',
     site: 'loopskatepark.com.br',
   },
 };

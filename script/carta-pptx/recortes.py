@@ -40,7 +40,11 @@ def recorta(origem, destino, proporcao, larg_max, foco=0.5):
 
 if __name__ == '__main__':
     apara_logo()
-    # proporções espelham as caixas do layout em build.js
-    recorta('LOOP-PISTA-FOTO-1.jpeg', 'foto-pista.jpg', 3.255 / 2.00, 1300, foco=0.42)
-    recorta('LOOP-RECEPCAO.jpeg', 'foto-recepcao.jpg', 3.255 / 2.00, 1300, foco=0.45)
-    recorta('LOOP-PISTA-FOTO-2.jpeg', 'foto-obstaculos.jpg', 6.71 / 1.95, 2000, foco=0.40)
+    # Proporções espelham as caixas do layout em build.js, já descontando a
+    # moldura preta (a imagem entra recuada 0.035 pol de cada lado).
+    B = 0.07
+    dupla = (3.255 - B) / (1.92 - B)     # par de fotos da pág. 2
+    larga = (6.71 - B) / (1.82 - B)      # foto de largura total da pág. 3
+    recorta('LOOP-PISTA-FOTO-1.jpeg', 'foto-pista.jpg', dupla, 1300, foco=0.72)
+    recorta('LOOP-RECEPCAO.jpeg', 'foto-recepcao.jpg', dupla, 1300, foco=0.22)
+    recorta('LOOP-PISTA-FOTO-2.jpeg', 'foto-obstaculos.jpg', larga, 2000, foco=0.40)

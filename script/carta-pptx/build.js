@@ -20,8 +20,8 @@ const FD = 'Anton', FH = 'Oswald', FB = 'Barlow';
 
 // A4 retrato, em polegadas
 const PW = 8.27, PH = 11.69, MG = 0.78, CW = PW - 2 * MG;
-const FOOT_Y = PH - 0.62;      // régua do rodapé das páginas internas
-const Y_MAX = FOOT_Y - 0.40;   // limite inferior do conteúdo
+const FOOT_Y = PH - 0.70;      // régua do rodapé das páginas internas
+const Y_MAX = FOOT_Y - 0.36;   // limite inferior do conteúdo
 
 const B = (f) => path.join(OUT, f);
 const LOGO = B('logo.png');
@@ -34,7 +34,7 @@ const S = {
   body:      { font: FB, size: 11,   lineSpacing: 17 },
   lead:      { font: FB, size: 13,   lineSpacing: 20 },
   bandTitle: { font: FD, size: 30,   lineSpacing: 32, uppercase: true },
-  capaTitle: { font: FD, size: 46,   lineSpacing: 51, uppercase: true },
+  capaTitle: { font: FD, size: 46,   lineSpacing: 55, uppercase: true },
   shout:     { font: FD, size: 15.5, lineSpacing: 20, uppercase: true },
   sub:       { font: FD, size: 18,   lineSpacing: 20, uppercase: true },
   cardTitle: { font: FH, size: 11.5, lineSpacing: 14, bold: true, uppercase: true },
@@ -45,9 +45,9 @@ const S = {
 
 /* ---------------- medição ---------------- */
 const reqs = [], idx = {};
-function need(key, text, style, w) {
+function need(key, text, style, w, tol = 0.98) {
   idx[key] = reqs.length;
-  reqs.push({ text: String(text).replace(/\*\*/g, ''), w: w * 0.98, ...style });
+  reqs.push({ text: String(text).replace(/\*\*/g, ''), w: w * tol, ...style });
 }
 let sizes = [];
 const H = (k) => sizes[idx[k]].h;
@@ -84,7 +84,7 @@ K.p3.cards.forEach((c, i) => {
 });
 need('p3.fecho', K.p3.fecho, S.body, CW);
 need('p4.band', K.p4.band.titulo, S.bandTitle, CW);
-K.p4.itens.forEach((t, i) => need('p4.i' + i, t, S.check, itemInnerW));
+K.p4.itens.forEach((t, i) => need('p4.i' + i, t, S.check, itemInnerW, 1));
 need('p4.shout', K.p4.shout, S.shout, CW - 0.72);
 K.p4.paragrafos.forEach((p, i) => need('p4.p' + i, p, S.body, CW));
 need('p5.texto', K.p5.texto, S.finalTxt, 5.7);
@@ -146,7 +146,8 @@ function shout(slide, text, key, y) {
   const h = shoutH(key);
   slide.addShape('roundRect', { x: MG, y, w: CW, h, fill: { color: C.preto }, rectRadius: 0.16 });
   slide.addText(text.toUpperCase(), {
-    ...T(S.shout), x: MG + 0.36, y: y + 0.22, w: CW - 0.72, h: H(key) + 0.12, color: C.branco,
+    ...T(S.shout, { valign: 'middle' }),
+    x: MG + 0.36, y, w: CW - 0.72, h, color: C.branco,
   });
   slide.addShape('triangle', {           // rabinho do balão
     x: MG + CW - 0.66, y: y + h - 0.01, w: 0.26, h: 0.20,
@@ -156,14 +157,46 @@ function shout(slide, text, key, y) {
 }
 
 // Foto com moldura preta + legenda (padrão .photo do site)
-const FOTO_LEG = 0.12 + 0.19;
+const FOTO_BORDA = 0.035;
+const FOTO_LEG = 0.20 + 0.19;
 function foto(slide, { x, w, h, path, legenda }, y) {
-  const b = 0.035;
-  slide.addShape('rect', { x: x - b, y: y - b, w: w + b * 2, h: h + b * 2, fill: { color: C.preto } });
-  slide.addImage({ path, x, y, w, h });
+  const b = FOTO_BORDA;
+  // a moldura ocupa a caixa inteira; a imagem entra recuada pela espessura
+  // da borda, para que a aresta externa caia na mesma coluna do texto
+  slide.addShape('rect', { x, y, w, h, fill: { color: C.preto } });
+  slide.addImage({ path, x: x + b, y: y + b, w: w - b * 2, h: h - b * 2 });
   slide.addText(legenda.toUpperCase(), {
     ...T({ font: FH, size: 9, lineSpacing: 12.5, bold: true, charSpacing: 1.6 }),
-    x, y: y + h + 0.12, w, h: 0.19, color: '444444',
+    x, y: y + h + 0.20, w, h: 0.19, color: '444444',
+  });
+}
+
+// Check preto dentro de um selo na cor de destaque: o amarelo e o ciano
+// não têm contraste suficiente para virar traço solto sobre o branco.
+function check(slide, cx, cy, cor) {
+  const lado = 0.30;
+  const x = cx - lado / 2, y = cy - lado / 2;
+  slide.addShape('roundRect', {
+    x, y, w: lado, h: lado, rectRadius: 0.07,
+    fill: { color: cor }, line: { color: C.preto, width: 1.5 },
+  });
+  slide.addShape('line', {
+    x: x + 0.075, y: y + 0.145, w: 0.055, h: 0.07,
+    line: { color: C.preto, width: 2.25 },
+  });
+  slide.addShape('line', {
+    x: x + 0.13, y: y + 0.085, w: 0.10, h: 0.13, flipV: true,
+    line: { color: C.preto, width: 2.25 },
+  });
+}
+
+// Contorno centrado na aresta: recua meia espessura para a borda externa
+// ficar exatamente na coluna do texto.
+function caixa(slide, { x, y, w, h, fill, traco }) {
+  const m = traco / 72 / 2;
+  slide.addShape('rect', {
+    x: x + m, y: y + m, w: w - m * 2, h: h - m * 2,
+    fill: { color: fill }, line: { color: C.preto, width: traco },
   });
 }
 
@@ -249,7 +282,7 @@ function buildDeck() {
       h: H('p2.p' + i), gap: 0.24, draw: (y) => paragrafo(s, p, 'p2.p' + i, y),
     }));
     blocks.push({ h: shoutH('p2.shout'), gap: 0.44, draw: (y) => shout(s, K.p2.shout, 'p2.shout', y) });
-    const fW = (CW - 0.20) / 2, fH = 2.00;
+    const fW = (CW - 0.20) / 2, fH = 1.92;
     blocks.push({
       h: fH + FOTO_LEG, gap: 0, draw: (y) => {
         foto(s, { x: MG, w: fW, h: fH, path: B('foto-pista.jpg'), legenda: 'Pista indoor — street e transições' }, y);
@@ -257,7 +290,7 @@ function buildDeck() {
       },
     });
 
-    const r = flow(blocks, bh + 0.58, Y_MAX);
+    const r = flow(blocks, bh + 0.54, Y_MAX);
     console.log('pág 2 → fim', r.fim.toFixed(2), 'sobra', r.sobra.toFixed(2));
     pageFooter(s, 2);
   }
@@ -270,13 +303,14 @@ function buildDeck() {
 
     const blocks = [];
     K.p3.paragrafos.forEach((p, i) => blocks.push({
-      h: H('p3.p' + i), gap: i === K.p3.paragrafos.length - 1 ? 0.44 : 0.24,
+      h: H('p3.p' + i), gap: i === K.p3.paragrafos.length - 1 ? 0.52 : 0.24,
       draw: (y) => paragrafo(s, p, 'p3.p' + i, y),
     }));
     blocks.push({
       h: Math.max(H('p3.sub'), 0.30), gap: 0.22, draw: (y) => {
+        const d = 0.19, alt = Math.max(H('p3.sub'), 0.30);
         s.addShape('rect', {
-          x: MG + 0.02, y: y + 0.04, w: 0.19, h: 0.19, rotate: 45,
+          x: MG + (d * Math.SQRT2 - d) / 2, y: y + (alt - d) / 2, w: d, h: d, rotate: 45,
           fill: { color: C.rosa }, line: { color: C.preto, width: 2 },
         });
         s.addText(K.p3.subtitulo.toUpperCase(), {
@@ -293,10 +327,7 @@ function buildDeck() {
       h: cardH, gap: 0.32, draw: (y) => {
         K.p3.cards.forEach((c, i) => {
           const x = MG + i * (cardW + 0.26);
-          s.addShape('rect', {
-            x, y, w: cardW, h: cardH,
-            fill: { color: C[c.cor] }, line: { color: C.preto, width: 2.25 },
-          });
+          caixa(s, { x, y, w: cardW, h: cardH, fill: C[c.cor], traco: 2.25 });
           s.addText(c.titulo.toUpperCase(), {
             ...T(S.cardTitle), x: x + padX, y: y + padT, w: cardInnerW, h: H('p3.ct' + i) + 0.06,
             color: C.preto,
@@ -310,11 +341,11 @@ function buildDeck() {
     });
     blocks.push({ h: H('p3.fecho'), gap: 0.40, draw: (y) => paragrafo(s, K.p3.fecho, 'p3.fecho', y) });
     blocks.push({
-      h: 1.95 + FOTO_LEG, gap: 0, draw: (y) =>
-        foto(s, { x: MG, w: CW, h: 1.95, path: B('foto-obstaculos.jpg'), legenda: 'Obstáculos e área de prática' }, y),
+      h: 1.82 + FOTO_LEG, gap: 0, draw: (y) =>
+        foto(s, { x: MG, w: CW, h: 1.82, path: B('foto-obstaculos.jpg'), legenda: 'Obstáculos e área de prática' }, y),
     });
 
-    const r = flow(blocks, bh + 0.58, Y_MAX);
+    const r = flow(blocks, bh + 0.54, Y_MAX);
     console.log('pág 3 → fim', r.fim.toFixed(2), 'sobra', r.sobra.toFixed(2));
     pageFooter(s, 3);
   }
@@ -326,11 +357,10 @@ function buildDeck() {
     const bh = band(s, K.p4.band, 'p4.band', B('tex-band-4.png'));
 
     const padY = 0.13, gapCol = 0.22, gapRow = 0.11, rows = 4;
-    const rowH = [];
-    for (let r = 0; r < rows; r++) {
-      rowH.push(Math.max(H('p4.i' + (r * 2)), H('p4.i' + (r * 2 + 1))) + padY * 2);
-    }
-    const listH = rowH.reduce((a, b) => a + b, 0) + gapRow * (rows - 1);
+    // altura única para todas as caixas: a grade lê como grade, sem uma
+    // fileira mais alta que as outras por causa de um item mais longo
+    const itemH = Math.max(...K.p4.itens.map((_, i) => H('p4.i' + i))) + padY * 2;
+    const listH = itemH * rows + gapRow * (rows - 1);
 
     const blocks = [];
     blocks.push({
@@ -338,19 +368,17 @@ function buildDeck() {
         let ry = y0;
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < 2; c++) {
-            const i = r * 2 + c, x = MG + c * (itemW + gapCol), h = rowH[r];
-            s.addShape('rect', {
-              x, y: ry, w: itemW, h, fill: { color: C.branco }, line: { color: C.preto, width: 2 },
-            });
-            const cx = x + 0.24, cy = ry + h / 2;
-            const accent = [C.ciano, C.preto, C.amarelo, C.roxo][i % 4];
-            s.addShape('line', { x: cx, y: cy - 0.01, w: 0.075, h: 0.10, line: { color: accent, width: 3 } });
-            s.addShape('line', { x: cx + 0.075, y: cy - 0.09, w: 0.155, h: 0.18, flipV: true, line: { color: accent, width: 3 } });
+            const i = r * 2 + c, x = MG + c * (itemW + gapCol), h = itemH;
+            caixa(s, { x, y: ry, w: itemW, h, fill: C.branco, traco: 2 });
+            // o ciclo anda na linha E na coluna, senão cada coluna fica
+            // com um par fixo de cores
+            const accent = [C.ciano, C.rosa, C.amarelo, C.roxo][(r + c) % 4];
+            check(s, x + 0.30, ry + h / 2, accent);
             s.addText(K.p4.itens[i], {
               ...T(S.check, { valign: 'middle' }), x: x + 0.56, y: ry, w: itemInnerW, h, color: C.ink,
             });
           }
-          ry += rowH[r] + gapRow;
+          ry += itemH + gapRow;
         }
       },
     });
@@ -373,7 +401,7 @@ function buildDeck() {
       },
     });
 
-    const r = flow(blocks, bh + 0.46, Y_MAX);
+    const r = flow(blocks, bh + 0.54, Y_MAX);
     console.log('pág 4 → fim', r.fim.toFixed(2), 'sobra', r.sobra.toFixed(2));
     pageFooter(s, 4);
   }
@@ -384,8 +412,13 @@ function buildDeck() {
     s.background = { path: B('bg-preto.png') };
 
     const logoW = 1.95, logoH = logoW / LOGO_AR;
-    const pilha = logoH + 0.80 + 0.86 + 0.42 + H('p5.texto') + 0.74 + 2 * 0.92 + 0.26;
-    let y = 1.25 + (PH - 2.10 - 1.25 - pilha) / 2;
+    const btnW = 5.1, btnH = 0.92, btnGap = 0.26, btnX = (PW - btnW) / 2;
+    const CONTATO_Y = PH - 1.80;   // topo do bloco de endereço/site
+    // a pilha (logo → botões) é centrada entre o topo da folha e o bloco de
+    // contato, com o mesmo respiro em cima e embaixo
+    const pilha = logoH + 0.80 + 0.86 + 0.42 + H('p5.texto') + 0.74
+                + btnH * 2 + btnGap;
+    let y = 1.05 + (CONTATO_Y - 0.50 - 1.05 - pilha) / 2;
     s.addImage({ path: LOGO, x: (PW - logoW) / 2, y, w: logoW, h: logoH });
     y += logoH + 0.80;
 
@@ -401,30 +434,37 @@ function buildDeck() {
     });
     y += H('p5.texto') + 0.74;
 
-    const btnW = 5.1, btnH = 0.92, btnX = (PW - btnW) / 2;
     K.p5.botoes.forEach((b) => {
+      // rótulo + valor centrados como um grupo dentro do botão
+      const rotH = 0.20, valH = 0.30, entre = 0.05;
+      const topo = y + (btnH - (rotH + entre + valH)) / 2;
       s.addShape('roundRect', { x: btnX, y, w: btnW, h: btnH, fill: { color: C[b.cor] }, rectRadius: 0.16 });
       s.addText(b.rotulo.toUpperCase(), {
         ...T({ font: FH, size: 9.5, lineSpacing: 13, bold: true, charSpacing: 3 }),
-        x: btnX, y: y + 0.18, w: btnW, h: 0.2, color: C.preto, align: 'center',
+        x: btnX, y: topo, w: btnW, h: rotH, color: C.preto, align: 'center',
       });
       s.addText(b.valor, {
         ...T({ font: FH, size: 16, lineSpacing: 20, bold: true }),
-        x: btnX, y: y + 0.44, w: btnW, h: 0.32, color: C.preto, align: 'center',
+        x: btnX, y: topo + rotH + entre, w: btnW, h: valH, color: C.preto, align: 'center',
         underline: { style: 'none' }, hyperlink: { url: b.link },
       });
-      y += btnH + 0.26;
+      y += btnH + btnGap;
     });
-    console.log('pág 5 → fim botões', y.toFixed(2));
+    console.log('pág 5 → fim botões', y.toFixed(2), '| bloco de contato em', CONTATO_Y.toFixed(2));
 
-    s.addShape('rect', { x: MG + 1.6, y: PH - 1.66, w: CW - 3.2, h: 0.02, fill: { color: C.branco, transparency: 55 } });
+    // a régua acompanha a largura da linha de endereço que ela separa
+    const reguaW = 4.7;
+    s.addShape('rect', {
+      x: (PW - reguaW) / 2, y: CONTATO_Y, w: reguaW, h: 0.02,
+      fill: { color: C.branco, transparency: 55 },
+    });
     s.addText(K.p5.endereco, {
       ...T({ font: FH, size: 9.5, lineSpacing: 14, charSpacing: 1.2 }),
-      x: MG, y: PH - 1.36, w: CW, h: 0.24, color: C.branco, align: 'center',
+      x: MG, y: CONTATO_Y + 0.30, w: CW, h: 0.24, color: C.branco, align: 'center',
     });
     s.addText(K.p5.site, {
       ...T({ font: FH, size: 12, lineSpacing: 17, bold: true, charSpacing: 2.4 }),
-      x: MG, y: PH - 1.00, w: CW, h: 0.28, color: C.ciano, align: 'center',
+      x: MG, y: CONTATO_Y + 0.66, w: CW, h: 0.28, color: C.ciano, align: 'center',
       hyperlink: { url: 'https://loopskatepark.com.br' },
     });
   }
