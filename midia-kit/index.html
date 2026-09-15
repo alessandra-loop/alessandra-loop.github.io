@@ -29,39 +29,6 @@ sitemap: false
      não existem nas outras páginas: números, cotas e depoimentos.
      ===================================================================== */
 
-  /* ---------- números em destaque ---------- */
-  .stats{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(168px,1fr));
-    gap:14px;margin:24px 0;
-  }
-  .stat{
-    border:3px solid var(--loop-preto);
-    border-radius:16px;
-    padding:16px 18px;
-    background:var(--loop-branco);
-  }
-  .stat b{
-    display:block;
-    font-family:var(--display);
-    font-size:clamp(28px,5.5vw,42px);
-    line-height:1;
-  }
-  .stat span{
-    display:block;margin-top:6px;
-    font-family:var(--head);
-    text-transform:uppercase;
-    letter-spacing:.04em;
-    font-weight:600;
-    font-size:13px;line-height:1.3;
-  }
-  .stat--ciano{background:var(--loop-ciano);}
-  .stat--rosa{background:var(--loop-rosa);}
-  .stat--amarelo{background:var(--loop-amarelo);}
-  .stat--bege{background:var(--loop-bege);}
-  /* branco sobre roxo passa AA; ciano sobre roxo não — por isso só texto branco aqui */
-  .stat--roxo{background:var(--loop-roxo);color:var(--loop-branco);}
-
   /* ---------- cotas de patrocínio ---------- */
   .cotas{
     display:grid;
@@ -146,8 +113,7 @@ sitemap: false
       <a href="#patrocinar"><span class="num">07</span>Por que patrocinar</a>
       <a href="#parcerias"><span class="num">08</span>Formas de parceria</a>
       <a href="#cotas"><span class="num">09</span>Cotas e contrapartidas</a>
-      <a href="#loop-para-todos"><span class="num">10</span>Loop para Todos</a>
-      <a href="#depoimentos"><span class="num">11</span>Depoimentos</a>
+      <a href="#depoimentos"><span class="num">10</span>Depoimentos</a>
     </div>
   </div>
 </nav>
@@ -410,30 +376,8 @@ sitemap: false
   </div>
 </section>
 
-<!-- ===================== 10 LOOP PARA TODOS ===================== -->
-{% include band.html color="ciano" id="loop-para-todos" eyebrow="10 — Patrocínio social" title="Loop para Todos" %}
-<section class="content">
-  <div class="wrap">
-    <p class="lead lead--accent">Uma das iniciativas que mais nos mobiliza é ampliar o acesso ao skate para crianças e adolescentes da rede pública de ensino e de famílias de baixa renda.</p>
-    <p>O custo das aulas, dos equipamentos e a falta de espaços adequados ainda impedem que muita gente conheça essa cultura. O <strong>Loop para Todos</strong> existe para reduzir essas barreiras: aulas gratuitas, acompanhamento de instrutores qualificados e acesso a equipamento, num ambiente seguro e acolhedor.</p>
-
-    <div class="stats">
-      <div class="stat stat--ciano"><b>20</b><span>crianças e adolescentes da rede pública</span></div>
-      <div class="stat stat--rosa"><b>2</b><span>turmas, com uma aula por semana cada</span></div>
-      <div class="stat stat--amarelo"><b>60</b><span>beneficiários indiretos (famílias e responsáveis)</span></div>
-      <div class="stat stat--bege"><b>12</b><span>meses de projeto</span></div>
-    </div>
-
-    {% include note.html title="Quanto custa manter o projeto" text="Para atender 20 crianças e adolescentes durante 12 meses, o projeto precisa de aproximadamente R$ 84.000 por ano: R$ 72.000 em aulas (20 participantes × R$ 300 mensais × 12 meses) e R$ 12.000 em equipamentos individuais (skates e kits de proteção). O apoio pode financiar uma criança, uma turma ou o programa completo durante um período." %}
-
-    <p>Cada bolsa garante <strong>aula + equipamento + proteção + oportunidade</strong>. Além do impacto esportivo, o projeto amplia convivência, autonomia, autoestima e pertencimento — coisas que essas crianças levam para a escola, para casa e para a vida.</p>
-
-    {% include shout.html text="Sua marca pode ser a responsável por colocar uma criança na pista." %}
-  </div>
-</section>
-
-<!-- ===================== 11 DEPOIMENTOS ===================== -->
-{% include band.html color="rosa" id="depoimentos" eyebrow="11 — Quem frequenta" title="Depoimentos" %}
+<!-- ===================== 10 DEPOIMENTOS ===================== -->
+{% include band.html color="ciano" id="depoimentos" eyebrow="10 — Quem frequenta" title="Depoimentos" %}
 <section class="content">
   <div class="wrap">
     <p>Quem conta melhor sobre a Loop é quem passa pela pista. Estas são avaliações públicas deixadas por alunos, famílias e visitantes no Google:</p>

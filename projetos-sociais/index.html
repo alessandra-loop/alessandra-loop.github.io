@@ -1,0 +1,192 @@
+---
+title: "Projetos Sociais | Loop Skate Park"
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Página não listada: enviada direto para parceiros, editais e patrocinadores
+     sociais, fora do Google. -->
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="description" content="Loop para Todos: o projeto social da Loop Skate Park que amplia o acesso ao skate para crianças e adolescentes da rede pública de Belo Horizonte.">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="any">
+
+<!-- Fontes da marca self-hosted: pré-carrega as de exibição acima da dobra.
+     As declarações @font-face vêm de _includes/brand-tokens.html
+     (incluído por base-style.html). -->
+<link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% include base-style.html %}
+
+{% include footer-style.html %}
+
+<style>
+  /* Dois botões lado a lado no fecho (mesmo padrão do mídia kit). */
+  .final .cta-btn{margin:10px 6px 0;}
+  .final .cta-btn--ciano{background:var(--loop-ciano);}
+</style>
+</head>
+<body>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="loop-texture" id="tex-hero"></div>
+  <div class="wrap">
+    <div class="hero__logo">
+      <a href="{{ '/' | relative_url }}" aria-label="Loop Skate Park — página inicial">
+        {% include logo.svg %}
+      </a>
+    </div>
+    <h1 class="hero__title">Projetos Sociais</h1>
+    <div class="hero__year">2026</div>
+  </div>
+</section>
+
+<!-- ===================== ÍNDICE ===================== -->
+<nav class="toc">
+  <div class="wrap">
+    <h2>Índice</h2>
+    <div class="toc__grid">
+      <a href="#loop-para-todos"><span class="num">01</span>Loop para Todos</a>
+      <a href="#por-que"><span class="num">02</span>Por que o projeto existe</a>
+      <a href="#missao"><span class="num">03</span>Missão e valores</a>
+      <a href="#quem-atendemos"><span class="num">04</span>Quem atendemos</a>
+      <a href="#como-funciona"><span class="num">05</span>Como funciona uma aula</a>
+      <a href="#resultados"><span class="num">06</span>O que esperamos em 12 meses</a>
+      <a href="#como-apoiar"><span class="num">07</span>Como apoiar</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================== 01 LOOP PARA TODOS ===================== -->
+{% include band.html color="ciano" id="loop-para-todos" eyebrow="01 — O projeto" title="Loop para Todos" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">O <strong>Loop para Todos</strong> nasceu do desejo de ampliar o acesso ao skate e fazer com que cada vez mais crianças e adolescentes possam vivenciar tudo o que essa cultura tem a oferecer.</p>
+    <p>Para a gente, o skate vai muito além da prática esportiva. É forma de expressão, é construir amizades, é ocupar os espaços públicos da cidade, é desenvolver autonomia e fortalecer a confiança. São experiências que marcaram a trajetória de quem fundou a Loop e que hoje inspiram o trabalho da escola.</p>
+    <p>Acreditamos que toda criança deveria ter a oportunidade de conhecer esse universo. Por isso o projeto oferece <strong>aulas gratuitas para estudantes da rede pública de ensino</strong>, num ambiente acolhedor onde o esporte, a cultura e a convivência caminham juntos.</p>
+    <p>Mais do que formar skatistas, o Loop para Todos quer despertar o sentimento de pertencimento à cultura do skate, incentivar hábitos saudáveis e criar oportunidades para que crianças e adolescentes descubram novas possibilidades de desenvolvimento por meio do esporte.</p>
+
+    {% include shout.html text="Democratizar o acesso ao skate para formar uma geração mais confiante, criativa e conectada com a cultura, a cidade e a comunidade." %}
+  </div>
+</section>
+
+<!-- ===================== 02 POR QUE O PROJETO EXISTE ===================== -->
+{% include band.html color="rosa" id="por-que" eyebrow="02 — O que enfrentamos" title="Por que o projeto existe" %}
+<section class="content">
+  <div class="wrap">
+    <p>O skate já se consolidou como manifestação esportiva e cultural, mas o acesso à prática ainda é limitado para muitas crianças e adolescentes. O custo das aulas, o preço dos equipamentos e a falta de espaços adequados impedem que muita gente sequer chegue perto desse universo.</p>
+    <p>O projeto existe para reduzir essas barreiras, democratizando o acesso ao skate e ampliando as oportunidades de participação em atividades esportivas e culturais de qualidade. Junto disso, a iniciativa fortalece vínculos sociais, estimula a prática regular de atividade física, incentiva a ocupação positiva do tempo livre e trabalha valores como respeito, autonomia, cooperação, perseverança e cuidado com os espaços públicos.</p>
+
+    <h4 class="mini">Por que isso importa em Belo Horizonte</h4>
+    <p>BH é reconhecida pela forte tradição no skate, com uma comunidade ativa, atletas de destaque nacional e espaços públicos que fazem parte da história da modalidade. Mesmo assim, o skate ainda não é uma realidade para muitas crianças e adolescentes da cidade.</p>
+    <p>O Loop para Todos aproxima esses jovens de uma cultura que já faz parte da identidade de Belo Horizonte, oferecendo aulas gratuitas, acompanhamento de profissionais qualificados e acesso a equipamentos. Mais do que formar novos praticantes, queremos que a cena do skate na cidade seja cada vez mais acessível, diversa e representativa — para que crianças de diferentes territórios reconheçam esse universo como um espaço de pertencimento.</p>
+  </div>
+</section>
+
+<!-- ===================== 03 MISSÃO E VALORES ===================== -->
+{% include band.html color="roxo" id="missao" eyebrow="03 — O que nos move" title="Missão e valores" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Democratizar o acesso ao skate, promovendo a inclusão por meio do esporte, da cultura e da educação, para que crianças e adolescentes da rede pública de Belo Horizonte tenham a oportunidade de desenvolver autonomia, confiança, criatividade e senso de pertencimento.</p>
+    <p>Queremos que cada criança atendida descubra no skate muito mais do que um esporte: experiências que fortaleçam a autoestima, a autonomia e a confiança, e relações de respeito, cooperação e pertencimento. A longo prazo, queremos contribuir para uma geração que reconheça o esporte e a cultura como ferramentas de desenvolvimento pessoal, cidadania e participação na cidade.</p>
+
+    <h4 class="mini">Os valores do projeto:</h4>
+    <div class="cards">
+      {% include card.html variant="c1" title="Democratização do acesso" text="Toda criança e adolescente deve ter a oportunidade de conhecer e praticar o skate." %}
+      {% include card.html variant="c2" title="Comunidade" text="O skate fortalece vínculos. Incentivamos a colaboração, o apoio mútuo e o pertencimento entre participantes, famílias e comunidade." %}
+      {% include card.html variant="c3" title="Autonomia" text="Encorajamos cada criança a desenvolver confiança, perseverança e protagonismo, respeitando o seu próprio ritmo de aprendizagem." %}
+      {% include card.html variant="roxo" title="Inclusão" text="Um ambiente acolhedor, acessível e diverso, onde todas as pessoas possam participar, aprender e se desenvolver." %}
+      {% include card.html variant="c4" title="Criatividade e liberdade" text="O skate é expressão da cultura urbana: estimulamos a criatividade, a experimentação e a livre expressão." %}
+      {% include card.html variant="c1" title="Cidadania" text="Cuidado com os espaços públicos, respeito à cidade e participação ativa na construção de uma comunidade mais consciente." %}
+      {% include card.html variant="c2" title="Transformação social" text="Esporte e cultura como ferramentas capazes de ampliar oportunidades e gerar impactos positivos na vida das pessoas." %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 04 QUEM ATENDEMOS ===================== -->
+{% include band.html color="ciano" id="quem-atendemos" eyebrow="04 — Para quem" title="Quem atendemos" %}
+<section class="content">
+  <div class="wrap">
+    <p>O projeto é voltado para <strong>crianças e adolescentes matriculados em escolas públicas de Belo Horizonte</strong>, em duas turmas com uma aula por semana cada.</p>
+
+    <div class="stats">
+      <div class="stat stat--ciano"><b>20</b><span>crianças e adolescentes atendidos</span></div>
+      <div class="stat stat--rosa"><b>2</b><span>turmas, com uma aula por semana cada</span></div>
+      <div class="stat stat--amarelo"><b>60</b><span>beneficiários indiretos (famílias e responsáveis)</span></div>
+      <div class="stat stat--bege"><b>12</b><span>meses de projeto</span></div>
+    </div>
+
+    <p>Os cerca de 60 beneficiários indiretos são os familiares e responsáveis que acompanham de perto as atividades — sem contar o impacto na comunidade escolar e na convivência de cada participante.</p>
+  </div>
+</section>
+
+<!-- ===================== 05 COMO FUNCIONA UMA AULA ===================== -->
+{% include band.html color="rosa" id="como-funciona" eyebrow="05 — Na prática" title="Como funciona uma aula" %}
+<section class="content">
+  <div class="wrap">
+    <p>Cada aula dura <strong>60 minutos</strong> e é conduzida por instrutores qualificados, em um ambiente seguro, acolhedor e adaptado ao nível de experiência de cada participante.</p>
+
+    <ol class="steps">
+      <li><strong>Acolhimento e integração.</strong> O grupo se encontra, conversa e se prepara para a aula — ninguém começa sozinho.</li>
+      <li><strong>Aquecimento e exercícios preparatórios.</strong> O corpo entra em movimento com segurança, antes de subir no skate.</li>
+      <li><strong>Aprendizagem progressiva.</strong> Atividades que avançam aos poucos, respeitando o ritmo e as potencialidades de cada criança ou adolescente.</li>
+    </ol>
+
+    {% include note.html title="Cair faz parte" text="O aprendizado no skate não é linear: cada participante evolui no seu próprio tempo. O que a gente valoriza não é só a manobra, é a coragem de tentar de novo depois de cair — e é aí que nascem confiança, persistência e autonomia." %}
+  </div>
+</section>
+
+<!-- ===================== 06 RESULTADOS ===================== -->
+{% include band.html color="roxo" id="resultados" eyebrow="06 — Onde queremos chegar" title="O que esperamos em 12 meses" %}
+<section class="content">
+  <div class="wrap">
+    <ul class="check">
+      <li>desenvolver equilíbrio, coordenação motora, consciência corporal, autonomia e capacidade de superar desafios;</li>
+      <li>fortalecer valores como respeito, cooperação, responsabilidade e convivência em grupo;</li>
+      <li>ampliar o sentimento de pertencimento à cultura do skate e à comunidade;</li>
+      <li>incentivar a ocupação positiva dos espaços urbanos e o cuidado com a cidade;</li>
+      <li>aproximar famílias e comunidade escolar das práticas esportivas e culturais do projeto.</li>
+    </ul>
+
+    <p>Ao final dos 12 meses, esperamos que os participantes reconheçam o skate como ferramenta de expressão, aprendizagem e transformação — levando para outros espaços da vida os valores e as experiências construídos aqui.</p>
+    <p>O processo de aprender skate é marcado pela experimentação, pela persistência e pela superação de obstáculos. É justamente isso que fortalece a autoestima e a percepção de que se é capaz de aprender e evoluir.</p>
+  </div>
+</section>
+
+<!-- ===================== 07 COMO APOIAR ===================== -->
+{% include band.html color="ciano" id="como-apoiar" eyebrow="07 — Patrocínio social" title="Como apoiar" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Cada bolsa garante <strong>aula + equipamento + proteção + oportunidade</strong>.</p>
+    <p>Uma empresa pode patrocinar uma criança, uma turma ou o programa completo durante determinado período. Além do impacto esportivo, esse apoio amplia convivência, autonomia, autoestima e pertencimento — coisas que essas crianças levam para a escola, para casa e para a vida.</p>
+
+    {% include note.html title="Quanto custa manter o projeto" text="Para atender 20 crianças e adolescentes durante 12 meses, com aulas gratuitas, equipamentos individuais e acompanhamento especializado, o projeto precisa captar aproximadamente R$ 84.000 por ano: R$ 72.000 em aulas (20 participantes × R$ 300 mensais × 12 meses) e R$ 12.000 em equipamentos individuais (skates e kits de proteção)." %}
+
+    <p>Os recursos captados também ajudam a melhorar a infraestrutura da Loop, garantindo mais conforto e segurança para alunos e famílias, e a ampliar gradualmente o alcance do projeto — com mais bolsas, parcerias com escolas e novas iniciativas de acesso ao esporte.</p>
+
+    {% include shout.html text="Sua marca pode ser a responsável por colocar uma criança na pista." %}
+  </div>
+</section>
+
+<!-- ===================== MENSAGEM FINAL ===================== -->
+<section class="final" id="final">
+  <div class="loop-texture"></div>
+  <div class="wrap">
+    <h2>Vamos colocar mais gente na pista?</h2>
+    <p>Estamos abertos para conversar com empresas, instituições e pessoas que acreditam no esporte e na cultura como caminhos de oportunidade. Venha conhecer a pista, a comunidade e o projeto — a gente desenha o apoio junto com você.</p>
+    <a class="cta-btn" href="https://wa.me/5531982789675?text=Oi%2C%20Loop!%20Quero%20conversar%20sobre%20o%20projeto%20social%20Loop%20para%20Todos." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <a class="cta-btn cta-btn--ciano" href="mailto:contato@loopskatepark.com.br?subject=Loop%20para%20Todos%20%E2%80%94%20patroc%C3%ADnio%20social">contato@loopskatepark.com.br</a>
+    <div class="final__mark">
+      {% include logo.svg %}
+    </div>
+  </div>
+</section>
+
+{% include footer.html subtitle="Esporte, arte e cultura urbana" %}
+
+</body>
+</html>
