@@ -1,3 +1,6 @@
 _site/
 .jekyll-cache/
 .jekyll-metadata
+
+# build local da carta em PPTX (script/carta-pptx)
+script/carta-pptx/.build/
