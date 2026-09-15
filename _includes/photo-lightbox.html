@@ -1,0 +1,115 @@
+<style>
+  /* =====================================================================
+     Clique para ampliar — usado na galeria do espaço (.photos--espaco)
+     de sobre/ e midia-kit/. Sem biblioteca externa: <dialog> nativo já
+     traz Esc, foco preso e backdrop de graça.
+     As cores vêm dos tokens --loop-* (_includes/brand-tokens.html).
+     ===================================================================== */
+
+  /* o botão só embrulha a foto: não muda nada no layout da galeria */
+  .photos--espaco .photo .zoom{
+    display:block;
+    width:100%;
+    padding:0;border:0;background:none;
+    cursor:zoom-in;
+    border-radius:16px;
+  }
+  .photos--espaco .photo .zoom:focus-visible{
+    outline:4px solid var(--loop-ciano);
+    outline-offset:3px;
+  }
+
+  dialog.loop-lightbox{
+    border:0;
+    padding:0;
+    background:transparent;
+    max-width:96vw;
+    max-height:94vh;
+    overflow:visible;
+    color:var(--loop-branco);
+  }
+  dialog.loop-lightbox::backdrop{background:rgba(0,0,0,.88);}
+  dialog.loop-lightbox img{
+    /* contain: a foto ampliada aparece inteira, nunca cortada */
+    max-width:96vw;
+    max-height:80vh;
+    width:auto;height:auto;
+    object-fit:contain;
+    border:3px solid var(--loop-branco);
+    border-radius:16px;
+    margin:0 auto;
+  }
+  dialog.loop-lightbox figcaption{
+    margin-top:12px;
+    text-align:center;
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-weight:600;
+    font-size:13px;
+  }
+  dialog.loop-lightbox .loop-lightbox__fechar{
+    position:absolute;
+    top:-14px;right:-14px;
+    width:44px;height:44px;
+    border-radius:999px;
+    border:3px solid var(--loop-preto);
+    background:var(--loop-rosa);
+    color:var(--loop-preto);
+    font-family:var(--head);
+    font-size:22px;
+    line-height:1;
+    cursor:pointer;
+  }
+  dialog.loop-lightbox .loop-lightbox__fechar:focus-visible{
+    outline:3px solid var(--loop-ciano);
+    outline-offset:2px;
+  }
+</style>
+
+<dialog class="loop-lightbox" id="loop-lightbox" aria-label="Foto ampliada">
+  <button type="button" class="loop-lightbox__fechar" data-fechar aria-label="Fechar foto ampliada">×</button>
+  <img alt="">
+  <figcaption></figcaption>
+</dialog>
+
+<script>
+  // Melhoria progressiva: sem JS as fotos continuam aparecendo normalmente.
+  (function () {
+    var dlg = document.getElementById('loop-lightbox');
+    if (!dlg || typeof dlg.showModal !== 'function') return;
+
+    var img = dlg.querySelector('img');
+    var legenda = dlg.querySelector('figcaption');
+    var fotos = document.querySelectorAll('.photos--espaco .photo img');
+
+    fotos.forEach(function (foto) {
+      var cap = foto.parentElement.querySelector('figcaption');
+      var texto = cap ? cap.textContent.trim() : (foto.alt || 'Foto');
+
+      // embrulha a <img> num <button> para funcionar por teclado também
+      var botao = document.createElement('button');
+      botao.type = 'button';
+      botao.className = 'zoom';
+      botao.setAttribute('aria-label', 'Ampliar foto: ' + texto);
+      foto.parentNode.insertBefore(botao, foto);
+      botao.appendChild(foto);
+
+      botao.addEventListener('click', function () {
+        img.src = foto.currentSrc || foto.src;
+        img.alt = foto.alt;
+        legenda.textContent = texto;
+        dlg.showModal();
+      });
+    });
+
+    dlg.querySelector('[data-fechar]').addEventListener('click', function () {
+      dlg.close();
+    });
+
+    // clicar fora da foto (no backdrop) também fecha
+    dlg.addEventListener('click', function (e) {
+      if (e.target === dlg) dlg.close();
+    });
+  })();
+</script>
