@@ -31,9 +31,12 @@
     border-radius:20px;padding:4px 14px;letter-spacing:.04em;
   }
 
-  .post-body{max-width:70ch;}
+  /* o corpo do post ocupa toda a coluna (.wrap), sem recuo no desktop */
   .post-body > *:first-child{margin-top:0;}
   .post-body p{margin:0 0 18px;}
+  @media(min-width:900px){
+    .post-body{font-size:18px;}
+  }
   .post-body strong{font-weight:700;color:var(--loop-preto);}
   .post-body em{font-style:italic;}
   .post-body a{color:var(--loop-roxo);text-decoration:underline;text-underline-offset:2px;}

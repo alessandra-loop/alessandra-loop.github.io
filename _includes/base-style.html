@@ -182,7 +182,14 @@
 
   /* ---------- content blocks ---------- */
   .content{padding:44px 0 52px;}
-  .content p{margin:0 0 18px;max-width:70ch;}
+  /* o texto acompanha a largura da coluna (.wrap), igual aos cards, listas
+     e shouts — sem recuo à direita no desktop */
+  .content p{margin:0 0 18px;}
+  /* linha mais longa no desktop pede corpo um pouco maior para seguir legível
+     (no .content para não sobrescrever o tamanho próprio de .lead, cards etc.) */
+  @media(min-width:900px){
+    .content{font-size:18px;}
+  }
   .content p strong,.content li strong{font-weight:700;color:var(--loop-preto);}
   .content em{font-style:italic;}
 
