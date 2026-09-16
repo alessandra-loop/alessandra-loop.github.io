@@ -403,9 +403,16 @@
     font-size:13px;
     color:var(--loop-preto);
   }
-  /* primeira foto ocupa a linha inteira em telas largas */
+  /* galeria do espaço: duas colunas, com o destaque ocupando a linha inteira.
+     As fotos do espaço têm orientações diferentes (uma paisagem e duas
+     retrato), então cada uma recebe a proporção que lhe cabe em vez de uma
+     altura fixa — altura fixa + object-fit:cover cortava as verticais. */
+  .photos--espaco{grid-template-columns:repeat(2,1fr);}
+  /* destaque horizontal: corte suave de 4:3 para 3:2, puxado para a pista */
   .photos .photo--wide{grid-column:1/-1;}
-  .photos .photo--wide img{height:clamp(240px,42vw,420px);}
+  .photos .photo--wide img{height:auto;aspect-ratio:3/2;object-position:50% 45%;}
+  /* retratos: proporção natural, sem corte */
+  .photos .photo--retrato img{height:auto;aspect-ratio:3/4;}
   /* foto de destaque que não pode ser cortada (ex.: retrato dos fundadores) */
   .photos .photo--full{grid-column:1/-1;}
   .photos .photo--full img{height:auto;}
@@ -460,5 +467,6 @@
     body{font-size:16px;}
     .content{padding:32px 0 40px;}
     .band{padding:38px 0 34px;}
+    .photos--espaco{grid-template-columns:1fr;}
   }
 </style>
