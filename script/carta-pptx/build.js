@@ -84,6 +84,7 @@ K.p3.cards.forEach((c, i) => {
 });
 need('p3.fecho', K.p3.fecho, S.body, CW);
 need('p4.band', K.p4.band.titulo, S.bandTitle, CW);
+need('p4.intro', K.p4.intro, S.body, CW);
 K.p4.itens.forEach((t, i) => need('p4.i' + i, t, S.check, itemInnerW, 1));
 need('p4.shout', K.p4.shout, S.shout, CW - 0.72);
 K.p4.paragrafos.forEach((p, i) => need('p4.p' + i, p, S.body, CW));
@@ -356,15 +357,16 @@ function buildDeck() {
     s.background = { color: C.branco };
     const bh = band(s, K.p4.band, 'p4.band', B('tex-band-4.png'));
 
-    const padY = 0.13, gapCol = 0.22, gapRow = 0.11, rows = 4;
+    const padY = 0.11, gapCol = 0.22, gapRow = 0.09, rows = 4;
     // altura única para todas as caixas: a grade lê como grade, sem uma
     // fileira mais alta que as outras por causa de um item mais longo
     const itemH = Math.max(...K.p4.itens.map((_, i) => H('p4.i' + i))) + padY * 2;
     const listH = itemH * rows + gapRow * (rows - 1);
 
     const blocks = [];
+    blocks.push({ h: H('p4.intro'), gap: 0.26, draw: (y) => paragrafo(s, K.p4.intro, 'p4.intro', y) });
     blocks.push({
-      h: listH, gap: 0.32, draw: (y0) => {
+      h: listH, gap: 0.28, draw: (y0) => {
         let ry = y0;
         for (let r = 0; r < rows; r++) {
           for (let c = 0; c < 2; c++) {
@@ -382,9 +384,9 @@ function buildDeck() {
         }
       },
     });
-    blocks.push({ h: shoutH('p4.shout'), gap: 0.34, draw: (y) => shout(s, K.p4.shout, 'p4.shout', y) });
+    blocks.push({ h: shoutH('p4.shout'), gap: 0.30, draw: (y) => shout(s, K.p4.shout, 'p4.shout', y) });
     K.p4.paragrafos.forEach((p, i) => blocks.push({
-      h: H('p4.p' + i), gap: i === K.p4.paragrafos.length - 1 ? 0.28 : 0.18,
+      h: H('p4.p' + i), gap: i === K.p4.paragrafos.length - 1 ? 0.24 : 0.16,
       draw: (y) => paragrafo(s, p, 'p4.p' + i, y),
     }));
     blocks.push({

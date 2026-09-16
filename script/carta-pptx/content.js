@@ -13,10 +13,10 @@ module.exports = {
 
   p2: {
     band: { color: 'ciano', eyebrow: 'Quem somos', titulo: 'Olá!' },
-    lead: 'Somos a **Loop Skate Park**, uma escola e espaço de convivência dedicado ao skate e ao patins, em Belo Horizonte.',
+    lead: 'Somos a **Loop Skate Park**, uma escola e um espaço de convivência dedicados ao skate e aos patins, em Belo Horizonte.',
     paragrafos: [
       'A Loop nasceu de um sonho compartilhado por quatro pessoas com trajetórias diferentes, mas unidas pelo esporte, pela cultura e pelo desejo de construir uma comunidade: **Raphael Alves**, **Lorena Fernanda**, **Alessandra Aguiar** e **Douglas Aguiar**.',
-      'Mais do que uma pista ou uma escola de esporte, queremos construir em Belo Horizonte um espaço onde esporte, cultura, educação, arte e convivência possam caminhar juntos. Acreditamos que o skate e o patins são ferramentas potentes para desenvolver autonomia, confiança, criatividade, respeito e senso de pertencimento.',
+      'Mais do que uma pista ou uma escola de esporte, queremos construir em Belo Horizonte um espaço onde esporte, cultura, educação, arte e convivência possam caminhar juntos. Acreditamos que o skate e os patins são ferramentas potentes para desenvolver autonomia, confiança, criatividade, respeito e senso de pertencimento.',
       'A Loop foi criada para receber pessoas de diferentes idades e experiências. Queremos que cada pessoa encontre aqui um espaço para aprender, evoluir no seu próprio ritmo, fazer amizades e se sentir parte de uma comunidade. Também queremos que a Loop seja um espaço conectado à cena do skate e à cultura urbana de Belo Horizonte, recebendo eventos, encontros, oficinas, ações culturais, produções audiovisuais e experiências que aproximem ainda mais o esporte da cidade.',
     ],
     shout: 'E é por isso que estamos procurando parceiros.',
@@ -39,8 +39,9 @@ module.exports = {
 
   p4: {
     band: { color: 'roxo', eyebrow: 'Caminhos possíveis', titulo: 'As possibilidades são muitas' },
+    intro: 'Uma marca parceira pode caminhar com a gente de vários jeitos:',
     itens: [
-      'Uma marca pode estar presente na pista.',
+      'Pode estar presente na pista.',
       'Pode apoiar um campeonato ou um rolê.',
       'Pode fornecer equipamentos para nossos atletas.',
       'Pode criar uma experiência para crianças e famílias.',
