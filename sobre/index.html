@@ -45,6 +45,42 @@ title: "Sobre a Loop Skate Park | Escola de Skate e Patins em BH"
 {% include base-style.html %}
 
 {% include footer-style.html %}
+
+<!-- Dado estruturado (Schema.org): marca esta como a página institucional
+     que fala DA Loop, apontando para a mesma entidade descrita na home
+     (@id .../#organization). Assim a busca entende que home e Sobre
+     descrevem o mesmo negócio, em vez de dois lugares distintos. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://loopskatepark.com.br/sobre/#webpage",
+  "url": "https://loopskatepark.com.br/sobre/",
+  "name": "Sobre a Loop Skate Park",
+  "description": "Nossa história, propósito, estrutura e comunidade — um espaço onde esporte, cultura e pessoas se encontram todos os dias, no bairro Caiçara em BH.",
+  "inLanguage": "pt-BR",
+  "primaryImageOfPage": "https://loopskatepark.com.br/loop-logo.png",
+  "about": { "@id": "https://loopskatepark.com.br/#organization" },
+  "mainEntity": { "@id": "https://loopskatepark.com.br/#organization" },
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Início",
+        "item": "https://loopskatepark.com.br/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Sobre a Loop",
+        "item": "https://loopskatepark.com.br/sobre/"
+      }
+    ]
+  }
+}
+</script>
 </head>
 <body>
 

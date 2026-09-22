@@ -31,13 +31,23 @@ collections:
     output: true
     permalink: /mural/arte/:name/
 
-# Mantém TODOS os arquivos da pasta do manual fora do sitemap.xml,
-# inclusive quaisquer páginas .html adicionadas no futuro. O jekyll-sitemap
-# respeita "sitemap: false"; arquivos estáticos (PDF/PPTX/JS) já não entram no
-# sitemap por padrão.
+# Mantém TODOS os arquivos das pastas noindex fora do sitemap.xml, inclusive
+# quaisquer páginas .html adicionadas no futuro. Atenção: o jekyll-sitemap
+# lista PDFs por padrão, então marcar só o index.html com "sitemap: false" não
+# basta — é o escopo de pasta abaixo que segura o PDF junto.
 defaults:
   - scope:
       path: "manual-dos-alunos-e-responsaveis"
+    values:
+      sitemap: false
+  # Materiais para marcas/parceiros: circulam por link direto (WhatsApp,
+  # e-mail), não pela busca. Cobre as páginas e os PDFs/PPTX das pastas.
+  - scope:
+      path: "carta-de-apresentacao"
+    values:
+      sitemap: false
+  - scope:
+      path: "midia-kit"
     values:
       sitemap: false
   # Mural ainda não lançado (sem link na home/rodapé): mantém tudo fora do
