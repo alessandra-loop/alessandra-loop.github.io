@@ -1,0 +1,65 @@
+# Sobre a Loop Skate Park
+
+> Página institucional da Loop Skate Park — escola de skate e patins em Belo Horizonte/MG (bairro Caiçara). Reúne a história, o propósito, a estrutura da pista indoor, o público atendido e a comunidade que se formou em volta do espaço.
+
+A Loop Skate Park, além de uma escola, é um espaço de convivência dedicado ao skate e ao patins. Mais do que ensinar manobras, a Loop acredita no que o skate constrói: convivência, pertencimento e respeito. Este arquivo resume o conteúdo da página <https://loopskatepark.com.br/sobre/>.
+
+## Apresentação
+
+A história da Loop começou dentro da própria cena do skate de Belo Horizonte — entre aulas, rolês e anos acompanhando de perto a evolução de alunos, famílias e praticantes nas pistas da cidade. Foi no dia a dia que surgiu a percepção de que faltava um lugar que fosse além da prática esportiva: um espaço onde crianças, jovens e adultos pudessem não apenas aprender skate e patins, mas também vivenciar valores como convivência, pertencimento, respeito e cultura.
+
+Para a Loop, o skate e o patins são ferramentas de desenvolvimento, autonomia e transformação. Por isso a escola reúne prática esportiva, cultura urbana, educação e convivência no mesmo lugar — onde cada pessoa evolui no seu próprio tempo e sente que faz parte de uma comunidade.
+
+Por trás da Loop estão quatro trajetórias diferentes, unidas pelo esporte e pela cultura: Raphael Alves, Alessandra Aguiar, Douglas Aguiar e Lorena Fernanda.
+
+## Propósito
+
+A missão da Loop é criar um espaço onde esporte, arte e cultura urbana se encontram para inspirar novas gerações. Os esportes sobre rodas aproximam as pessoas — despertam autonomia, confiança e o prazer de estar junto —, e a arte e a cultura são formas de expressão, pertencimento e transformação.
+
+Mais do que ensinar skate e patins, a Loop constrói comunidade: colaboração, respeito e diversidade. Um lugar onde cada pessoa evolui no seu próprio ritmo, fortalece vínculos e cria conexões de verdade. Aqui ninguém anda sozinho.
+
+## Estrutura
+
+A pista é indoor (coberta) e tem cerca de 130 m² de área total, sendo 110 m² dedicados só à prática. São 14 obstáculos que combinam street (manobras feitas no chão, em bordas e corrimãos) e transições (curvas e rampas), abrindo muitos caminhos para cada aluno aprender e progredir no seu tempo — e para a pista receber eventos.
+
+Entre os obstáculos:
+
+- Mini Ramp: integrada à área de street, ideal para aprendizado e manobras técnicas.
+- 4 Quarters: curvas que dão velocidade e conectam as transições da pista.
+- Wall Ride: parede para manobras verticais, subindo e deslizando na estrutura.
+- Mini Gap: vão para saltos, trabalhando impulsão e controle no ar.
+- Cânion: obstáculo de transição que amplia as linhas possíveis na pista.
+- Corrimões: fixos e móveis, para grinds e manobras de deslize.
+- Palcos móveis: reconfiguram a pista e apoiam eventos e sessões.
+- Kickers: fixos e móveis, para saltos e primeiras manobras aéreas.
+- Start e rampas de acesso: ponto de partida seguro para ganhar velocidade.
+
+O espaço também tem arquibancada, área de convivência, um cantinho de leitura e um mural com informações sobre a cena do esporte no Brasil e no mundo. Em eventos e sessões livres, a estrutura recebe entre 15 e 20 pessoas com conforto e segurança.
+
+## Nosso público
+
+A Loop recebe pessoas de todas as idades, com predominância do público infantil e de suas famílias, que procuram um ambiente seguro, acolhedor e bem cuidado para praticar. O público vem principalmente da região noroeste de Belo Horizonte, mas reúne alunos de vários bairros da cidade — e a escola quer abrir cada vez mais espaço para adolescentes, jovens e adultos, para que gerações diferentes aprendam juntas.
+
+## Impacto e comunidade
+
+O mais importante da Loop é a sua comunidade. Esperar a vez para dropar (descer na pista) é aprender autocontrole; ajudar um colega a levantar depois de uma queda é aprender empatia; cuidar da pista é exercer cidadania. Valores incentivados no dia a dia:
+
+- Comunidade e cooperação: quem já anda ajuda quem está começando.
+- Empatia e respeito: pelas diferenças, pelos limites e pelo tempo de cada pessoa.
+- Criatividade e liberdade de expressão: autenticidade e o skate como forma de expressão.
+- Diversidade e inclusão: um espaço para todos, valorizando a diversidade de pessoas, histórias e experiências.
+
+O esporte é para todo mundo — independentemente de idade, gênero, condição física, origem social, raça ou religião. A Loop incentiva especialmente a participação de meninas, mulheres e de grupos que ainda têm pouco espaço nos esportes sobre rodas. Além das aulas, a escola quer ampliar aos poucos sua atuação social, com iniciativas como bolsas para crianças e jovens em situação de vulnerabilidade, apoio à participação nas aulas e parcerias que aproximem mais gente do esporte, da cultura e da convivência.
+
+## Links da página
+
+- [Sobre a Loop](https://loopskatepark.com.br/sobre/): a página institucional completa, com fotos da pista e dos fundadores.
+- [Site Oficial](https://loopskatepark.com.br): página inicial com todas as informações sobre a escola.
+- [llms.txt do site](https://loopskatepark.com.br/llms.txt): resumo geral da Loop Skate Park.
+- [Agendar aula experimental gratuita](https://wa.me/message/CMBM7VMSUT62E1): contato por WhatsApp para marcar a primeira aula.
+- [Como Chegar](https://maps.app.goo.gl/9dMjEnTh9Q5uPGTj8): rotas e mapa de acesso à pista coberta no Bairro Caiçara.
+
+## Contato e Redes Sociais
+
+- [WhatsApp](https://wa.me/5531982789675): suporte direto e agendamento da aula experimental.
+- [Instagram](https://www.instagram.com/loopskatepark): dia a dia da pista, manobras dos alunos e eventos.

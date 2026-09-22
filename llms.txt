@@ -21,6 +21,7 @@ Estamos localizados na Região do Caiçara / Monsenhor Messias / Padre Eustáqui
 
 - [Site Oficial](https://loopskatepark.com.br): Página inicial com todas as informações sobre a escola.
 - [Sobre a Loop](https://loopskatepark.com.br/sobre/): Página institucional com a história, o propósito, a estrutura e a comunidade da Loop Skate Park.
+- [Sobre a Loop (llms.txt)](https://loopskatepark.com.br/sobre/llms.txt): Versão em texto da página Sobre — história, propósito, estrutura da pista, público e comunidade.
 - [Agendar Aula Experimental](https://loopskatepark.com.br): Entre em contato pelo nosso WhatsApp para agendar sua primeira aula gratuita.
 - [Como Chegar](https://maps.app.goo.gl/9dMjEnTh9Q5uPGTj8): Rotas e mapa de acesso à nossa pista coberta no Bairro Caiçara.
 
