@@ -116,7 +116,9 @@ sitemap: false
   .photos .photo--faixa img{aspect-ratio:16/9;object-fit:cover;object-position:50% 40%;}
 </style>
 </head>
-<body>
+<!-- data-ampliar: toda foto (figure img) da página abre em tela cheia ao
+     clicar — ver _includes/photo-lightbox.html -->
+<body data-ampliar>
 
 <!-- ===================== HERO ===================== -->
 <section class="hero">
@@ -444,6 +446,8 @@ sitemap: false
 </section>
 
 {% include footer.html subtitle="Esporte, arte e cultura urbana" %}
+
+{% include photo-lightbox.html %}
 
 </body>
 </html>

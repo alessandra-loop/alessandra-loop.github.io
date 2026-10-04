@@ -1,20 +1,23 @@
 <style>
   /* =====================================================================
      Clique para ampliar — usado na galeria do espaço (.photos--espaco)
-     de sobre/ e midia-kit/. Sem biblioteca externa: <dialog> nativo já
-     traz Esc, foco preso e backdrop de graça.
+     de sobre/ e midia-kit/ e em qualquer bloco marcado com o atributo
+     data-ampliar (ex.: projetos-sociais/). Sem biblioteca externa:
+     <dialog> nativo já traz Esc, foco preso e backdrop de graça.
      As cores vêm dos tokens --loop-* (_includes/brand-tokens.html).
      ===================================================================== */
 
   /* o botão só embrulha a foto: não muda nada no layout da galeria */
-  .photos--espaco .photo .zoom{
+  .photos--espaco .photo .zoom,
+  [data-ampliar] .zoom{
     display:block;
     width:100%;
     padding:0;border:0;background:none;
     cursor:zoom-in;
     border-radius:16px;
   }
-  .photos--espaco .photo .zoom:focus-visible{
+  .photos--espaco .photo .zoom:focus-visible,
+  [data-ampliar] .zoom:focus-visible{
     outline:4px solid var(--loop-ciano);
     outline-offset:3px;
   }
@@ -81,10 +84,12 @@
 
     var img = dlg.querySelector('img');
     var legenda = dlg.querySelector('figcaption');
-    var fotos = document.querySelectorAll('.photos--espaco .photo img');
+    var fotos = document.querySelectorAll('.photos--espaco .photo img, [data-ampliar] figure img');
 
     fotos.forEach(function (foto) {
-      var cap = foto.parentElement.querySelector('figcaption');
+      // legenda: o título do card (h5), se houver; senão a figcaption; senão o alt
+      var fig = foto.parentElement;
+      var cap = fig.querySelector('figcaption h5') || fig.querySelector('figcaption');
       var texto = cap ? cap.textContent.trim() : (foto.alt || 'Foto');
 
       // embrulha a <img> num <button> para funcionar por teclado também
