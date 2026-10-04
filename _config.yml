@@ -54,6 +54,11 @@ defaults:
       path: "projetos-sociais"
     values:
       sitemap: false
+  # Versão curta ("pitch de elevador") do projeto social, para patrocinadores.
+  - scope:
+      path: "loop-para-todos"
+    values:
+      sitemap: false
   # Mural ainda não lançado (sem link na home/rodapé): mantém tudo fora do
   # sitemap e com layout padrão nas coleções. Ao lançar, remover estes escopos
   # (e o <meta robots noindex> das páginas) para indexar o mural.

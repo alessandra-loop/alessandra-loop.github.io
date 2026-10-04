@@ -1,0 +1,217 @@
+---
+title: "Loop para Todos em 1 minuto | Projeto Social da Loop Skate Park"
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- Página não listada: o "pitch de elevador" do projeto social, enviado direto
+     para possíveis patrocinadores (WhatsApp, e-mail), fora do Google. A versão
+     completa fica em /projetos-sociais/. Dados da De Peito Aberto: Relatório de
+     transparência e impacto ESG 2025 (ano-base 2024) e apresentação
+     "Esporte em Ação". -->
+<meta name="robots" content="noindex">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ page.title }}</title>
+<meta name="description" content="Loop para Todos em 1 minuto: skate gratuito para crianças e adolescentes da rede pública de BH, em parceria com a De Peito Aberto, com patrocínio via ICMS.">
+<link rel="icon" type="image/png" href="/favicon.png" sizes="any">
+
+<!-- Fontes da marca self-hosted: pré-carrega as de exibição acima da dobra.
+     As declarações @font-face vêm de _includes/brand-tokens.html
+     (incluído por base-style.html). -->
+<link rel="preload" href="{{ '/assets/fonts/anton-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ '/assets/fonts/oswald-latin.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
+{% include base-style.html %}
+
+{% include footer-style.html %}
+
+<style>
+  /* =====================================================================
+     CSS específico do pitch. O design system (bandas, cards, notas, passos,
+     números, fotos, ponte) vem de base-style.html — aqui ficam só o bloco
+     texto + foto e a linha de explicação dos números.
+     ===================================================================== */
+
+  /* ---------- texto + foto lado a lado ---------- */
+  .split{
+    display:grid;
+    grid-template-columns:minmax(0,3fr) minmax(0,2fr);
+    gap:32px;
+    align-items:start;
+  }
+  .split .photo{margin:6px 0 0;}
+  .split .photo img{height:auto;aspect-ratio:3/4;}
+  @media(max-width:760px){
+    .split{grid-template-columns:1fr;gap:8px;}
+    .split .photo img{aspect-ratio:4/3;}
+  }
+
+  /* ---------- números com uma linha de explicação ---------- */
+  .stat small{
+    display:block;margin-top:6px;
+    font-size:14px;line-height:1.4;
+  }
+  /* valor com mais caracteres (ex.: R$ 84 mil) numa linha só */
+  .stat--longo b{font-size:clamp(26px,3.4vw,32px);}
+
+  /* poucos cards: esticam para ocupar a linha toda, sem colunas vazias */
+  .cards--fit{grid-template-columns:repeat(auto-fit,minmax(210px,1fr));}
+</style>
+</head>
+<!-- data-ampliar: toda foto (figure img) da página abre em tela cheia ao
+     clicar — ver _includes/photo-lightbox.html -->
+<body data-ampliar>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="loop-texture" id="tex-hero"></div>
+  <div class="wrap">
+    <div class="hero__logo">
+      <a href="{{ '/' | relative_url }}" aria-label="Loop Skate Park — página inicial">
+        {% include logo.svg %}
+      </a>
+    </div>
+    <h1 class="hero__title">Loop para Todos</h1>
+    <div class="hero__year">Em 1 minuto</div>
+  </div>
+</section>
+
+<!-- ===================== O PITCH ===================== -->
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Skate gratuito, durante 12 meses, para 20 crianças e adolescentes da rede pública de Belo Horizonte.</p>
+    <p>O <strong>Loop para Todos</strong> é o projeto social da <strong>Loop Skate Park</strong>, feito em parceria com a ONG <strong>De Peito Aberto</strong>. Aulas, equipamentos e acompanhamento, sem nenhum custo para as famílias.</p>
+    <p>E a sua empresa pode tornar isso possível destinando parte do <strong>ICMS</strong> que já recolheria ao Estado, pela <strong>Lei Estadual de Incentivo ao Esporte</strong> de Minas Gerais.</p>
+
+    <div class="stats">
+      <div class="stat stat--ciano"><b>20</b><span>crianças e adolescentes</span></div>
+      <div class="stat stat--rosa"><b>10–16</b><span>anos, da rede pública</span></div>
+      <div class="stat stat--amarelo"><b>12</b><span>meses de projeto</span></div>
+      <div class="stat stat--roxo stat--longo"><b>R$&nbsp;84&nbsp;mil</b><span>investimento anual</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 01 O PROJETO ===================== -->
+{% include band.html color="ciano" id="o-projeto" eyebrow="01 — Em poucas palavras" title="O projeto" %}
+<section class="content">
+  <div class="wrap">
+    <div class="split">
+      <div>
+        <p>São <strong>duas turmas</strong>, cada uma com uma aula de skate por semana, na pista coberta da Loop. O foco é a <strong>região noroeste</strong> de BH, com atenção especial à <strong>participação de meninas</strong>.</p>
+        <p>Mais do que aprender manobras, cada participante desenvolve autonomia, confiança e convivência — no seu próprio tempo, cercado de gente que acredita nele.</p>
+      </div>
+      <figure class="photo">
+        <img src="{{ '/assets/projeto-social/aula-wall-ride.jpg' | relative_url }}" alt="Professor segurando a mão de um aluno que sobe de skate na parede da pista" loading="lazy" width="600" height="800">
+      </figure>
+    </div>
+
+    <div class="cards cards--fit">
+      {% include card.html variant="c1" title="Aulas gratuitas" text="Uma aula por semana para cada turma, com professores da Loop." %}
+      {% include card.html variant="roxo" title="Equipamentos" text="Skate e kit de proteção para cada participante." %}
+      {% include card.html variant="c1" title="Acompanhamento" text="Orientação durante todo o processo de aprendizagem." %}
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 02 QUEM FAZ ===================== -->
+{% include band.html color="roxo" id="quem-faz" eyebrow="02 — Parceria" title="Quem faz acontecer" %}
+<section class="content">
+  <div class="wrap">
+    <div class="cards cards--fit">
+      {% include card.html variant="c1" title="Loop Skate Park" text="Escola de skate e patins com pista coberta no Caiçara, em BH. Entra com a pista, os professores e as aulas — o dia a dia do projeto." %}
+      {% include card.html variant="c2" title="De Peito Aberto" text="ONG com 20 anos de esporte social. Será a proponente do projeto na lei de incentivo e cuida da gestão e da prestação de contas." %}
+    </div>
+
+    <h4 class="mini">A De Peito Aberto em números</h4>
+    <div class="stats">
+      <div class="stat stat--bege"><b>2006</b><span>ano de fundação</span></div>
+      <div class="stat stat--bege"><b>65 mil</b><span>crianças e adolescentes impactados</span></div>
+      <div class="stat stat--bege"><b>31</b><span>patrocinadores em 2024</span></div>
+      <div class="stat stat--bege"><b>ONU</b><span>Prêmio de Serviço Público 2021</span></div>
+    </div>
+
+    <p>A De Peito Aberto já realiza o <strong>Educa Skate</strong>, projeto de skate incentivado com aulas em Belo Horizonte, Governador Valadares, Lauro de Freitas e São João da Barra. Experiência de quem sabe transformar imposto em impacto.</p>
+  </div>
+</section>
+
+<!-- ===================== 03 PATROCÍNIO VIA ICMS ===================== -->
+{% include band.html color="rosa" id="icms" eyebrow="03 — Como patrocinar" title="Patrocine com o seu ICMS" %}
+<section class="content">
+  <div class="wrap">
+    <p class="lead lead--accent">Mais do que doar, é escolher para onde vai um imposto que a sua empresa já paga.</p>
+
+    <ol class="steps">
+      <li><strong>A sua empresa tem ICMS a recolher</strong> em Minas Gerais — um imposto que já iria para o Estado.</li>
+      <li><strong>Pela Lei Estadual de Incentivo ao Esporte</strong>, parte desse valor vai direto para o Loop para Todos.</li>
+      <li><strong>O projeto acontece na pista</strong>, com aplicação transparente dos recursos e prestação de contas pela De Peito Aberto.</li>
+      <li><strong>A sua marca colhe o retorno</strong>: impacto social real na comunidade e resultados concretos para a agenda ESG.</li>
+    </ol>
+
+    <h4 class="mini">Quanto do ICMS pode ser destinado</h4>
+    <div class="stats">
+      <div class="stat stat--ciano"><b>3%</b><span>do saldo devedor</span><small>Empresas com saldo devedor anual de ICMS de até R$ 20 milhões.</small></div>
+      <div class="stat stat--amarelo"><b>2%</b><span>do saldo devedor</span><small>Saldo devedor anual entre R$ 20 milhões e R$ 100 milhões.</small></div>
+      <div class="stat stat--rosa"><b>1%</b><span>do saldo devedor</span><small>Saldo devedor anual acima de R$ 100 milhões.</small></div>
+    </div>
+    <p>O percentual é aplicado sobre o saldo devedor de ICMS apurado mês a mês, até completar o valor do patrocínio.</p>
+
+    {% include note.html title="Importante" text="O Loop para Todos ainda será inscrito na Lei Estadual de Incentivo ao Esporte. O mecanismo vale para empresas contribuintes de ICMS em Minas Gerais, e o valor exato depende da aprovação do projeto e do saldo devedor de cada empresa — vale confirmar com o seu contador. A Loop e a De Peito Aberto acompanham a sua empresa em cada passo." %}
+  </div>
+</section>
+
+<!-- ===================== 04 CONTRAPARTIDAS ===================== -->
+{% include band.html color="ciano" id="sua-marca" eyebrow="04 — Contrapartidas" title="O que a sua marca ganha" %}
+<section class="content">
+  <div class="wrap">
+    <div class="cards cards--fit">
+      {% include card.html variant="c1" title="Presença na pista" text="Sua marca aplicada nos espaços e materiais do projeto." %}
+      {% include card.html variant="roxo" title="Conteúdo" text="Registros e conteúdos sobre o projeto nos canais da Loop, com os parceiros em destaque." %}
+      {% include card.html variant="c1" title="Prestação de contas" text="Relatório das ações e dos resultados ao longo dos 12 meses." %}
+      {% include card.html variant="roxo" title="ESG e ODS" text="Impacto social ligado aos ODS 3, 4, 5 e 10 da ONU: saúde, educação, igualdade de gênero e redução das desigualdades." %}
+    </div>
+
+    <div class="photos">
+      <figure class="photo photo--full">
+        <img src="{{ '/assets/projeto-social/sua-marca-na-pista.jpg' | relative_url }}" alt="Simulação da pista da Loop com espaços marcados como “seu logo aqui” nas paredes e nos obstáculos" loading="lazy" width="1474" height="862">
+        <figcaption>Simulação: onde a sua marca pode aparecer na pista</figcaption>
+      </figure>
+    </div>
+
+    <!-- Ponte para a versão completa do projeto social -->
+    <a class="ponte" href="{{ '/projetos-sociais/' | relative_url }}">
+      <span class="ponte__eyebrow">Quer os detalhes?</span>
+      <span class="ponte__title">Conheça o projeto completo</span>
+      <span class="ponte__text">Por que o projeto existe, quem ele atende, como funciona, o investimento item a item e a ligação com os ODS.</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===================== MENSAGEM FINAL ===================== -->
+<section class="final" id="final">
+  <div class="loop-texture"></div>
+  <div class="wrap">
+    <h2>Vamos andar juntos?</h2>
+
+    <div class="photos">
+      <figure class="photo photo--full">
+        <img src="{{ '/assets/projeto-social/turma.jpg' | relative_url }}" alt="Alunos e professores da Loop sentados lado a lado na pista, com seus skates, sorrindo para a foto" loading="lazy" width="960" height="634">
+      </figure>
+    </div>
+
+    <p>Aqui na Loop ninguém anda sozinho — e nenhum projeto também. Se a sua empresa quer fazer parte do <strong>Loop para Todos</strong>, a gente conversa e mostra o caminho.</p>
+    <a class="cta-btn" href="https://wa.me/5531982789675?text=Oi%2C%20Loop!%20Quero%20conversar%20sobre%20patrocinar%20o%20Loop%20para%20Todos%20com%20ICMS." target="_blank" rel="noopener">Falar no WhatsApp</a>
+    <a class="cta-btn cta-btn--ciano" href="mailto:contato@loopskatepark.com.br?subject=Loop%20para%20Todos%20%E2%80%94%20patroc%C3%ADnio%20via%20ICMS">contato@loopskatepark.com.br</a>
+    <div class="final__mark">
+      {% include logo.svg %}
+    </div>
+  </div>
+</section>
+
+{% include footer.html subtitle="Esporte, arte e cultura urbana" %}
+
+{% include photo-lightbox.html %}
+
+</body>
+</html>
