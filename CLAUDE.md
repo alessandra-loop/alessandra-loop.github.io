@@ -35,6 +35,7 @@ _includes/                              # Reusable Liquid partials
   band.html  card.html  note.html  shout.html   # Content components
   mural-post-card.html                  # Mural post preview card
   logo.svg  loop-logo.svg  icon-*.svg   # Inline logo & icon SVGs
+  logo-para-todos.svg                   # Variação da logo com "PARA TODOS" no lugar de "SKATEPARK"
 _config.yml                             # Jekyll config (title, sitemap plugin, mural collections)
 assets/
   fonts/*.woff2                         # Self-hosted brand fonts (latin subset)
