@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
+# Fotos do projeto social Loop para Todos (crianças e adolescentes): a página
+# é noindex e as imagens não devem aparecer na busca de imagens.
+Disallow: /assets/projeto-social/
 
 Sitemap: https://loopskatepark.com.br/sitemap.xml

@@ -424,6 +424,47 @@
   .photos .photo--full{grid-column:1/-1;}
   .photos .photo--full img{height:auto;}
 
+  /* ponte: card-link que leva de uma página de parceria para a outra
+     (mídia kit ⇄ projeto social) */
+  .ponte{
+    display:block;
+    margin:32px 0 8px;
+    padding:20px 64px 20px 22px;
+    position:relative;
+    text-decoration:none;
+    color:var(--loop-preto);
+    background:var(--loop-rosa);
+    border:3px solid var(--loop-preto);
+    border-radius:16px;
+    box-shadow:6px 6px 0 var(--loop-preto);
+    transition:transform .12s ease,box-shadow .12s ease;
+  }
+  .ponte::after{
+    content:"→";
+    position:absolute;right:20px;top:50%;transform:translateY(-50%);
+    font-family:var(--display);
+    font-size:34px;line-height:1;
+  }
+  .ponte:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--loop-preto);}
+  .ponte:focus-visible{outline:4px solid var(--loop-ciano);outline-offset:3px;}
+  .ponte__eyebrow{
+    display:block;
+    font-family:var(--head);
+    text-transform:uppercase;
+    letter-spacing:.2em;
+    font-weight:600;
+    font-size:12px;
+  }
+  .ponte__title{
+    display:block;
+    margin:4px 0 6px;
+    font-family:var(--display);
+    text-transform:uppercase;
+    font-size:clamp(22px,4vw,32px);
+    line-height:1;
+  }
+  .ponte__text{display:block;font-size:15.5px;line-height:1.5;}
+
   /* CTA final */
   .cta-btn{
     display:inline-block;

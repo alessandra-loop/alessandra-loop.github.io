@@ -50,6 +50,10 @@ defaults:
       path: "midia-kit"
     values:
       sitemap: false
+  - scope:
+      path: "projetos-sociais"
+    values:
+      sitemap: false
   # Mural ainda não lançado (sem link na home/rodapé): mantém tudo fora do
   # sitemap e com layout padrão nas coleções. Ao lançar, remover estes escopos
   # (e o <meta robots noindex> das páginas) para indexar o mural.
